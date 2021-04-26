@@ -5,14 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap' %>
+    <%= stylesheet_link_tag 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class="container">
+      <header class="d-flex flex-wrap justify-content-between py-2 mb-2 border-bottom sticky-top bg-white">
+        <a href="/" class="d-flex align-items-center mb-md-0 me-md-auto">
+          <svg class="bi me-2 rounded" id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="75" height="75">
+            <rect width="512" height="512" fill="#0d6efd"/>
+            <rect x="61.41" y="349.48" width="389.18" height="37.03" rx="6.65" ry="6.65" fill="#fff"/>
+            <path d="M112.29,316.94c6.57-63,63.3-127.16,121.62-132.82-50.09,12.73-97.82,73.19-103.71,129.59a128.58,128.58,0,0,0-.3,20.92H422.26A166.28,166.28,0,0,0,266.61,170a23.55,23.55,0,1,0-21.22,0A166.26,166.26,0,0,0,89.74,334.63h22.08A127.68,127.68,0,0,1,112.29,316.94Z" fill="#fff"/>
+          </svg>
+        </a>
+        <ul class="nav d-flex flex-wrap justify-content-end align-items-center">
+          <li class="nav-item btn m-1 activate">
+            <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
+          </li>
+          <li class="nav-item btn m-1 activate">
+            <%= link_to_unless_current "Добавить блюдо", new_menu_item_path, :class => 'btn btn-primary' %>
+          </li>
+        </ul>
+      </header>
       <%= yield %>
     </div>
   </body>

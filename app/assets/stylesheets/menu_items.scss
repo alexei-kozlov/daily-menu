@@ -2,14 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-/*
-nav {
-  .btn {
-    color: #49c546;
-  }
+.nav-item.btn.activate {
+  color: rgba(0, 123, 255, .7);
+  cursor: default;
 }
-
-nav.btn:hover,
-nav.btn:focus {
-  color: #fff;
-}*/
