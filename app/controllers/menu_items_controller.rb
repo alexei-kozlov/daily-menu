@@ -47,6 +47,6 @@ class MenuItemsController < ApplicationController
     end
 
     private def dish_params
-        params.require(:menu_item).permit(:title, :price)
+        params.require(:menu_item).permit(:title, :category, :price)
     end
 end

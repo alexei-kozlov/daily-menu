@@ -1,15 +1,31 @@
-<h2>Редактировать текущее блюдо:</h2>
-<%= form_for :menu_item, url: menu_item_path(@dish), method: :patch do |form| %>
-  <%= render "partials/errors" %>
-  <div>
-    Наименование:<br>
-    <%= form.text_field(:title, {:class => 'form-control', :value => @dish.title}) %><br>
-  </div>
-  <div>
-    Цена (грн):<br>
-    <%= form.number_field(:price, {:class => 'form-control', :value => @dish.price, :step => 0.1, :min => 0.1}) %><br>
-  </div>
-  <div>
-    <%= form.submit("Сохранить", {:class => 'btn btn-success'}) %><br>
-  </div>
-<% end %>
+<div class="col-md-8 mx-auto">
+  <h2>Редактировать текущее блюдо:</h2>
+  <%= form_for :menu_item, url: menu_item_path(@dish), method: :patch do |form| %>
+    <%= render "partials/errors" %>
+    <div>
+      Наименование:<br>
+      <%= form.text_field(:title, {:class => 'form-control', :value => @dish.title}) %><br>
+    </div>
+    <div>
+      Выберите новую категорию:<br>
+      <%= form.select(:category,
+      [[
+      'Выберите категорию', {:class => 'mark text-success'}],
+      'Первые блюда',
+      'Горячие блюда',
+      'Гарниры',
+      'Салаты',
+      'Напитки'
+      ],
+      {:selected => @dish.category},
+      {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      Цена (грн):<br>
+      <%= form.number_field(:price, {:class => 'form-control', :value => @dish.price, :step => 0.1, :min => 0.1}) %><br>
+    </div>
+    <div>
+      <%= form.submit("Сохранить", {:class => 'btn btn-success'}) %><br>
+    </div>
+  <% end %>
+</div>

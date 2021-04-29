@@ -1,15 +1,31 @@
-<h2>Добавить новое блюдо в меню:</h2>
-<%= form_for :menu_item, url: menu_items_path do |form| %>
-  <%= render "partials/errors" %>
-  <div>
-    Наименование:<br>
-    <%= form.text_field(:title, {:class => 'form-control'}) %><br>
-  </div>
-  <div>
-    Цена (грн):<br>
-    <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
-  </div>
-  <div>
-    <%= form.submit("Добавить в меню", {:class => 'btn btn-success'}) %><br>
-  </div>
-<% end %>
+<div class="col-md-8 mx-auto">
+  <h2>Добавить новое блюдо в меню:</h2>
+  <%= form_for :menu_item, url: menu_items_path do |form| %>
+    <%= render 'partials/errors' %>
+    <div>
+      Наименование:<br>
+      <%= form.text_field(:title, {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      Категория:<br>
+      <%= form.select(:category,
+      [[
+      'Выберите категорию', {:class => 'mark text-success'}],
+      'Первые блюда',
+      'Горячие блюда',
+      'Гарниры',
+      'Салаты',
+      'Напитки'
+      ],
+      {:selected => 'Выберите категорию', :disabled => 'Выберите категорию'},
+      {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      Цена (грн):<br>
+      <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
+    </div>
+    <div>
+      <%= form.submit('Добавить в меню', {:class => 'btn btn-success'}) %><br>
+    </div>
+  <% end %>
+</div>
