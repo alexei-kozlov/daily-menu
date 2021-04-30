@@ -1,15 +1,10 @@
 <div class="col-md-8 mx-auto">
-  <h2>Добавить новое блюдо в меню:</h2>
-  <%= form_for :menu_item, url: menu_items_path do |form| %>
+  <h2>Создать категорию меню:</h2>
+  <%= form_for :category, url: categories_path do |form| %>
     <%= render 'errors' %>
     <div>
-      Наименование:<br>
-      <%= form.text_field(:title, {:class => 'form-control'}) %><br>
-    </div>
-    <% if false %>
-    <div>
       Категория:<br>
-      <%= form.select(:category_id,
+      <%= form.select(:title,
       [[
       'Выберите категорию', {:class => 'mark text-success'}],
       'Первые блюда',
@@ -20,11 +15,6 @@
       ],
       {:selected => 'Выберите категорию', :disabled => 'Выберите категорию'},
       {:class => 'form-control'}) %><br>
-    </div>
-    <% end %>
-    <div>
-      Цена (грн):<br>
-      <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
     </div>
     <div>
       <%= form.submit('Добавить в меню', {:class => 'btn btn-success'}) %><br>

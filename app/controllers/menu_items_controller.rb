@@ -21,7 +21,7 @@ class MenuItemsController < ApplicationController
     def update
         @dish = MenuItem.find(params[:id])
 
-        if(@dish.update(dish_params))
+        if @dish.update(dish_params)
           redirect_to home_path
         else
           render 'edit'
@@ -39,7 +39,7 @@ class MenuItemsController < ApplicationController
         # render plain: params[:menu_item].inspect
         @dish = MenuItem.new(dish_params)
 
-        if(@dish.save)
+        if @dish.save
           redirect_to home_path
         else
           render 'new'
@@ -47,6 +47,6 @@ class MenuItemsController < ApplicationController
     end
 
     private def dish_params
-        params.require(:menu_item).permit(:title, :category, :price)
+        params.require(:menu_item).permit(:title, :category_id, :price)
     end
 end

@@ -1,6 +1,8 @@
 <h1 class="text-center text-uppercase mb-4" style="font-family: Pacifico;">- Меню -</h1>
 <% @dish.each do |dish| %>
-  <h2 class="h3 pl-10 text-wrap text-center"><u><%= dish.category %></u></h2>
+  <% if false %>
+  <h2 class="h3 pl-10 text-wrap text-center"><u><%= dish.category_id %></u></h2>
+  <% end %>
   <div class="alert alert-dark d-flex flex-wrap justify-content-between align-items-center border-bottom p-0">
     <div class="info-block col-7 d-flex flex-wrap justify-content-between align-items-center pl-0">
       <h3 class="h4 col-8 pl-10 text-wrap"><%= dish.title %></h2>
@@ -9,9 +11,12 @@
       </p>
     </div>
     <div class="control-block col-5 d-flex flex-wrap justify-content-end align-items-center pr-0">
-      <%= link_to "Подробнее", menu_item_path(dish), :class => 'btn btn-primary btn-sm m-1' %>
-      <%= link_to "Редактировать", edit_menu_item_path(dish), :class => 'btn btn-warning btn-sm m-1' %>
-      <%= link_to "Удалить", menu_item_path(dish), method: :delete, data:{confirm: "Вы действительно хотите удалить это блюдо?"}, :class => 'btn btn-danger btn-sm m-1' %>
+      <%= link_to content_tag('i, class="fas fa-info"'),
+          menu_item_path(dish), :class => 'btn btn-primary btn-sm m-1' %>
+      <%= link_to content_tag('i, class="fas fa-pen"'),
+          edit_menu_item_path(dish), :class => 'btn btn-warning btn-sm m-1' %>
+      <%= link_to content_tag('i, class="fas fa-trash"'),
+          menu_item_path(dish), method: :delete, data:{confirm: "Вы действительно хотите удалить это блюдо?"}, :class => 'btn btn-danger btn-sm m-1' %>
     </div>
   </div>
 <% end %>

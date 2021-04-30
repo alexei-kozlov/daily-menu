@@ -1,0 +1,23 @@
+<div class="col-md-8 mx-auto">
+  <h2>Редактировать категорию:</h2>
+  <%= form_for :category, url: category_path(@cat), method: :patch do |form| %>
+    <%= render "errors" %>
+    <div>
+      Выберите новую категорию:<br>
+      <%= form.select(:title,
+      [[
+      'Выберите категорию', {:class => 'mark text-success'}],
+      'Первые блюда',
+      'Горячие блюда',
+      'Гарниры',
+      'Салаты',
+      'Напитки'
+      ],
+      {:selected => @cat.title},
+      {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      <%= form.submit("Сохранить", {:class => 'btn btn-success'}) %><br>
+    </div>
+  <% end %>
+</div>

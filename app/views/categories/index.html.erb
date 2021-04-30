@@ -1,0 +1,15 @@
+<h1 class="text-center mb-4" style="font-family: Pacifico;">Категории</h1>
+<div class="container col-8 d-flex flex-wrap justify-content-between align-items-center">
+<% @cat.each do |cat| %>
+  <h2 class="h3 info-block col-6 pl-0"><u><%= cat.title %></u></h2>
+  <div class="control-block col-6 d-flex flex-nowrap justify-content-end align-items-center">
+    <%= link_to content_tag('i, class="fas fa-info"'),
+        category_path(cat), :class => 'btn btn-primary btn-sm m-1' %>
+    <%= link_to content_tag('i, class="fas fa-pen"'),
+        edit_category_path(cat), :class => 'btn btn-warning btn-sm m-1' %>
+    <%= link_to content_tag('i, class="fas fa-trash"'),
+        category_path(cat), method: :delete, data:{confirm: "Вы действительно хотите удалить это блюдо?"},
+        :class => 'btn btn-danger btn-sm m-1' %>
+  </div>
+<% end %>
+</div>
