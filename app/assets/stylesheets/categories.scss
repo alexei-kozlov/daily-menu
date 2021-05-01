@@ -1,3 +1,9 @@
 // Place all the styles related to the categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#category_title option[value=""],
+#category_title option[selected="selected"] {
+  background-color: #ccc;
+  cursor: default;
+}

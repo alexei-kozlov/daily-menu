@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
         # render plain: params[:category].inspect
         @cat = Category.new(category_params)
 
-        if @cat.save
+        if (@cat.save)
           redirect_to categories_path
         else
           render 'new'

@@ -4,13 +4,13 @@
   <h2 class="h3 pl-10 text-wrap text-center"><u><%= dish.category_id %></u></h2>
   <% end %>
   <div class="alert alert-dark d-flex flex-wrap justify-content-between align-items-center border-bottom p-0">
-    <div class="info-block col-7 d-flex flex-wrap justify-content-between align-items-center pl-0">
+    <div class="info-block col-7 d-flex flex-nowrap justify-content-between align-items-center pl-0">
       <h3 class="h4 col-8 pl-10 text-wrap"><%= dish.title %></h2>
       <p class="mb-0 border-left border-right text-right pl-1 pr-1">
         <%= dish.price %> грн
       </p>
     </div>
-    <div class="control-block col-5 d-flex flex-wrap justify-content-end align-items-center pr-0">
+    <div class="control-block col-5 d-flex flex-nowrap justify-content-end align-items-center pr-0">
       <%= link_to content_tag('i, class="fas fa-info"'),
           menu_item_path(dish), :class => 'btn btn-primary btn-sm m-1' %>
       <%= link_to content_tag('i, class="fas fa-pen"'),
