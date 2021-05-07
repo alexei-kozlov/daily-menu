@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
     except: [:index]
 
     def index
-        @cat = Category.all
+        @cats = Category.all
+        @dishes = MenuItem.all
     end
 
     def new
@@ -31,15 +32,19 @@ class CategoriesController < ApplicationController
     def destroy
         @cat = Category.find(params[:id])
 
-        @cat.destroy
-        redirect_to categories_path
+        if @cat.destroy
+           redirect_to categories_path
+        else
+           redirect_to categories_path
+           flash.notice = "Категория «#{@cat.title}» не может быть удалена, т.к. содержит список блюд!"
+        end
     end
 
     def create
         # render plain: params[:category].inspect
         @cat = Category.new(category_params)
 
-        if (@cat.save)
+        if @cat.save
           redirect_to categories_path
         else
           render 'new'

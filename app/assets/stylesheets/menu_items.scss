@@ -12,3 +12,9 @@
   width: 15px;
   height: 15px;
 }
+
+#menu_item_category_id option[value=""],
+#menu_item_category_id option[selected="selected"] {
+  background-color: #ccc;
+  cursor: default;
+}

@@ -6,5 +6,12 @@
       <%= link_to content_tag('i, class="fas fa-trash"'),
           category_path(@cat), method: :delete, data:{confirm: "Вы действительно хотите удалить эту категорию?"},
           :class => 'btn btn-danger btn-sm m-1' %>
-    </div>
+  </div>
+</div>
+<div class="container">
+  <% MenuItem.where(category_id: @cat.id).each do |dish| %>
+    <li>
+      <%= dish.title %> - <%= dish.price %> грн
+    </li>
+  <% end%>
 </div>

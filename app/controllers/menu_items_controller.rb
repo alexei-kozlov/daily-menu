@@ -3,11 +3,12 @@ class MenuItemsController < ApplicationController
     except: [:index, :show]
 
     def index
-        @dish = MenuItem.all
+        @dishes = MenuItem.all
     end
 
     def new
         @dish = MenuItem.new
+        @categories = Category.all.map{|c| [ c.title, c.id ] }
     end
 
     def show
@@ -16,10 +17,12 @@ class MenuItemsController < ApplicationController
 
     def edit
         @dish = MenuItem.find(params[:id])
+        @categories = Category.all.map{|c| [ c.title, c.id ] }
     end
 
     def update
         @dish = MenuItem.find(params[:id])
+        @dish.category_id = params[:category_id]
 
         if @dish.update(dish_params)
           redirect_to home_path
@@ -38,6 +41,7 @@ class MenuItemsController < ApplicationController
     def create
         # render plain: params[:menu_item].inspect
         @dish = MenuItem.new(dish_params)
+        @categories = Category.all.map{|c| [ c.title, c.id ] }
 
         if @dish.save
           redirect_to home_path

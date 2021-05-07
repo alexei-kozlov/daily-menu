@@ -1,5 +1,8 @@
 <h1 class="text-center mb-4" style="font-family: Pacifico;">Категории</h1>
-<% @cat.each do |cat| %>
+<div class="container col-12 p-0 text-danger text-center mb-2">
+  <%= flash.notice %>
+</div>
+<% @cats.each do |cat| %>
   <div class="container alert alert-secondary col-8 d-flex flex-wrap justify-content-between align-items-center">
   <h2 class="h3 info-block col-6 pl-0"><%= cat.title %></h2>
   <div class="control-block col-6 d-flex flex-nowrap justify-content-end align-items-center p-0">
@@ -13,3 +16,6 @@
   </div>
   </div>
 <% end %>
+
+
+

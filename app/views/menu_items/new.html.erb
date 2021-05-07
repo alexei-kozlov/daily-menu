@@ -6,22 +6,11 @@
       Наименование:<br>
       <%= form.text_field(:title, {:class => 'form-control'}) %><br>
     </div>
-    <% if false %>
     <div>
       Категория:<br>
-      <%= form.select(:category_id,
-      [[
-      'Выберите категорию', {:class => 'mark text-success'}],
-      'Первые блюда',
-      'Горячие блюда',
-      'Гарниры',
-      'Салаты',
-      'Напитки'
-      ],
-      {:selected => 'Выберите категорию', :disabled => 'Выберите категорию'},
-      {:class => 'form-control'}) %><br>
+      <%= form.select(:category_id, options_for_select(@categories),
+      {:prompt => 'Выберите категорию'}, {:class => 'form-control'}) %><br>
     </div>
-    <% end %>
     <div>
       Цена (грн):<br>
       <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
