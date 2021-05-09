@@ -22,21 +22,27 @@
             <path d="M112.29,316.94c6.57-63,63.3-127.16,121.62-132.82-50.09,12.73-97.82,73.19-103.71,129.59a128.58,128.58,0,0,0-.3,20.92H422.26A166.28,166.28,0,0,0,266.61,170a23.55,23.55,0,1,0-21.22,0A166.26,166.26,0,0,0,89.74,334.63h22.08A127.68,127.68,0,0,1,112.29,316.94Z" fill="#fff"/>
           </svg>
         </a>
-        <ul class="nav d-flex col-10 mr-0 flex-wrap justify-content-end align-items-center">
+        <ul class="nav d-flex mr-0 flex-wrap justify-content-end align-items-center">
           <li class="nav-item btn m-1 activate">
             <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-sm btn-primary' %>
-          </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Создать категорию", new_category_path, :class => 'btn btn-sm btn-primary' %>
-          </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Добавить блюдо", new_menu_item_path, :class => 'btn btn-sm btn-primary' %>
           </li>
           <li class="nav-item btn m-1 activate">
             <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-sm btn-success' %>
           </li>
           <li class="nav-item btn m-1 activate">
+            <%= link_to_unless_current "Создать категорию", new_category_path, :class => 'btn btn-sm btn-primary' %>
+          </li>
+          <li class="nav-item btn m-1 activate">
             <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-sm btn-success' %>
+          </li>
+          <li class="nav-item btn m-1 activate">
+            <%= link_to_unless_current "Добавить блюдо", new_menu_item_path, :class => 'btn btn-sm btn-primary' %>
+          </li>
+          <li class="nav-item btn m-1 activate">
+            <%= link_to_unless_current "Ц/о", pricings_path, :class => 'btn btn-sm btn-success' %>
+          </li>
+          <li class="nav-item btn m-1 activate">
+            <%= link_to_unless_current "Добавить ц/о", new_pricing_path, :class => 'btn btn-sm btn-primary' %>
           </li>
         </ul>
       </header>

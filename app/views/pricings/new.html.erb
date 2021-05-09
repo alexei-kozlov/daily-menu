@@ -1,0 +1,19 @@
+<div class="col-md-8 mx-auto">
+  <h2>Задайте ценообразование:</h2>
+  <%= form_for :pricing, url: pricings_path do |form| %>
+    <%= render 'errors' %>
+    <div>
+      Тип ценообразования:<br>
+      <%= form.select(:pricing_type,
+      [
+      'За вес/объем',
+      'За порцию'
+      ],
+      {:prompt => 'Выберите тип ценообразования'},
+      {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      <%= form.submit('Добавить', {:class => 'btn btn-success'}) %><br>
+    </div>
+  <% end %>
+</div>

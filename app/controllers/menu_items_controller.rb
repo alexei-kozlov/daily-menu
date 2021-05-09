@@ -25,7 +25,7 @@ class MenuItemsController < ApplicationController
         @dish.category_id = params[:category_id]
 
         if @dish.update(dish_params)
-          redirect_to home_path
+          redirect_to menu_items_path
         else
           render 'edit'
         end
@@ -35,7 +35,7 @@ class MenuItemsController < ApplicationController
         @dish = MenuItem.find(params[:id])
 
         @dish.destroy
-        redirect_to home_path
+        redirect_to menu_items_path
     end
 
     def create
@@ -44,7 +44,7 @@ class MenuItemsController < ApplicationController
         @categories = Category.all.map{|c| [ c.title, c.id ] }
 
         if @dish.save
-          redirect_to home_path
+          redirect_to menu_items_path
         else
           render 'new'
         end
