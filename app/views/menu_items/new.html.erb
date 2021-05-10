@@ -16,6 +16,11 @@
       <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
     </div>
     <div>
+      Ценообразование:<br>
+      <%= form.select(:pricing_id, options_for_select(@pricings),
+      {:prompt => 'Выберите тип ценообразования'}, {:class => 'form-control'}) %><br>
+    </div>
+    <div>
       <%= form.submit('Добавить в меню', {:class => 'btn btn-success'}) %><br>
     </div>
   <% end %>

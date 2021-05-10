@@ -23,26 +23,26 @@
           </svg>
         </a>
         <ul class="nav d-flex mr-0 flex-wrap justify-content-end align-items-center">
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-sm btn-primary' %>
+          <li class="nav-item m-2 <%= 'activate' if current_page?(home_path) %>">
+            <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-sm btn-success' %>
+          <li class="nav-item m-2 <%= 'activate' if current_page?(categories_path) %>">
+            <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Создать категорию", new_category_path, :class => 'btn btn-sm btn-primary' %>
+          <li class="nav-item m-2 d-none <%= 'd-block' if current_page?(categories_path) %> ">
+            <%= link_to_unless_current "Создать категорию", new_category_path, :class => 'btn btn-success' %>
           </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-sm btn-success' %>
+          <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
+            <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Добавить блюдо", new_menu_item_path, :class => 'btn btn-sm btn-primary' %>
+          <li class="nav-item m-2 d-none <%= 'd-block' if current_page?(menu_items_path) %>">
+            <%= link_to_unless_current "Добавить блюдо", new_menu_item_path, :class => 'btn btn-success' %>
           </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Ц/о", pricings_path, :class => 'btn btn-sm btn-success' %>
+          <li class="nav-item m-2 <%= 'activate' if current_page?(pricings_path) %>">
+            <%= link_to_unless_current "Ценообразование", pricings_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item btn m-1 activate">
-            <%= link_to_unless_current "Добавить ц/о", new_pricing_path, :class => 'btn btn-sm btn-primary' %>
+          <li class="nav-item m-2 d-none <%= 'd-block' if current_page?(pricings_path) %>">
+            <%= link_to_unless_current "Добавить ц/о", new_pricing_path, :class => 'btn btn-success' %>
           </li>
         </ul>
       </header>

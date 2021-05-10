@@ -1,7 +1,7 @@
 <div class="col-md-8 mx-auto">
   <h2>Редактировать текущее блюдо:</h2>
   <%= form_for :menu_item, url: menu_item_path(@dish), method: :patch do |form| %>
-    <%= render "errors" %>
+    <%= render 'errors' %>
     <div>
       Наименование:<br>
       <%= form.text_field(:title, {:class => 'form-control', :value => @dish.title}) %><br>
@@ -16,7 +16,12 @@
       <%= form.number_field(:price, {:class => 'form-control', :value => @dish.price, :step => 0.1, :min => 0.1}) %><br>
     </div>
     <div>
-      <%= form.submit("Сохранить", {:class => 'btn btn-success'}) %><br>
+      Ценообразование:<br>
+      <%= form.select(:pricing_id, options_for_select(@pricings),
+      {:selected => @dish.pricing}, {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      <%= form.submit('Сохранить', {:class => 'btn btn-success'}) %><br>
     </div>
   <% end %>
 </div>

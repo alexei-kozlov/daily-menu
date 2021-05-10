@@ -1,6 +1,6 @@
 class PricingsController < ApplicationController
     http_basic_authenticate_with name: "admin", password: "qwerty",
-    except: [:index]
+    except: [:index, :show]
 
     def index
         @pricings = Pricing.all
