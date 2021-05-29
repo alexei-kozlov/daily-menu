@@ -1,0 +1,20 @@
+// Place all the styles related to the DailyMenu controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.daily-menu-item:hover .wrapper,
+.daily-menu-item:focus .wrapper {
+  box-shadow: 0 0 4px #000;
+  transition-duration: .2s;
+}
+
+.daily-menu-item:hover .btn-inform,
+.daily-menu-item:focus .btn-inform {
+  background-color: #0069d9;
+}
+
+fieldset {
+  border-color: #ff0;
+  border-style: solid;
+  border-width: 1px 1px 0 1px;
+}

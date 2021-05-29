@@ -11,7 +11,7 @@
 <div class="container">
   <% MenuItem.where(category_id: @cat.id).each do |dish| %>
     <li>
-      <%= dish.title %> - <%= dish.price %> грн
+      <%= dish.title %> (<%= dish.pricing_type %>) - <%= dish.volume %> <%= dish.unit %>
     </li>
-  <% end%>
+  <% end %>
 </div>

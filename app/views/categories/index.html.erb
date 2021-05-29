@@ -3,7 +3,7 @@
   <%= flash.notice %>
 </div>
 <% @cats.each do |cat| %>
-  <div class="container alert alert-secondary col-8 d-flex flex-wrap justify-content-between align-items-center">
+  <div class="container alert alert-secondary col-10 d-flex flex-wrap justify-content-between align-items-center">
   <h2 class="h3 info-block col-6 pl-0"><%= cat.title %></h2>
   <div class="control-block col-6 d-flex flex-nowrap justify-content-end align-items-center p-0">
     <%= link_to content_tag('i, class="fas fa-info"'),
@@ -16,6 +16,9 @@
   </div>
   </div>
 <% end %>
+<div class="mx-auto text-right col-10 pr-0">
+  <%= link_to "Создать категорию", new_category_path, :class => 'btn btn-success' %>
+</div>
 
 
 

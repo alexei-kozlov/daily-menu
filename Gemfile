@@ -9,6 +9,8 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 gem 'mysql2', '~> 0.5'
 # Use sqlite3
 gem 'sqlite3', '~>1.4.0'
+# Use russian language
+gem 'russian', '~> 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -19,6 +21,10 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# Use jQuery for all :-)
+gem 'jquery-rails', '~> 4.4'
+# Use link_to_add...
+gem 'link_to_add_fields', '~> 0.1.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

@@ -4,7 +4,6 @@ class CategoriesController < ApplicationController
 
     def index
         @cats = Category.all
-        @dishes = MenuItem.all
     end
 
     def new
@@ -41,7 +40,6 @@ class CategoriesController < ApplicationController
     end
 
     def create
-        # render plain: params[:category].inspect
         @cat = Category.new(category_params)
 
         if @cat.save

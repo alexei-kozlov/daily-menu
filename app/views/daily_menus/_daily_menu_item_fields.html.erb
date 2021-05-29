@@ -1,0 +1,16 @@
+<fieldset>
+  <div class="d-flex flex-wrap align-items-center justify-content-between col-12 rounded">
+    <div class="col-6 p-0">
+      Наименование:<br>
+      <%= f.select(:menu_item_id, options_for_select(@items),
+      {:prompt => 'Выберите блюдо'}, {:class => 'form-control'}) %><br>
+    </div>
+    <div class="col-4 p-0">
+      Цена:<br>
+      <%= f.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
+    </div>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to_remove_fields content_tag(:i, nil,:class => 'fas fa-trash'), 'fieldset',
+    :class => "btn btn-danger" %>
+  </div>
+</fieldset>

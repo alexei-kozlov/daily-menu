@@ -4,7 +4,7 @@
     <%= render 'errors' %>
     <div>
       Наименование:<br>
-      <%= form.text_field(:title, {:class => 'form-control'}) %><br>
+      <%= form.text_field(:title, {:class => 'form-control', :placeholder => 'Введите название блюда'}) %><br>
     </div>
     <div>
       Категория:<br>
@@ -12,13 +12,28 @@
       {:prompt => 'Выберите категорию'}, {:class => 'form-control'}) %><br>
     </div>
     <div>
-      Цена (грн):<br>
-      <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
+      Тип ценообразования:<br>
+      <%= form.select(:pricing_type,
+      [
+      'за вес/объем',
+      'за порцию'
+      ],
+      {:prompt => 'Выберите тип ценообразования'},
+      {:class => 'form-control'}) %><br>
     </div>
     <div>
-      Ценообразование:<br>
-      <%= form.select(:pricing_id, options_for_select(@pricings),
-      {:prompt => 'Выберите тип ценообразования'}, {:class => 'form-control'}) %><br>
+      Вес/объем блюда:<br>
+      <%= form.number_field(:volume, {:class => 'form-control', :placeholder => 'Задайте вес или объем блюда в порции'}) %><br>
+    </div>
+    <div>
+      Единицы измерения:<br>
+      <%= form.select(:unit,
+      [
+      'мл',
+      'грамм'
+      ],
+      {:prompt => 'Выберите единицы измерения'},
+      {:class => 'form-control'}) %><br>
     </div>
     <div>
       <%= form.submit('Добавить в меню', {:class => 'btn btn-success'}) %><br>

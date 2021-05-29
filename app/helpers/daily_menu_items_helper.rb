@@ -1,0 +1,2 @@
+module DailyMenuItemsHelper
+end

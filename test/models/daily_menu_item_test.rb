@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PricingControllerTest < ActionDispatch::IntegrationTest
+class DailyMenuItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
