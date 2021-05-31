@@ -6,5 +6,4 @@ class MenuItem < ApplicationRecord
   validates :unit, presence: { message: "can't be blank. Please, select a unit!" }
 
   belongs_to :category, optional: true
-  belongs_to :daily_menu, optional: true
 end
