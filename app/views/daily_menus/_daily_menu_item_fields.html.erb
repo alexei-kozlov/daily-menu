@@ -1,11 +1,10 @@
 <fieldset>
   <div class="d-flex flex-wrap align-items-center justify-content-between col-12 rounded">
-    <div class="col-6 p-0">
+    <div class="col-6 p-0 text-left">
       Наименование:<br>
-      <%= f.select(:menu_item_id, options_for_select(@items),
-      {:prompt => 'Выберите блюдо'}, {:class => 'form-control'}) %><br>
+      <%= f.select(:menu_item_id, @items, {:prompt => 'Выберите блюдо'}, {:class => 'form-control'}) %><br>
     </div>
-    <div class="col-4 p-0">
+    <div class="col-4 p-0 text-left">
       Цена:<br>
       <%= f.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
     </div>

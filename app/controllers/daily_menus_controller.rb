@@ -34,9 +34,8 @@ class DailyMenusController < ApplicationController
 
     def update
         @menu = DailyMenu.find(params[:id])
-        @items = MenuItem.all.map{|i| [ i.title, i.id ] }
 
-        if @menu.update(daily_menu_params)
+        if @menu.save
           redirect_to @menu
         else
           render 'edit'
@@ -51,6 +50,6 @@ class DailyMenusController < ApplicationController
     end
 
     private def daily_menu_params
-        params.require(:daily_menu).permit(:id, :date, daily_menu_items_attributes: [:id, :menu_item_id, :price])
+        params.require(:daily_menu).permit(:id, :date, daily_menu_items_attributes: [:id, :menu_item_id, :price, :_destroy])
     end
 end
