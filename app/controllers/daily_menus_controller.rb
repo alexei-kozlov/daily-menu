@@ -35,7 +35,7 @@ class DailyMenusController < ApplicationController
     def update
         @menu = DailyMenu.find(params[:id])
 
-        if @menu.save
+        if @menu.update(daily_menu_params)
           redirect_to @menu
         else
           render 'edit'

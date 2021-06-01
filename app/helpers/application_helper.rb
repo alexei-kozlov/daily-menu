@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-def link_to_add_fields(name, f, association, options = {})
+  def link_to_add_fields(name, f, association, options = {})
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
     objects_name = f.object.class.name.underscore.pluralize
