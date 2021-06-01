@@ -15,8 +15,9 @@
       {:selected => @cat.title},
       {:class => 'form-control'}) %><br>
     </div>
-    <div>
-      <%= form.submit("Сохранить", {:class => 'btn btn-success'}) %><br>
+    <div class="text-right">
+      <%= link_to "Назад", categories_path, :class => 'btn btn-secondary' %>
+      <%= form.submit('Сохранить', {:class => 'btn btn-success'}) %><br>
     </div>
   <% end %>
 </div>

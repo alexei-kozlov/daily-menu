@@ -14,6 +14,7 @@
           category_path(cat), method: :delete, data:{confirm: "Вы действительно хотите удалить эту категорию?"},
           :class => 'btn btn-danger m-1' %>
     </div>
+    <!--
     <ul>
       <% MenuItem.where(category_id: cat.id).each do |dish| %>
         <li>
@@ -21,6 +22,7 @@
         </li>
       <% end %>
     </ul>
+    -->
   </div>
 <% end %>
 <div class="mx-auto text-right col-10 pr-0">

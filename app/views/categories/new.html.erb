@@ -15,7 +15,8 @@
       {:prompt => 'Выберите категорию'},
       {:class => 'form-control'}) %><br>
     </div>
-    <div>
+    <div class="text-right">
+      <%= link_to "Назад", categories_path, :class => 'btn btn-secondary' %>
       <%= form.submit('Добавить в меню', {:class => 'btn btn-success'}) %><br>
     </div>
   <% end %>
