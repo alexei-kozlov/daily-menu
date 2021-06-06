@@ -34,7 +34,6 @@ class CategoriesController < ApplicationController
         else
            redirect_to @cat
            flash.notice = "Категория «#{@cat.title}» не может быть удалена, т.к. содержит список блюд!"
-           # flash.notice = "Category «#{@cat.title}» can not be deleted, because contains a list of dishes!"
         end
     end
 

@@ -14,7 +14,6 @@ class DailyMenusController < ApplicationController
 
         if @menu.save
           redirect_to @menu
-          # flash.notice = "Дневное меню успешно создано!"
         else
           render 'new'
         end
@@ -33,7 +32,6 @@ class DailyMenusController < ApplicationController
 
         if @menu.update(daily_menu_params)
           redirect_to @menu
-          # flash.notice = "Дневное меню успешно отредактировано!"
         else
           render 'edit'
         end

@@ -26,20 +26,11 @@
           <li class="nav-item m-2 <%= 'activate' if current_page?(home_path) %>">
             <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item m-2 <%= 'activate' if current_page?(daily_menu_items_path) %>">
-            <%= link_to_unless_current "Блюда дневного меню", daily_menu_items_path, :class => 'btn btn-primary' %>
-          </li>
-          <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
-            <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
-          </li>
           <li class="nav-item m-2 <%= 'activate' if current_page?(categories_path) %>">
             <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item m-2 <%= 'activate' if current_page?(pricings_path) %>">
-            <%= link_to_unless_current "Ценообразование", pricings_path, :class => 'btn btn-primary' %>
-          </li>
-          <li class="nav-item m-2 <%= 'activate' if current_page?(units_path) %>">
-            <%= link_to_unless_current "Единицы измерения", units_path, :class => 'btn btn-primary' %>
+          <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
+            <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
           </li>
         </ul>
       </header>
