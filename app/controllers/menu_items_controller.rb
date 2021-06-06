@@ -1,6 +1,4 @@
 class MenuItemsController < ApplicationController
-    http_basic_authenticate_with name: "admin", password: "qwerty",
-    except: [:index, :show]
 
     def index
         @dishes = MenuItem.all
@@ -8,12 +6,10 @@ class MenuItemsController < ApplicationController
 
     def new
         @dish = MenuItem.new
-        @categories = Category.all.map{|c| [ c.title, c.id ] }
     end
 
     def create
         @dish = MenuItem.new(dish_params)
-        @categories = Category.all.map{|c| [ c.title, c.id ] }
 
         if @dish.save
           redirect_to @dish
@@ -28,12 +24,10 @@ class MenuItemsController < ApplicationController
 
     def edit
         @dish = MenuItem.find(params[:id])
-        @categories = Category.all.map{|c| [ c.title, c.id ] }
     end
 
     def update
         @dish = MenuItem.find(params[:id])
-        @dish.category_id = params[:category_id]
 
         if @dish.update(dish_params)
           redirect_to menu_items_path
@@ -45,11 +39,17 @@ class MenuItemsController < ApplicationController
     def destroy
         @dish = MenuItem.find(params[:id])
 
-        @dish.destroy
-        redirect_to menu_items_path
+        if @dish.destroy
+           redirect_to menu_items_path
+        else
+           redirect_to @dish
+           flash.notice = "Блюдо «#{@dish.title}» не может быть удалено, т.к. оно включено в дневное меню!"
+           # flash.notice = "«#{@dish.title}» can not be deleted, because it is included in the daily menu!"
+        end
     end
 
     private def dish_params
-        params.require(:menu_item).permit(:title, :category_id, :pricing_type, :volume, :unit)
+        params.require(:menu_item).permit(:title, :category_id, :pricing_id, :volume, :unit_id)
     end
+
 end

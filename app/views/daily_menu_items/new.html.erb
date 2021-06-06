@@ -1,18 +1,2 @@
-<div class="col-md-8 mx-auto">
-  <h2>Добавить новое блюдо в дневное меню:</h2>
-  <%= form_for :daily_menu_item, url: daily_menu_items_path do |form| %>
-    <%= render 'errors' %>
-    <div>
-      Наименование:<br>
-      <%= form.select(:menu_item_id, options_for_select(@items),
-      {:prompt => 'Выберите блюдо'}, {:class => 'form-control'}) %><br>
-    </div>
-    <div>
-      Цена:<br>
-      <%= form.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
-    </div>
-    <div>
-      <%= form.submit('Добавить в дневное меню', {:class => 'btn btn-success'}) %><br>
-    </div>
-  <% end %>
-</div>
+<h2 class="col-md-8 mx-auto">Добавить новое блюдо в дневное меню:</h2>
+<%= render partial: "form", daily_items: @dailyItems %>

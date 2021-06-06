@@ -1,0 +1,35 @@
+<div class="col-md-8 mx-auto">
+  <%= form_for @dish do |form| %>
+    <%= render 'errors' %>
+    <div>
+      Наименование:<br>
+      <%= form.text_field(:title, {:class => 'form-control', :placeholder => 'Введите название блюда'}) %><br>
+    </div>
+    <div>
+      Категория:<br>
+      <%= form.select(:category_id, Category.all.collect { |c| [ c.title, c.id ] },
+      {:prompt => 'Выберите категорию'}, {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      Тип ценообразования:<br>
+      <%= form.select(:pricing_id, Pricing.all.collect { |p| [ p.pricing_type, p.id ] },
+      {:prompt => 'Выберите тип ценообразования'}, {:class => 'form-control'}) %><br>
+    </div>
+    <div>
+      Вес/объем блюда:<br>
+      <%= form.number_field(:volume,
+      {:class => 'form-control', :placeholder => 'Задайте вес или объем блюда в порции'}) %><br>
+    </div>
+    <div>
+      Единицы измерения:<br>
+      <%= form.select(:unit_id, Unit.all.collect { |u| [ u.unit_type, u.id ] },
+      {:prompt => 'Выберите единицы измерения'},
+      {:class => 'form-control'}) %><br>
+    </div>
+    <div class="text-right">
+      <%= link_to "Назад", menu_items_path, :class => 'btn btn-secondary' %>
+      <%= form.submit(current_page?(new_menu_item_path) ? 'Добавить' : 'Сохранить',
+      {:class => 'btn btn-success'}) %><br>
+    </div>
+  <% end %>
+</div>

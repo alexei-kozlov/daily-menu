@@ -10,7 +10,7 @@ gem 'mysql2', '~> 0.5'
 # Use sqlite3
 gem 'sqlite3', '~>1.4.0'
 # Use russian language
-gem 'russian', '~> 0.6.0'
+# gem 'russian', '~> 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

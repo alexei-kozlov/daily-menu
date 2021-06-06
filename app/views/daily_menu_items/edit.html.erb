@@ -1,18 +1,2 @@
-<div class="col-md-8 mx-auto">
-  <h2>Редактировать текущее блюдо дневного меню:</h2>
-  <%= form_for :daily_menu_item, url: daily_menu_items_path(@dailyItem), method: :patch do |form| %>
-    <%= render 'errors' %>
-    <div>
-      Наименование:<br>
-      <%= form.select(:menu_item_id, options_for_select(@items),
-      {:selected => @dailyItem}, {:class => 'form-control'}) %><br>
-    </div>
-    <div>
-      Цена (грн):<br>
-      <%= form.number_field(:price, {:class => 'form-control', :value => @dailyItem.price, :step => 0.1, :min => 0.1}) %><br>
-    </div>
-    <div>
-      <%= form.submit('Сохранить изменения', {:class => 'btn btn-success'}) %><br>
-    </div>
-  <% end %>
-</div>
+<h2 class="col-md-8 mx-auto">Редактировать текущее блюдо дневного меню:</h2>
+<%= render partial: "form", daily_items: @dailyItems %>

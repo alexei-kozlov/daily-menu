@@ -2,7 +2,8 @@
   <div class="d-flex flex-wrap align-items-center justify-content-between col-12 rounded">
     <div class="col-6 p-0 text-left">
       Наименование:<br>
-      <%= f.select(:menu_item_id, @items, {:prompt => 'Выберите блюдо'}, {:class => 'form-control'}) %><br>
+      <%= f.select(:menu_item_id, MenuItem.all.collect { |mi| [ mi.title, mi.id ] },
+      {:prompt => 'Выберите блюдо'}, {:class => 'form-control'}) %><br>
     </div>
     <div class="col-4 p-0 text-left">
       Цена:<br>

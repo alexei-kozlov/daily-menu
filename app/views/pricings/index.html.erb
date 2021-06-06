@@ -5,17 +5,15 @@
       <b>Тип ценообразования:</b>
       <span class="text-lowercase"><%= pricing.pricing_type %></span>
     </p>
-  <div class="control-block col-6 d-flex flex-nowrap justify-content-end align-items-center p-0">
-    <%= link_to content_tag('i, class="fas fa-info"'),
-        pricing_path(pricing), :class => 'btn btn-primary m-1' %>
-    <%= link_to content_tag('i, class="fas fa-pen"'),
-        edit_pricing_path(pricing), :class => 'btn btn-warning m-1' %>
-    <%= link_to content_tag('i, class="fas fa-trash"'),
-        pricing_path(pricing), method: :delete, data:{confirm: "Вы действительно хотите удалить данный тип ценообразования?"},
-        :class => 'btn btn-danger m-1' %>
-  </div>
+    <div class="control-block col-6 d-flex flex-nowrap justify-content-end align-items-center p-0">
+      <%= link_to content_tag('i, class="fas fa-info"'),
+      pricing_path(pricing), :class => 'btn btn-primary m-1' %>
+    </div>
   </div>
 <% end %>
+<div class="container col-8 p-0 mx-auto text-right">
+  <%= link_to "Добавить тип ценообразования", new_pricing_path, :class => 'btn btn-success' %>
+</div>
 
 
 

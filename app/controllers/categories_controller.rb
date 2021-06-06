@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-    http_basic_authenticate_with name: "admin", password: "qwerty",
-    except: [:index, :show]
 
     def index
         @cats = Category.all
@@ -34,8 +32,9 @@ class CategoriesController < ApplicationController
         if @cat.destroy
            redirect_to categories_path
         else
-           redirect_to categories_path
+           redirect_to @cat
            flash.notice = "Категория «#{@cat.title}» не может быть удалена, т.к. содержит список блюд!"
+           # flash.notice = "Category «#{@cat.title}» can not be deleted, because contains a list of dishes!"
         end
     end
 

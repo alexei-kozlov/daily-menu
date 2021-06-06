@@ -1,0 +1,21 @@
+<div class="col-md-8 mx-auto">
+  <%= form_for @pricing do |form| %>
+    <%= render 'errors' %>
+    <div>
+      Тип ценообразования:<br>
+      <%= form.select(:pricing_type,
+      [
+      ['за вес', 'За вес'],
+      ['за объем', 'За объем'],
+      ['за порцию', 'За порцию']
+      ],
+      {:prompt => 'Выберите тип ценообразования'},
+      {:class => 'form-control'}) %><br>
+    </div>
+    <div class="text-right">
+      <%= link_to "Назад", pricings_path, :class => 'btn btn-secondary' %>
+      <%= form.submit(current_page?(new_pricing_path) ? 'Создать' : 'Сохранить',
+      {:class => 'btn btn-success'}) %><br>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,4 @@
 class DailyMenuItemsController < ApplicationController
-    http_basic_authenticate_with name: "admin", password: "qwerty",
-    except: [:index, :show]
 
     def index
         @dailyItems = DailyMenuItem.all
@@ -8,7 +6,6 @@ class DailyMenuItemsController < ApplicationController
 
     def new
         @dailyItem = DailyMenuItem.new
-        @items = MenuItem.all.map{|i| [ i.title, i.id ] }
     end
 
     def show
@@ -17,7 +14,6 @@ class DailyMenuItemsController < ApplicationController
 
     def edit
         @dailyItem = DailyMenuItem.find(params[:id])
-        @items = MenuItem.all.map{|i| [ i.title, i.id ] }
     end
 
     def update
@@ -40,7 +36,6 @@ class DailyMenuItemsController < ApplicationController
 
     def create
         @dailyItem = DailyMenuItem.new(daily_item_params)
-        @items = MenuItem.all.map{|i| [ i.title, i.id  ] }
 
         if @dailyItem.save
           redirect_to daily_menu_items_path
@@ -52,4 +47,5 @@ class DailyMenuItemsController < ApplicationController
     private def daily_item_params
         params.require(:daily_menu_item).permit(:menu_item_id, :price)
     end
+
 end

@@ -1,19 +1,2 @@
-<div class="col-md-8 mx-auto">
-  <h2>Редактирование ценообразования:</h2>
-  <%= form_for :pricing, url: pricing_path(@pricing), method: :patch do |form| %>
-    <%= render 'errors' %>
-    <div>
-      Тип ценообразования:<br>
-      <%= form.select(:pricing_type,
-      [
-      'За вес/объем',
-      'За порцию'
-      ],
-      {:selected => @pricing.pricing_type},
-      {:class => 'form-control'}) %><br>
-    </div>
-    <div>
-      <%= form.submit('Сохранить', {:class => 'btn btn-success'}) %><br>
-    </div>
-  <% end %>
-</div>
+<h2 class="col-md-8 mx-auto">Редактировать тип ценообразования:</h2>
+<%= render partial: "form", pricing: @pricing %>
