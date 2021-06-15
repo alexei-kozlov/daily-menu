@@ -3,7 +3,7 @@ class MenuItem < ApplicationRecord
   validates :category_id, presence: { message: "can't be blank. Please, select a category!" }
   validates :pricing_id, presence: { message: "can't be blank. Please, select a pricing type!" }
   validates :volume, presence: { message: "can't be blank. Please, enter a volume!" }
-  validates :unit, presence: { message: "can't be blank. Please, select a unit!" }
+  validates :unit_id, presence: { message: "can't be blank. Please, select a unit!" }
 
   has_one :daily_menu_item, :dependent => :restrict_with_error, :foreign_key => :menu_item_id
   belongs_to :category

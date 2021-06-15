@@ -18,7 +18,9 @@
     <ul>
       <% MenuItem.where(category_id: cat.id).each do |dish| %>
         <li>
-          <%= dish.title %> (<%= dish.pricing_type %>) - <%= dish.volume %> <%= dish.unit %>
+          <%= dish.title %>
+          <span class="text-lowercase">(<%= dish.pricing.pricing_type %>) -
+          <%= dish.volume %> <%= dish.unit.unit_type %></span>
         </li>
       <% end %>
     </ul>
