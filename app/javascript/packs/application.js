@@ -6,7 +6,6 @@
 import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
-
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
@@ -17,25 +16,23 @@ ActiveStorage.start()
 ;(function ($) {
     // Add description for DailyMenuItem
     $(document).on('change', '.menu-item-list', function() {
-        let $data_pricing = [],
-            $data_volume = [],
-            $data_unit = [];
-        $('.menu-item-list option:selected').each(function(i, selected){
-            $data_pricing[i] = $(selected).data('pricing');
-            $data_volume[i] = $(selected).data('volume');
-            $data_unit[i] = $(selected).data('unit');
-            if ($data_pricing[i] === 'За порцию')
+        console.log('change in work');
+        let $data_pricing = $(this).find(':selected').data('pricing'),
+            $data_volume = $(this).find(':selected').data('volume'),
+            $data_unit = $(this).find(':selected').data('unit');
+        if ($data_pricing === 'За порцию')
             $(this)
                 .closest('fieldset.menu-item-block')
                 .find('.pricing')
-                .text('/' + $data_pricing[i] + '\n' + '(' + $data_volume[i] + ' ' + $data_unit[i] + ')');
-            else if ($data_pricing[i] === 'За объем') {
-                $(this)
-                    .closest('fieldset.menu-item-block')
-                    .find('.pricing')
-                    .text('/за ' + $data_volume[i] + ' ' + $data_unit[i]);
-            }
-        });
+                .text(`/${$data_pricing}\n(${$data_volume} ${$data_unit})`);
+                // .text('/' + $data_pricing + '\n' + '(' + $data_volume + ' ' + $data_unit + ')');
+        else if ($data_pricing === 'За объем') {
+            $(this)
+                .closest('fieldset.menu-item-block')
+                .find('.pricing')
+                .text(+`/за ${$data_volume} ${$data_unit}`);
+                // .text('/за ' + $data_volume + ' ' + $data_unit);
+        }
     });
     $(document).ready(function() {
         $('.menu-item-list').trigger('change');
