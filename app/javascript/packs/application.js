@@ -30,7 +30,7 @@ ActiveStorage.start()
             $(this)
                 .closest('fieldset.menu-item-block')
                 .find('.pricing')
-                .text(+`/за ${$data_volume} ${$data_unit}`);
+                .text(`/за ${$data_volume} ${$data_unit}`);
                 // .text('/за ' + $data_volume + ' ' + $data_unit);
         }
     });
