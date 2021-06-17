@@ -12,7 +12,7 @@
     </div>
     <div>
       Тип ценообразования:<br>
-      <%= form.select(:pricing_id, Pricing.all.collect { |p| [ p.pricing_type, p.id ] },
+      <%= form.select(:pricing_id, Pricing.all.collect { |p| [ p.pricing_desc, p.id ] },
       {:prompt => 'Выберите тип ценообразования'}, {:class => 'form-control'}) %><br>
     </div>
     <div>
@@ -22,7 +22,7 @@
     </div>
     <div>
       Единицы измерения:<br>
-      <%= form.select(:unit_id, Unit.all.collect { |u| [ u.unit_type, u.id ] },
+      <%= form.select(:unit_id, Unit.all.collect { |u| [ u.unit_desc, u.id ] },
       {:prompt => 'Выберите единицы измерения'},
       {:class => 'form-control'}) %><br>
     </div>

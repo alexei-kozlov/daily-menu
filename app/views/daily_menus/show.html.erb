@@ -9,7 +9,8 @@
         <ul class="mx-auto pl-0 pb-4">
           <li class="dish-list">
             <%= link_to item.menu_item.title, menu_item_path(item.menu_item),
-            :class => 'text-dark' %> - <%= item.price %> грн
+            :class => 'text-dark' %> - <%= item.price %> грн /
+            за <%= item.menu_item.volume %> <%= item.menu_item.unit.unit_desc %>
           </li>
         </ul>
       </li>

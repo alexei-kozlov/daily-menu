@@ -1,16 +1,16 @@
 <fieldset class="menu-item-block">
   <div class="d-flex flex-wrap align-items-center justify-content-between col-12 rounded">
-    <div class="col-6 p-0 text-left">
+    <div class="col-5 p-0 text-left">
       Наименование:<br>
       <%= f.select(:menu_item_id, MenuItem.all.map { |mi| [ mi.title, mi.id, { 'data-pricing' => mi.pricing.pricing_type, 'data-volume' => mi.volume, 'data-unit' => mi.unit.unit_type }] },
       {:prompt => 'Выберите блюдо'}, {:class => 'form-control menu-item-list'}) %><br>
     </div>
     <div class="col-2 p-0 text-left">
-      Цена:<br>
+      Цена, грн:<br>
       <%= f.number_field(:price, {:class => 'form-control', :step => 0.1, :min => 0.1}) %><br>
     </div>
-    <div class="col-2 p-0 text-center text-lowercase">
-      <span class="pricing"></span>
+    <div class="col-3 p-0 text-center text-lowercase">
+      <span class="pricing text-break"></span>
     </div>
     <%= f.hidden_field :_destroy %>
     <%= link_to_remove_fields content_tag(:i, nil,:class => 'fas fa-trash'), 'fieldset',
