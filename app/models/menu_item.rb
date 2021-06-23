@@ -5,7 +5,7 @@ class MenuItem < ApplicationRecord
   validates :volume, presence: { message: "can't be blank. Please, enter a volume!" }
   validates :unit_id, presence: { message: "can't be blank. Please, select a unit!" }
 
-  has_one :daily_menu_item, :dependent => :restrict_with_error, :foreign_key => :menu_item_id
+  has_many :daily_menu_items, :dependent => :restrict_with_error, :foreign_key => :menu_item_id
   belongs_to :category
   belongs_to :pricing
   belongs_to :unit

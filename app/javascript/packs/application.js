@@ -3,10 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import $ from 'jquery';
-
 window.jQuery = $;
 window.$ = $;
+import $ from 'jquery';
 import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
@@ -29,43 +28,48 @@ ActiveStorage.start()
             volume = selectedOption.volume,
             pricing = selectedOption.pricing,
             unit = selectedOption.unit;
-
-        console.log(pricing);
-
         if (pricing)
             $(this)
                 .closest('.menu-item-block')
                 .find('.pricing')
                 .html(pricing_desc[pricing] + volume + unit_desc[unit]);
+
+        // Get last price to select > option
+        /*let selectedValue = this.options[this.selectedIndex].value;
+        let options = $('.prev-price option:last-child');
+        $.ajax({
+            url: '/daily_menu_items?menu_item_id=' + selectedValue,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.length !== 0)
+                    options
+                        .replaceWith($('<option/>')
+                            .attr('id', 'option-price')
+                            .val(data[0].price)
+                            .html(`${data[0].price} грн (${data[0].daily_menu.date})`));
+                else options
+                    .replaceWith($('<option/>')
+                        .attr('id', 'option-price')
+                        .val('not-found')
+                        .html('Цена не найдена'));
+            },
+            error: function () {
+                console.log('Error');
+            }
+        });*/
     });
     $(document).ready(function () {
         $('.menu-item-list').trigger('change');
     });
 
-    /*
-$(document).ready(function () {
-    $('#menu_item_pricing_id option:contains("per_unit")').text(pricing_desc.per_unit);
-    $('#menu_item_pricing_id option:contains("per_qty")').text(pricing_desc.per_qty)
-});
-
-$(document).on('change', '.menu-item-list', function() {
-    console.log('change in work');
-    let $data_pricing = $(this).find(':selected').data('pricing'),
-        $data_volume = $(this).find(':selected').data('volume'),
-        $data_unit = $(this).find(':selected').data('unit');
-    if ($data_pricing === 'За порцию')
-        $(this)
-            .closest('fieldset.menu-item-block')
-            .find('.pricing')
-            .text(`/${$data_pricing}\n(${$data_volume} ${$data_unit})`);
-    else if ($data_pricing === 'За объем') {
-        $(this)
-            .closest('fieldset.menu-item-block')
-            .find('.pricing')
-            .text(+`/за ${$data_volume} ${$data_unit}`);
-    }
-});
-*/
+    // Add last price to input
+    $(document).on('change', '.prev-price', function () {
+        let prevPrice = $('.prev-price option:selected').attr('value');
+        let input = $('.price-field').val(prevPrice);
+        console.log(input);
+    });
 
     // Remove MenuItem (dish) from :new DailyMenu
     $(document).on('click', '[data-link-to-remove-field]', function (e) {
@@ -86,4 +90,5 @@ $(document).on('change', '.menu-item-list', function() {
         fields_html = $(this).data('link-to-add-field').replace(regexp, time);
         return $(this).before(fields_html);
     });
+
 })(jQuery);

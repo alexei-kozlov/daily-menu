@@ -26,3 +26,8 @@ fieldset {
 .dish-list {
   list-style-type: square;
 }
+
+select.form-control:hover,
+select.form-control:focus {
+  cursor: pointer;
+}
