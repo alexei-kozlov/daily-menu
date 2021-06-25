@@ -35,30 +35,29 @@ ActiveStorage.start()
                 .html(pricing_desc[pricing] + volume + unit_desc[unit]);
 
         // Get last price to select > option
-        /*let selectedValue = this.options[this.selectedIndex].value;
+        let selectedValue = this.options[this.selectedIndex].value;
         let options = $('.prev-price option:last-child');
         $.ajax({
-            url: '/daily_menu_items?menu_item_id=' + selectedValue,
+            url: '/daily_menu_items?menu_item_id=' + selectedValue/* + '&order=date&sort=desc&limit=1'*/,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                if (data.length !== 0)
-                    options
-                        .replaceWith($('<option/>')
-                            .attr('id', 'option-price')
-                            .val(data[0].price)
-                            .html(`${data[0].price} грн (${data[0].daily_menu.date})`));
-                else options
+                options
+                    .replaceWith($('<option/>')
+                        .attr('id', 'option-price')
+                        .val(data[0].price)
+                        .html(`${data[0].price} грн (${data[0].daily_menu.date})`));
+            },
+            error: function () {
+                console.log('Error');
+                options
                     .replaceWith($('<option/>')
                         .attr('id', 'option-price')
                         .val('not-found')
                         .html('Цена не найдена'));
-            },
-            error: function () {
-                console.log('Error');
             }
-        });*/
+        });
     });
     $(document).ready(function () {
         $('.menu-item-list').trigger('change');
@@ -66,9 +65,11 @@ ActiveStorage.start()
 
     // Add last price to input
     $(document).on('change', '.prev-price', function () {
-        let prevPrice = $('.prev-price option:selected').attr('value');
-        let input = $('.price-field').val(prevPrice);
-        console.log(input);
+        let actualPrice,
+            prevPrice = $('.prev-price option:selected').attr('value');
+        if ($('#option-price').val() !== 'not-found')
+            actualPrice = $('.price-field').val(prevPrice);
+        console.log(actualPrice);
     });
 
     // Remove MenuItem (dish) from :new DailyMenu
