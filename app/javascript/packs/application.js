@@ -2,7 +2,6 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-
 window.jQuery = $;
 window.$ = $;
 import $ from 'jquery';
@@ -22,6 +21,7 @@ ActiveStorage.start()
             'ml': ' мл',
             'gr': ' грамм'
         };
+
     // Add description for DailyMenuItem
     $(document).on('change', '.menu-item-list', function () {
         let selectedOption = this.options[this.selectedIndex].dataset,
@@ -34,30 +34,39 @@ ActiveStorage.start()
                 .find('.pricing')
                 .html(pricing_desc[pricing] + volume + unit_desc[unit]);
 
-        // Get last price to select > option
-        let selectedValue = this.options[this.selectedIndex].value;
+        // Get last price to list > item
+        let selectedValue = this.options[this.selectedIndex].value,
+            itemBlock = $(this).closest('.menu-item-block').find('.prev-price__item'),
+            listBlock = $(this).closest('.menu-item-block').find('.prev-price__list'),
+            loader = $(this).closest('.menu-item-block').find('#loader');
         $.ajax({
             url: '/daily_menu_items?menu_item_id=' + selectedValue + '&order=date&sort=desc&limit=1',
             type: 'GET',
             dataType: 'json',
             context: this,
             data: selectedValue,
+            beforeSend: function () {
+                loader.show();
+                listBlock.hide();
+            },
+            complete: function () {
+                loader.hide();
+                listBlock.show();
+            },
             success: function (data) {
-                console.log(data);
-                $(this)
-                    .closest('.menu-item-block')
-                    .find('.prev-price_item')
-                    .attr('data-price', data[0].price)
-                    .html(`${data[0].price} грн (${data[0].daily_menu.date})`);
+                if (data.length !== 0)
+                    itemBlock
+                        .attr('data-price', data[0].price)
+                        .html(`${data[0].price} грн (${data[0].daily_menu.date})`);
+                else
+                    itemBlock
+                        .attr('data-price', 'not-found')
+                        .html('Цена не найдена');
             },
             error: function () {
-                console.log('Error');
-                console.log(selectedValue);
-                $(this)
-                    .closest('.menu-item-block')
-                    .find('.prev-price_item')
-                    .attr('data-price', 'not-found')
-                    .html('Цена не найдена');
+                itemBlock
+                    .attr('data-price', 'not-change')
+                    .html('Блюдо не выбрано');
             }
         });
     });
@@ -66,11 +75,9 @@ ActiveStorage.start()
     });
 
     // Add last price to input
-    $(document).on('click', '.prev-price_item', function () {
+    $(document).on('click', '.prev-price__item', function () {
         let prevPrice = $(this).attr('data-price');
-        console.log(prevPrice);
-        console.log($(this));
-        if (prevPrice !== 'not-found')
+        if (prevPrice !== 'not-found' && prevPrice !== 'not-change')
             $(this)
                 .closest('.menu-item-block')
                 .find('.price-field')
@@ -96,10 +103,4 @@ ActiveStorage.start()
         fields_html = $(this).data('link-to-add-field').replace(regexp, time);
         return $(this).before(fields_html);
     });
-
-    /*$(document).on('click', '[data-bs-toggle]', function () {
-        $('.dropdown-menu')
-            .fadeToggle()
-    });*/
-
 })(jQuery);

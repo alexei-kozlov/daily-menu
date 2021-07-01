@@ -19,22 +19,8 @@ fieldset {
   border-width: 1px 1px 0 1px;
 }
 
-.category-list,
-.prev-price_list,
-.prev-price_item {
+.category-list {
   list-style: none;
-}
-
-.prev-price_list {
-  padding: 0;
-}
-
-.prev-price_item {
-  padding: 8px 0;
-  border: 1px solid #ced4da;
-  border-radius: 2px;
-  border-left-width: 0;
-  border-right-width: 0;
 }
 
 .dish-list {
@@ -45,3 +31,93 @@ select.form-control:hover,
 select.form-control:focus {
   cursor: pointer;
 }
+
+.prev-price {
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__list,
+  &__item {
+    list-style: none;
+  }
+
+  &__list {
+    padding: 0;
+
+    & li {
+      text-align: center;
+      margin-top: 16px;
+    }
+  }
+
+  &__item {
+    padding: 8px 0;
+    border: 1px solid #ced4da;
+    border-radius: 2px;
+    border-left-width: 0;
+    border-right-width: 0;
+  }
+}
+
+@keyframes ldio {
+  0% { transform: translate(5px,15px) scale(0); }
+  25% { transform: translate(5px,15px) scale(0); }
+  50% { transform: translate(5px,15px) scale(1); }
+  75% { transform: translate(39px,15px) scale(1); }
+  100% { transform: translate(73px,15px) scale(1); }
+}
+@keyframes ldio-r {
+  0% { transform: translate(73px,15px) scale(1); }
+  100% { transform: translate(73px,15px) scale(0); }
+}
+@keyframes ldio-c {
+  0% { background: #e15b64 }
+  25% { background: #abbd81 }
+  50% { background: #f8b26a }
+  75% { background: #f47e60 }
+  100% { background: #e15b64 }
+}
+.ldio div {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transform: translate(39px,15px) scale(1);
+  background: #e15b64;
+  animation: ldio 1.639344262295082s infinite cubic-bezier(0,0.5,0.5,1);
+}
+.ldio div:nth-child(1) {
+  background: #f47e60;
+  transform: translate(73px,15px) scale(1);
+  animation: ldio-r 0.4098360655737705s infinite cubic-bezier(0,0.5,0.5,1), ldio-c 1.639344262295082s infinite step-start;
+}.ldio div:nth-child(2) {
+   animation-delay: -0.4098360655737705s;
+   background: #e15b64;
+ }.ldio div:nth-child(3) {
+    animation-delay: -0.819672131147541s;
+    background: #f47e60;
+  }.ldio div:nth-child(4) {
+     animation-delay: -1.2295081967213115s;
+     background: #f8b26a;
+   }.ldio div:nth-child(5) {
+      animation-delay: -1.639344262295082s;
+      background: #abbd81;
+    }
+.loading-spinner {
+  width: 71px;
+  height: 38px;
+  display: block;
+  overflow: hidden;
+  background: transparent;
+  margin: 0 auto;
+}
+.ldio {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: scale(.70);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+}
+.ldio div { box-sizing: content-box; }
