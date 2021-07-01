@@ -2,19 +2,58 @@ ru:
   activerecord:
     errors:
       models:
-        menu_item:
-          attributes:
-            category_id:
-              required: "Темы не существует"
-            title:
-              blank: "Заголовок не может быть пустым"
-              too_short: "Заголовок слишком короткий"
-            price:
-              blank: "Текст не может быть пустым"
         category:
           attributes:
             title:
-              required: "Темы не существует"
+              blank: "Заголовок не может быть пустым"
+              taken: "Заголовок уже существует. Пожалуйста, выберите другой!"
+        menu_item:
+          attributes:
+            title:
+              blank: "Заголовок не может быть пустым"
+              too_short: "Заголовок слишком короткий"
+            category_id:
+              blank: "Категория не может быть пустой"
+            category:
+              required: "Поле выбора категории обязательно для заполнения"
+            pricing_id:
+              blank: "Ценообразование не может быть пустой"
+            pricing:
+              required: "Поле выбора ценообразования обязательно для заполнения"
+            volume:
+              blank: "Вес/объем блюда не может быть пустым"
+            unit_id:
+              blank: "Единицы измерения должны быть заданы"
+            unit:
+              required: "Поле выбора единиц измерения обязательно для заполнения"
+        daily_menu:
+          attributes:
+            date:
+              blank: "Выберите дату!"
+            daily_menu_items:
+              invalid: "Не удалось сформировать блюдо дневного меню"
+        daily_menu_item:
+          attributes:
+            menu_item_id:
+              blank: "Выберите блюдо!"
+            menu_item:
+              required: "Поле выбора блюда обязательно для заполнения"
+            price:
+              blank: "Введите цену блюда!"
   date:
     formats:
       default: "%d %B %Y"
+    month_names:
+      -
+      - января
+      - февраля
+      - марта
+      - апреля
+      - мая
+      - июня
+      - июля
+      - августа
+      - сентября
+      - октября
+      - ноября
+      - декабря

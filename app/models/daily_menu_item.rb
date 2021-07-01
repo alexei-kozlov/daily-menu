@@ -1,6 +1,6 @@
 class DailyMenuItem < ApplicationRecord
-  validates :menu_item_id, presence: { message: "can't be blank. Please, select a dish!" }
-  validates :price, presence: { message: "can't be blank. Please, enter a price!" }
+  validates :menu_item_id, presence: true
+  validates :price, presence: true
 
   belongs_to :menu_item
   belongs_to :daily_menu

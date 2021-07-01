@@ -1,6 +1,6 @@
-<% if @cat.errors.any? %>
-  <% @cat.errors.full_messages.each do |msg| %>
-    <div class="alert alert-danger">
+<% if @cat.present? %>
+  <% @cat.errors.each do |attr, msg| %>
+    <div class="alert alert-danger" role="alert">
       <%= msg %>
     </div>
   <% end %>

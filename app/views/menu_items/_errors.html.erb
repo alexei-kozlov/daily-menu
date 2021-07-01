@@ -1,6 +1,6 @@
-<% if @dish.errors.any? %>
-  <% @dish.errors.full_messages.each do |msg| %>
-    <div class="alert alert-danger">
+<% if @dish.present? %>
+  <% @dish.errors.each do |attr, msg| %>
+    <div class="alert alert-danger" role="alert">
       <%= msg %>
     </div>
   <% end %>
