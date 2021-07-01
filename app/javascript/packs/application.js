@@ -36,26 +36,26 @@ ActiveStorage.start()
 
         // Get last price to select > option
         let selectedValue = this.options[this.selectedIndex].value;
-        let options = $('.prev-price option:last-child');
+        let options = $('.prev-price_list .prev-price_item');
         $.ajax({
-            url: '/daily_menu_items?menu_item_id=' + selectedValue/* + '&order=date&sort=desc&limit=1'*/,
+            url: '/daily_menu_items?menu_item_id=' + selectedValue + '&order=date&sort=desc&limit=1',
             type: 'GET',
             dataType: 'json',
             success: function (data) {
                 console.log(data);
                 options
-                    .replaceWith($('<option/>')
-                        .attr('id', 'option-price')
-                        .val(data[0].price)
-                        .html(`${data[0].price} грн (${data[0].daily_menu.date})`));
+                    .closest('.menu-item-block')
+                    .find('.prev-price_item')
+                    .attr('data-price', data[0].price)
+                    .html(`${data[0].price} грн (${data[0].daily_menu.date})`);
             },
             error: function () {
                 console.log('Error');
                 options
-                    .replaceWith($('<option/>')
-                        .attr('id', 'option-price')
-                        .val('not-found')
-                        .html('Цена не найдена'));
+                    .closest('.menu-item-block')
+                    .find('.prev-price_item')
+                    .attr('data-price', 'not-found')
+                    .html('Цена не найдена');
             }
         });
     });
@@ -64,12 +64,13 @@ ActiveStorage.start()
     });
 
     // Add last price to input
-    $(document).on('change', '.prev-price', function () {
-        let actualPrice,
-            prevPrice = $('.prev-price option:selected').attr('value');
-        if ($('#option-price').val() !== 'not-found')
-            actualPrice = $('.price-field').val(prevPrice);
-        console.log(actualPrice);
+    $(document).on('click', '.prev-price_item', function () {
+        let prevPrice = $('.prev-price_item').attr('data-price');
+        if (prevPrice !== 'not-found')
+            $(this)
+                .closest('.menu-item-block')
+                .find('.price-field')
+                .val(prevPrice);
     });
 
     // Remove MenuItem (dish) from :new DailyMenu
@@ -91,5 +92,10 @@ ActiveStorage.start()
         fields_html = $(this).data('link-to-add-field').replace(regexp, time);
         return $(this).before(fields_html);
     });
+
+    /*$(document).on('click', '[data-bs-toggle]', function () {
+        $('.dropdown-menu')
+            .fadeToggle()
+    });*/
 
 })(jQuery);

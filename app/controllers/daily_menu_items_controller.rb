@@ -14,17 +14,16 @@ class DailyMenuItemsController < ApplicationController
          end
 
          if params.key? :order
-            sort = if params.key? :sort
-               params[:sort]
-            else
-               :asc
+            ordered = params[:order] if ['date', 'price'].include?(params[:order].downcase)
+            if ordered
+               sorted = params[:sort].downcase == 'desc' ? 'desc' : 'asc'
+               finder = finder.order(ordered => sorted)
             end
-            finder = finder.order(params[:order] => sort)
          end
 
          render :json => finder
                         .eager_load(:daily_menu, :menu_item),
-                :only => :price,
+                :only => [:price, :id],
                 :include => [
                              :menu_item => { :only => :title },
                              :daily_menu => { :only => :date }

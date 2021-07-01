@@ -5,10 +5,11 @@
       <%= f.select(:menu_item_id, MenuItem.all.map { |mi| [ mi.title, mi.id, { 'data-pricing' => mi.pricing.pricing_type, 'data-volume' => mi.volume, 'data-unit' => mi.unit.unit_type }] },
       {:prompt => 'Выберите блюдо'}, {:class => 'form-control menu-item-list'}) %><br>
     </div>
-    <div class="col-2 p-0 text-left">
-      <%= f.label :daily_menu_id, 'Предыдущая цена:' %>
-      <%= f.select(:daily_menu_id, [''],
-      {:prompt => 'Посмотреть'}, {:class => 'form-control prev-price'}) %><br>
+    <div class="col-2 p-0 text-left" id="dropdown">
+      <p>Предыдущая цена:</p>
+      <ul class="prev-price_list">
+        <li><a class="prev-price_item" href="javascript:void(0)"></a></li>
+      </ul>
     </div>
     <div class="col-2 p-0 text-left">
       <%= f.label :price, 'Цена, грн:' %>
