@@ -19,8 +19,22 @@ fieldset {
   border-width: 1px 1px 0 1px;
 }
 
-.category-list {
+.category-list,
+.prev-price_list,
+.prev-price_item {
   list-style: none;
+}
+
+.prev-price_list {
+  padding: 0;
+}
+
+.prev-price_item {
+  padding: 8px 0;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  border-left-width: 0;
+  border-right-width: 0;
 }
 
 .dish-list {

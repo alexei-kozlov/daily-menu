@@ -36,14 +36,15 @@ ActiveStorage.start()
 
         // Get last price to select > option
         let selectedValue = this.options[this.selectedIndex].value;
-        let options = $('.prev-price_list .prev-price_item');
         $.ajax({
             url: '/daily_menu_items?menu_item_id=' + selectedValue + '&order=date&sort=desc&limit=1',
             type: 'GET',
             dataType: 'json',
+            context: this,
+            data: selectedValue,
             success: function (data) {
                 console.log(data);
-                options
+                $(this)
                     .closest('.menu-item-block')
                     .find('.prev-price_item')
                     .attr('data-price', data[0].price)
@@ -51,7 +52,8 @@ ActiveStorage.start()
             },
             error: function () {
                 console.log('Error');
-                options
+                console.log(selectedValue);
+                $(this)
                     .closest('.menu-item-block')
                     .find('.prev-price_item')
                     .attr('data-price', 'not-found')
@@ -65,7 +67,9 @@ ActiveStorage.start()
 
     // Add last price to input
     $(document).on('click', '.prev-price_item', function () {
-        let prevPrice = $('.prev-price_item').attr('data-price');
+        let prevPrice = $(this).attr('data-price');
+        console.log(prevPrice);
+        console.log($(this));
         if (prevPrice !== 'not-found')
             $(this)
                 .closest('.menu-item-block')
