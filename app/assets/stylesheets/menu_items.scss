@@ -25,7 +25,11 @@
 }
 
 #menu_item_category_id option[value=""],
-#menu_item_category_id option[selected="selected"] {
+#menu_item_category_id option[selected="selected"],
+#menu_item_pricing_id option[value=""],
+#menu_item_pricing_id option[selected="selected"],
+#menu_item_unit_id option[value=""],
+#menu_item_unit_id option[selected="selected"] {
   background-color: #ccc;
   cursor: default;
 }
