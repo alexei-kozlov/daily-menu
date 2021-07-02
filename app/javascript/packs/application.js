@@ -13,6 +13,7 @@ Rails.start()
 ActiveStorage.start()
 
 ;(function ($) {
+    // Add description library
     let pricing_desc = {
             'per_unit': '/за объем пропорционально ',
             'per_qty': '/за порцию в размере '
@@ -22,8 +23,10 @@ ActiveStorage.start()
             'gr': ' грамм'
         };
 
-    // Add description for DailyMenuItem
+    // Add onChange event for MenuItem
     $(document).on('change', '.menu-item-list', function () {
+
+        // Initializing & calling function to add description for DailyMenuItem
         let selectedOption = this.options[this.selectedIndex].dataset,
             volume = selectedOption.volume,
             pricing = selectedOption.pricing,
@@ -34,47 +37,51 @@ ActiveStorage.start()
                 .find('.pricing')
                 .html(pricing_desc[pricing] + volume + unit_desc[unit]);
 
-        // Get last price to list > item
+        // Initializing & calling function to get prev price to list > item
         let selectedValue = this.options[this.selectedIndex].value,
             itemBlock = $(this).closest('.menu-item-block').find('.prev-price__item'),
             listBlock = $(this).closest('.menu-item-block').find('.prev-price__list'),
             loader = $(this).closest('.menu-item-block').find('#loader');
-        $.ajax({
-            url: '/daily_menu_items?menu_item_id=' + selectedValue + '&order=date&sort=desc&limit=1',
-            type: 'GET',
-            dataType: 'json',
-            context: this,
-            data: selectedValue,
-            beforeSend: function () {
-                loader.show();
-                listBlock.hide();
-            },
-            complete: function () {
-                loader.hide();
-                listBlock.show();
-            },
-            success: function (data) {
-                if (data.length !== 0)
-                    itemBlock
-                        .attr('data-price', data[0].price)
-                        .html(`${data[0].price} грн (${data[0].daily_menu.date})`);
-                else
-                    itemBlock
-                        .attr('data-price', 'not-found')
-                        .html('Цена не найдена');
-            },
-            error: function () {
-                itemBlock
-                    .attr('data-price', 'not-change')
-                    .html('Блюдо не выбрано');
-            }
-        });
+        if (selectedValue) {
+            $.ajax({
+                url: '/daily_menu_items?menu_item_id=' + selectedValue + '&order=date&sort=desc&limit=1',
+                type: 'GET',
+                dataType: 'json',
+                context: this,
+                data: selectedValue,
+                beforeSend: function () {
+                    loader.show();
+                    listBlock.hide();
+                },
+                complete: function () {
+                    loader.hide();
+                    listBlock.show();
+                },
+                success: function (data) {
+                    if (data.length !== 0)
+                        itemBlock
+                            .attr('data-price', data[0].price)
+                            .html(`${data[0].price} грн (${data[0].daily_menu.date})`);
+                    else
+                        itemBlock
+                            .attr('data-price', 'not-found')
+                            .html('Цена не найдена');
+                },
+                error: function () {}
+            });
+        } else {
+            itemBlock
+                .attr('data-price', 'not-change')
+                .html('Блюдо не выбрано');
+        }
     });
+
+    // Add trigger to onChange event for MenuItem
     $(document).ready(function () {
         $('.menu-item-list').trigger('change');
     });
 
-    // Add last price to input
+    // Add prev price to input
     $(document).on('click', '.prev-price__item', function () {
         let prevPrice = $(this).attr('data-price');
         if (prevPrice !== 'not-found' && prevPrice !== 'not-change')
@@ -94,7 +101,7 @@ ActiveStorage.start()
         return $field.hide();
     });
 
-    // Add MenuItem (dish) from :new DailyMenu
+    // Add MenuItem (dish) to :new DailyMenu
     $(document).on('click', '[data-link-to-add-field]', function (e) {
         let fields_html, regexp, time;
         e.preventDefault();

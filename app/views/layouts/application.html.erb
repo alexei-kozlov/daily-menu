@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Меню</title>
+    <meta name="keywords" content="меню, кафе, блюда, еда, ресторан, бар">
+    <meta name="description" content="Приложение автоматизированного создания ежедневного меню для обедов в кафе">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +11,7 @@
     <%= stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.15.3/css/all.css' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    <title>Дневное меню | Daily Menu App</title>
   </head>
 
   <body>
@@ -26,11 +28,11 @@
           <li class="nav-item m-2 <%= 'activate' if current_page?(home_path) %>">
             <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
           </li>
-          <li class="nav-item m-2 <%= 'activate' if current_page?(categories_path) %>">
-            <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
-          </li>
           <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
             <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
+          </li>
+          <li class="nav-item m-2 <%= 'activate' if current_page?(categories_path) %>">
+            <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
           </li>
         </ul>
       </header>

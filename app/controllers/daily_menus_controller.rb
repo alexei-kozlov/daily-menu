@@ -1,7 +1,8 @@
 class DailyMenusController < ApplicationController
+    helper_method :sort_column, :sort_direction
 
     def index
-        @menus = DailyMenu.all
+        @menus = DailyMenu.all.order(sort_column + " " + sort_direction)
     end
 
     def new
@@ -44,8 +45,18 @@ class DailyMenusController < ApplicationController
         redirect_to daily_menus_path
     end
 
-    private def daily_menu_params
+    private
+
+    def daily_menu_params
         params.require(:daily_menu).permit(:id, :date, daily_menu_items_attributes: [:id, :menu_item_id, :price, :_destroy])
+    end
+
+    def sort_column
+      DailyMenu.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
 end

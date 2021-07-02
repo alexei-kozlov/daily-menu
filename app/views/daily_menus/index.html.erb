@@ -1,4 +1,5 @@
 <h1 class="text-center mb-4" style="font-family: Pacifico;">- Дневное меню -</h1>
+<p class="sortable-block"><%= sortable "date", "Сортировать по: " %></p>
 <% @menus.each do |menu| %>
   <%= link_to daily_menu_path(menu), :class => 'daily-menu-item container col-6 mx-auto p-0 d-block h3' do %>
     <div class="wrapper bg-light rounded d-flex pl-2 flex-wrap justify-content-between align-items-center border">
