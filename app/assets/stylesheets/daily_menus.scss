@@ -68,13 +68,13 @@ select.form-control:focus {
 .current {
   padding-right: 30px;
   font-weight: 800;
-  color: #000;
+  color: #212529;
   text-transform: uppercase;
 
   &:hover,
   &:focus {
     text-decoration: none;
-    color: #000;
+    color: #212529;
     opacity: .7;
   }
   &:active {

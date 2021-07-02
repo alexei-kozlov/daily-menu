@@ -36,6 +36,10 @@ ActiveStorage.start()
                 .closest('.menu-item-block')
                 .find('.pricing')
                 .html(pricing_desc[pricing] + volume + unit_desc[unit]);
+        else $(this)
+            .closest('.menu-item-block')
+            .find('.pricing')
+            .html('');
 
         // Initializing & calling function to get prev price to list > item
         let selectedValue = this.options[this.selectedIndex].value,
