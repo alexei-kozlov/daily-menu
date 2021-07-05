@@ -66,7 +66,7 @@ select.form-control:focus {
 }
 
 .current {
-  padding-right: 30px;
+  padding-right: 26px;
   font-weight: 800;
   color: #212529;
   text-transform: uppercase;
@@ -84,7 +84,6 @@ select.form-control:focus {
 
 .desc {
   background: image-url('up_arrow.png') no-repeat right center / contain;
-  margin-right: 5px;
   &::after {
     content: 'возрастанию';
     text-decoration: underline;
@@ -95,7 +94,6 @@ select.form-control:focus {
 .asc {
   background: image-url('down_arrow.png') no-repeat right center / contain;
   transform: rotateZ(180deg);
-  margin-right: 5px;
   &::after {
     content: 'убыванию';
     text-decoration: underline;
