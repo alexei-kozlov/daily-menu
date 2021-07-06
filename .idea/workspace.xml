@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2a312df-8655-4f0f-9b2b-83e988dae259" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dinner-menu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dinner-menu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/categories_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/categories_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/daily_menu_items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/daily_menu_items_controller.rb" afterDir="false" />
+    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/daily_menus_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/daily_menus_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/menu_items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu_items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/pricing.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/pricing.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/unit.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/unit.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/categories/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/myapp_development.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db/myapp_development.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +18,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -36,14 +33,13 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="1usw6GqNBusZukYwlOPIC3ra7L5" />
+  <component name="ProjectId" id="1utq0yV0vQUJm4PCDrOY2X3mrur" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -156,12 +152,13 @@
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f2a312df-8655-4f0f-9b2b-83e988dae259" name="Default Changelist" comment="" />
-      <created>1625467434262</created>
+      <changelist id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="" />
+      <created>1625495044855</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1625467434262</updated>
-      <workItem from="1625467450354" duration="19292000" />
+      <updated>1625495044855</updated>
+      <workItem from="1625495075377" duration="459000" />
+      <workItem from="1625548803719" duration="15592000" />
     </task>
     <servers />
   </component>
@@ -178,8 +175,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1625471492954" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
+    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1625555030624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
   </component>
 </project>

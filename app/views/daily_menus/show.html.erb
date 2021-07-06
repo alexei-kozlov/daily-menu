@@ -1,27 +1,24 @@
-<h1 class="text-center text-uppercase mb-0" style="font-family: Pacifico;">- Меню -</h1>
+<h1 class="text-center text-uppercase mb-0" style="font-family: Pacifico, serif;">- Меню -</h1>
 <div class="mb-4 container d-flex flex-wrap flex-column justify-content-between align-items-start">
   <h2 class="h4 mx-auto align-self-center mb-4"><%= l @menu.date %></h2>
   <ul class="mx-auto pl-0">
-    <% @categories.each do |category| %>
+    <% @daily_menu_items.each do |category, daily_menu_items| %>
       <li class="category-list">
         <h3><%= link_to category.title, category_path(category), :class => 'text-secondary' %></h3>
         <ul class="mx-auto pl-0 pb-4">
-          <% @daily_menu_items.each do |daily_menu_item| %>
-            <% if daily_menu_item.menu_item.category == category %>
-              <li class="dish-list">
-                <%= link_to daily_menu_item.menu_item.title, menu_item_path(daily_menu_item), :class => 'text-dark' %> -
-                <%= daily_menu_item.price %> грн / за
-                <%= daily_menu_item.menu_item.volume %>
-                <%= daily_menu_item.menu_item.unit.unit_desc %>
-              </li>
-            <% end %>
+          <% daily_menu_items.each do |daily_menu_item| %>
+            <li class="dish-list">
+              <%= link_to daily_menu_item.menu_item.title, menu_item_path(daily_menu_item), :class => 'text-dark' %> -
+              <%= daily_menu_item.price %> грн / за
+              <%= daily_menu_item.menu_item.volume %>
+              <%= daily_menu_item.menu_item.unit.unit_desc %>
+            </li>
           <% end %>
         </ul>
       </li>
     <% end %>
   </ul>
 </div>
-
 <div class="mx-auto text-right col-10 pr-0">
   <%= link_to "Назад", home_path, :class => 'btn btn-secondary' %>
   <%= link_to "Редактировать", edit_daily_menu_path, :class => 'btn btn-warning' %>

@@ -22,9 +22,7 @@ class DailyMenusController < ApplicationController
 
 	def show
 		@menu = DailyMenu.find(params[:id])
-		# TODO
-		@daily_menu_items = @menu.daily_menu_items.eager_load(:menu_item => :category)
-		@categories = @daily_menu_items.map { |i| i.menu_item.category }.uniq
+		@daily_menu_items = @menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
 	end
 
 	def edit
