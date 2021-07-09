@@ -2,6 +2,12 @@ class MenuItemsController < ApplicationController
 
 	def index
 		@dishes = MenuItem.all
+
+		if params[:title].blank?
+			@dishes
+		else
+			@dishes = @dishes.search(params[:title])
+		end
 	end
 
 	def new

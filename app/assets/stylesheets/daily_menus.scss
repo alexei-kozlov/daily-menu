@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.daily-menu-item .wrapper {
+  transition-duration: .2s;
+}
+
+.daily-menu-item:hover {
+  text-decoration: none;
+}
+
 .daily-menu-item:hover .wrapper,
 .daily-menu-item:focus .wrapper {
   box-shadow: 0 0 4px #000;
   transition-duration: .2s;
+  color: #0069d9;
 }
 
 .daily-menu-item:hover .btn-inform,
@@ -14,7 +23,7 @@
 }
 
 fieldset {
-  border-color: #ff0;
+  border-color: #ffc107;
   border-style: solid;
   border-width: 1px 1px 0 1px;
 }
@@ -59,6 +68,7 @@ select.form-control:focus {
     border-right-width: 0;
   }
 }
+
 .sortable-block {
   margin: 0 auto 10px;
   text-align: center;
@@ -77,6 +87,7 @@ select.form-control:focus {
     color: #212529;
     opacity: .7;
   }
+
   &:active {
     opacity: .3;
   }
@@ -84,6 +95,7 @@ select.form-control:focus {
 
 .desc {
   background: image-url('up_arrow.png') no-repeat right center / contain;
+
   &::after {
     content: 'возрастанию';
     text-decoration: underline;
@@ -94,6 +106,7 @@ select.form-control:focus {
 .asc {
   background: image-url('down_arrow.png') no-repeat right center / contain;
   transform: rotateZ(180deg);
+
   &::after {
     content: 'убыванию';
     text-decoration: underline;
@@ -102,49 +115,86 @@ select.form-control:focus {
 }
 
 @keyframes load {
-  0% { transform: translate(5px,15px) scale(0); }
-  25% { transform: translate(5px,15px) scale(0); }
-  50% { transform: translate(5px,15px) scale(1); }
-  75% { transform: translate(39px,15px) scale(1); }
-  100% { transform: translate(73px,15px) scale(1); }
+  0% {
+    transform: translate(5px, 15px) scale(0);
+  }
+  25% {
+    transform: translate(5px, 15px) scale(0);
+  }
+  50% {
+    transform: translate(5px, 15px) scale(1);
+  }
+  75% {
+    transform: translate(39px, 15px) scale(1);
+  }
+  100% {
+    transform: translate(73px, 15px) scale(1);
+  }
 }
+
 @keyframes load-r {
-  0% { transform: translate(73px,15px) scale(1); }
-  100% { transform: translate(73px,15px) scale(0); }
+  0% {
+    transform: translate(73px, 15px) scale(1);
+  }
+  100% {
+    transform: translate(73px, 15px) scale(0);
+  }
 }
+
 @keyframes load-c {
-  0% { background: #e15b64 }
-  25% { background: #abbd81 }
-  50% { background: #f8b26a }
-  75% { background: #f47e60 }
-  100% { background: #e15b64 }
+  0% {
+    background: #e15b64
+  }
+  25% {
+    background: #abbd81
+  }
+  50% {
+    background: #f8b26a
+  }
+  75% {
+    background: #f47e60
+  }
+  100% {
+    background: #e15b64
+  }
 }
+
 .load div {
   position: absolute;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  transform: translate(39px,15px) scale(1);
+  transform: translate(39px, 15px) scale(1);
   background: #e15b64;
-  animation: load 1.639344262295082s infinite cubic-bezier(0,0.5,0.5,1);
+  animation: load 1.639344262295082s infinite cubic-bezier(0, 0.5, 0.5, 1);
 }
+
 .load div:nth-child(1) {
   background: #f47e60;
-  transform: translate(73px,15px) scale(1);
-  animation: load-r 0.4098360655737705s infinite cubic-bezier(0,0.5,0.5,1), load-c 1.639344262295082s infinite step-start;
-}.load div:nth-child(2) {
-   animation-delay: -0.4098360655737705s;
-   background: #e15b64;
- }.load div:nth-child(3) {
-    animation-delay: -0.819672131147541s;
-    background: #f47e60;
-  }.load div:nth-child(4) {
-     animation-delay: -1.2295081967213115s;
-     background: #f8b26a;
-   }.load div:nth-child(5) {
-      animation-delay: -1.639344262295082s;
-      background: #abbd81;
-    }
+  transform: translate(73px, 15px) scale(1);
+  animation: load-r 0.4098360655737705s infinite cubic-bezier(0, 0.5, 0.5, 1), load-c 1.639344262295082s infinite step-start;
+}
+
+.load div:nth-child(2) {
+  animation-delay: -0.4098360655737705s;
+  background: #e15b64;
+}
+
+.load div:nth-child(3) {
+  animation-delay: -0.819672131147541s;
+  background: #f47e60;
+}
+
+.load div:nth-child(4) {
+  animation-delay: -1.2295081967213115s;
+  background: #f8b26a;
+}
+
+.load div:nth-child(5) {
+  animation-delay: -1.639344262295082s;
+  background: #abbd81;
+}
+
 .loading-spinner {
   width: 71px;
   height: 38px;
@@ -153,6 +203,7 @@ select.form-control:focus {
   background: transparent;
   margin: 0 auto;
 }
+
 .load {
   width: 100%;
   height: 100%;
@@ -161,4 +212,32 @@ select.form-control:focus {
   backface-visibility: hidden;
   transform-origin: 0 0;
 }
-.load div { box-sizing: content-box; }
+
+.load div {
+  box-sizing: content-box;
+}
+
+.search-field {
+  width: 30%;
+
+  & form {
+    position: relative;
+  }
+
+  & input[type="search"] {
+    border: 1px solid #007bff;
+  }
+
+  & ::placeholder {
+    font-size: .9em;
+  }
+
+  & input[type="submit"] {
+    width: 38px;
+    height: 38px;
+    background: #007bff image-url('loop.svg') no-repeat center / 60%;
+    color: transparent;
+    position: absolute;
+    right: 0;
+  }
+}

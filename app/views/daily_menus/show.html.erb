@@ -9,7 +9,7 @@
           <% daily_menu_items.each do |daily_menu_item| %>
             <li class="dish-list">
               <%= link_to daily_menu_item.menu_item.title, menu_item_path(daily_menu_item), :class => 'text-dark' %> -
-              <%= daily_menu_item.price %> грн / за
+              <%= daily_menu_item.price %> грн /
               <%= daily_menu_item.menu_item.volume %>
               <%= daily_menu_item.menu_item.unit.unit_desc %>
             </li>
