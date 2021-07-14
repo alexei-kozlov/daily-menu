@@ -1,0 +1,7 @@
+<% if @order.present? %>
+  <% @order.errors.each do |attr, msg| %>
+    <div class="alert alert-danger" role="alert">
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>

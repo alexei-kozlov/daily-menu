@@ -6,7 +6,7 @@ class MenuItemsController < ApplicationController
 		if params[:title].blank?
 			@dishes
 		else
-			@dishes = @dishes.search(params[:title])
+			@dishes = @dishes.search(params[:title].capitalize)
 		end
 	end
 

@@ -28,6 +28,9 @@
       <li class="nav-item m-2 <%= 'activate' if current_page?(home_path) %>">
         <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
       </li>
+      <li class="nav-item m-2 <%= 'activate' if current_page?(orders_path) %>">
+        <%= link_to_unless_current "Заказы", orders_path, :class => 'btn btn-primary' %>
+      </li>
       <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
         <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
       </li>

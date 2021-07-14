@@ -2,14 +2,22 @@
   <div class="d-flex flex-wrap align-items-baseline justify-content-between col-12 rounded pt-2">
     <div class="col-4 p-0 text-left">
       <%= f.label :menu_item_id, 'Наименование:' %>
-      <%= f.select(:menu_item_id, MenuItem.all.map { |mi| [ mi.title, mi.id, { 'data-pricing' => mi.pricing.pricing_type, 'data-volume' => mi.volume, 'data-unit' => mi.unit.unit_type }] },
-      {:prompt => 'Выберите блюдо'}, {:class => 'form-control menu-item-list'}) %><br>
+      <%= f.select(:menu_item_id,
+                   MenuItem.all.map { |mi| [mi.title, mi.id, {
+                     'data-pricing' => mi.pricing.pricing_type,
+                     'data-volume' => mi.volume,
+                     'data-unit' => mi.unit.unit_type
+                   }] }, { :prompt => 'Выберите блюдо' }, { :class => 'form-control menu-item-list' }) %><br>
     </div>
     <div class="col-2 p-0 text-left prev-price" id="dropdown">
       <p class="prev-price__title">Предыдущая цена:</p>
       <div class="loading-spinner" id="loader" style="display: none;">
         <div class="load">
-          <div></div><div></div><div></div><div></div><div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </div>
       <ul class="prev-price__list">
@@ -20,15 +28,15 @@
     </div>
     <div class="col-2 p-0 text-left">
       <%= f.label :price, 'Цена, грн:' %>
-      <%= f.number_field(:price, {:class => 'form-control price-field', :step => 0.1, :min => 0.1}) %><br>
+      <%= f.number_field(:price, { :class => 'form-control price-field', :step => 0.1, :min => 0.1 }) %><br>
     </div>
     <div class="col-2 p-0 text-center text-lowercase">
       <span class="pricing text-break"></span>
     </div>
     <div class="p-0">
       <%= f.hidden_field :_destroy %>
-      <%= link_to_remove_fields content_tag(:i, nil,:class => 'fas fa-trash'), 'fieldset',
-      {:class => "btn btn-danger", :style => 'transform: translateY(2.4rem)'} %>
+      <%= link_to_remove_fields content_tag(:i, nil, :class => 'fas fa-trash'), 'fieldset',
+                                { :class => "btn btn-danger", :style => 'transform: translateY(2.4rem)' } %>
     </div>
   </div>
 </fieldset>

@@ -1,6 +1,6 @@
 Unit.seed(:id,
   {id: 1, unit_type: 'ml', unit_desc: 'мл'},
-  {id: 2, unit_type: 'gr', unit_desc: 'грамм'})
+  {id: 2, unit_type: 'gr', unit_desc: 'г'})
 
 # Unit.seed(:id,
 #   {id: 1, unit_type: 'ml'},

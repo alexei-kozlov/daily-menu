@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SPLITTER_PROPORTION" value="0.46281466" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited DailyMenu's categories view --f">
+    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Added search MenuItem &amp; formatted code">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/_errors.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/edit.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/index.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/new.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/orders/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/menu_items_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/menu_items_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/application_record.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/application_record.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/category.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/category.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/daily_menu.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/daily_menu.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/daily_menu_item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/daily_menu_item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/menu_item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/menu_item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/_daily_menu_item_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/_daily_menu_item_fields.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/menu_items/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/fixtures/units.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/fixtures/units.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/myapp_development.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db/myapp_development.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +59,19 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../freelance_restaurant" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/views/orders" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/orders" />
+      <recent name="$PROJECT_DIR$/app/views/order_items" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/orders" />
+      <recent name="$PROJECT_DIR$/db" />
       <recent name="$PROJECT_DIR$/app/assets/images" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
@@ -181,7 +196,7 @@
       <workItem from="1625667194289" duration="227000" />
       <workItem from="1625667700115" duration="296000" />
       <workItem from="1625721203696" duration="17015000" />
-      <workItem from="1625810012109" duration="3762000" />
+      <workItem from="1625810012109" duration="102080000" />
     </task>
     <task id="LOCAL-00001" summary="Edited DailyMenu's categories view --f">
       <created>1625573759500</created>
@@ -190,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625573759500</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added search MenuItem &amp; formatted code">
+      <created>1625813912662</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1625813912662</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,9 +232,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Edited DailyMenu's categories view --f" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited DailyMenu's categories view --f" />
+    <MESSAGE value="Added search MenuItem &amp; formatted code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added search MenuItem &amp; formatted code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1625810100046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
+    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1626093794842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
   </component>
 </project>

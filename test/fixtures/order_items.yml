@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  daily_menu_id: 1
+  quantity: 1
+  cost: 1.5
+  total_cost: 1.5
+
+two:
+  daily_menu_id: 1
+  quantity: 1
+  cost: 1.5
+  total_cost: 1.5

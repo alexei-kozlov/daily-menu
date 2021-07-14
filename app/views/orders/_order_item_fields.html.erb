@@ -1,0 +1,58 @@
+<% @daily_menu_items.each do |category, daily_menu_items| %>
+  <li class="order__p">
+    <hr>
+    <h4 class="text-secondary text-center h5"><u><%= category.title %></u></h4>
+    <ul class="order__sublist">
+      <% daily_menu_items.each do |daily_menu_item| %>
+        <li class="order__item form-group d-flex justify-content-between align-items-center flex-wrap">
+          <%= form.label :daily_menu_id, { :for => daily_menu_item.id, :class => 'order__label' } do %>
+            <%= form.check_box :daily_menu_id, {
+              :id => daily_menu_item.id,
+              :class => 'order__check',
+              'data-price' => daily_menu_item.price,
+              'data-pricing' => daily_menu_item.menu_item.pricing.pricing_type,
+              'data-volume' => daily_menu_item.menu_item.volume,
+              'data-unit' => daily_menu_item.menu_item.unit.unit_type
+            } %>
+            <p class="order__desc">
+              <%= daily_menu_item.menu_item.title %> -
+              <%= daily_menu_item.price %> грн/
+              <% if daily_menu_item.menu_item.pricing.pricing_type === 'per_qty' %>
+                <span class="text-lowercase">
+                  <%= daily_menu_item.menu_item.pricing.pricing_desc %>
+                  (<%= daily_menu_item.menu_item.volume %>
+                  <%= daily_menu_item.menu_item.unit.unit_desc %>)
+                </span>
+              <% else %>
+                <%= daily_menu_item.menu_item.volume %>
+                <%= daily_menu_item.menu_item.unit.unit_desc %>
+                <span>пропорционально</span>
+              <% end %>
+            </p>
+          <% end %>
+          <div class="d-flex justify-content-between align-items-center order__form-group">
+            <div class="d-flex align-items-center">
+              <% if daily_menu_item.menu_item.pricing.pricing_type === 'per_qty' %>
+                <%= form.number_field(:quantity_por,
+                                      { :class => 'order__form-input order__por form-control m-2 text-center',
+                                        :disabled => 'disabled',
+                                        :step => 1, :min => 1
+                                      }) %>
+                <%= form.label :quantity_por, 'шт.', { :class => 'mb-0 mr-4 text-secondary' } %>
+              <% else %>
+                <%= form.number_field(:quantity_vol,
+                                      { :class => 'order__form-input order__vol form-control m-2 text-center',
+                                        :disabled => 'disabled',
+                                        :step => 5, :min => 100
+                                      }) %>
+                <%= form.label :quantity_vol, 'г', { :class => 'mb-0 mr-5 text-secondary' } %>
+              <% end %>
+            </div>
+            <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc") %>
+            <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2', :disabled => 'disabled' }) %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+<% end %>

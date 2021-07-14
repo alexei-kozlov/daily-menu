@@ -71,7 +71,8 @@ ActiveStorage.start()
                             .attr('data-price', 'not-found')
                             .html('Цена не найдена');
                 },
-                error: function () {}
+                error: function () {
+                }
             });
         } else {
             itemBlock
@@ -83,6 +84,9 @@ ActiveStorage.start()
     // Add trigger to onChange event for MenuItem
     $(document).ready(function () {
         $('.menu-item-list').trigger('change');
+        $('.order__check').trigger('change');
+        $('.date-list-menu option').attr('data-url', 'new?daily_menu_id=');
+        // getDailyMenu();
     });
 
     // Add prev price to input
@@ -114,4 +118,75 @@ ActiveStorage.start()
         fields_html = $(this).data('link-to-add-field').replace(regexp, time);
         return $(this).before(fields_html);
     });
+
+    // Initializing & calling function to get value DailyMenu.select
+    $(document).on('change', '.date-list', function () {
+        let selectedDateValue = this.options[this.selectedIndex].value;
+        window.location.href = $('.date-list-menu :selected').data('url') + selectedDateValue;
+    });
+
+    $(document).on('click', '.order__check', function () {
+        let orderPriceField = $(this).closest('.order__item').find('.order__cost'),
+            prevQtyPor = $(this).closest('.order__item').find('.order__por'),
+            prevQtyVol = $(this).closest('.order__item').find('.order__vol'),
+            prevCostDesc = $(this).closest('.order__item').find('.order__cost-desc'),
+            volume = $(this).data('volume'),
+            price = $(this).data('price');
+
+        if ($(this).is(':checked')) {
+            orderPriceField.val(price);
+            prevQtyPor.removeAttr('disabled').val('1');
+            prevQtyVol.removeAttr('disabled').val(volume);
+            prevCostDesc.text(price + ' грн.');
+        } else {
+            orderPriceField.val('');
+            prevQtyPor.attr('disabled', 'disabled').val('');
+            prevQtyVol.attr('disabled', 'disabled').val('');
+            prevCostDesc.text('0.00 грн');
+        }
+
+        $(document).on('change', '.order__por', function () {
+            let currentQtyPor = $(this).closest('.order__form-group').find('.order__por').val(),
+                currentCost = $(this).closest('.order__form-group').find('.order__cost'),
+                currentCostDesc = $(this).closest('.order__form-group').find('.order__cost-desc'),
+                cost = (price * currentQtyPor).toFixed(2);
+            currentCost.val(cost);
+            currentCostDesc.text(cost + ' грн.');
+
+            let totalCost = 0;
+            $('.order__cost').each(function () {
+                totalCost += +$(this).val();
+            });
+            $('.order__total-cost').val(totalCost);
+        });
+        $(document).on('change', '.order__vol', function () {
+            let currentQtyVol = $(this).closest('.order__form-group').find('.order__vol').val(),
+                currentCost = $(this).closest('.order__form-group').find('.order__cost'),
+                currentCostDesc = $(this).closest('.order__form-group').find('.order__cost-desc'),
+                cost = (price * currentQtyVol / volume).toFixed(2);
+            currentCost.val(cost);
+            currentCostDesc.text(cost + ' грн.');
+
+            let totalCost = 0;
+            $('.order__cost').each(function () {
+                totalCost += +$(this).val();
+            });
+            $('.order__total-cost').val(totalCost);
+        });
+
+        let totalCost = 0;
+        $('.order__cost').each(function () {
+            totalCost += +$(this).val();
+        });
+        $('.order__total-cost').val(totalCost.toFixed(2));
+    });
+
+    /*function getDailyMenu() {
+        if (window.location.href !== 'http://0.0.0.0:3000/orders/new')
+            $('#order').show(300);
+        let id = window.location.href.substring(window.location.href.lastIndexOf('id=') + 3);
+        $('.order__item').val(id).html(id);
+    }*/
 })(jQuery);
+
+
