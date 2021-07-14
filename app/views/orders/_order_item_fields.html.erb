@@ -5,8 +5,8 @@
     <ul class="order__sublist">
       <% daily_menu_items.each do |daily_menu_item| %>
         <li class="order__item form-group d-flex justify-content-between align-items-center flex-wrap">
-          <%= form.label :daily_menu_id, { :for => daily_menu_item.id, :class => 'order__label' } do %>
-            <%= form.check_box :daily_menu_id, {
+          <%= form.label :daily_menu_item_id, { :for => daily_menu_item.id, :class => 'order__label' } do %>
+            <%= form.check_box :daily_menu_item_id, {
               :id => daily_menu_item.id,
               :class => 'order__check',
               'data-price' => daily_menu_item.price,
@@ -45,7 +45,7 @@
                                         :disabled => 'disabled',
                                         :step => 5, :min => 100
                                       }) %>
-                <%= form.label :quantity_vol, 'г', { :class => 'mb-0 mr-5 text-secondary' } %>
+                <%= form.label :quantity_vol, daily_menu_item.menu_item.unit.unit_desc, { :class => 'mb-0 mr-5 text-secondary' } %>
               <% end %>
             </div>
             <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc") %>

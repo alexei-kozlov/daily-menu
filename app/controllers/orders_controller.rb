@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
 		if params.key? :daily_menu_id
 			@daily_menu = DailyMenu.find params[:daily_menu_id]
-			@order.daily_menu = @daily_menu
+			@order.daily_menu_id = @daily_menu
 			@daily_menu_items = @daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
 		end
 	end
@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
 
 		@order.destroy
-		redirect_to @orders
+		redirect_to orders_path
 	end
 
 	private

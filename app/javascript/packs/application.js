@@ -130,6 +130,7 @@ ActiveStorage.start()
             prevQtyPor = $(this).closest('.order__item').find('.order__por'),
             prevQtyVol = $(this).closest('.order__item').find('.order__vol'),
             prevCostDesc = $(this).closest('.order__item').find('.order__cost-desc'),
+            orderTotalCost = $('.order__total-cost'),
             volume = $(this).data('volume'),
             price = $(this).data('price');
 
@@ -138,11 +139,13 @@ ActiveStorage.start()
             prevQtyPor.removeAttr('disabled').val('1');
             prevQtyVol.removeAttr('disabled').val(volume);
             prevCostDesc.text(price + ' грн.');
+            orderTotalCost.removeAttr('disabled');
         } else {
             orderPriceField.val('');
             prevQtyPor.attr('disabled', 'disabled').val('');
             prevQtyVol.attr('disabled', 'disabled').val('');
             prevCostDesc.text('0.00 грн');
+            orderTotalCost.attr('disabled', 'disabled');
         }
 
         $(document).on('change', '.order__por', function () {
@@ -178,7 +181,7 @@ ActiveStorage.start()
         $('.order__cost').each(function () {
             totalCost += +$(this).val();
         });
-        $('.order__total-cost').val(totalCost.toFixed(2));
+        orderTotalCost.val(totalCost.toFixed(2));
     });
 
     /*function getDailyMenu() {

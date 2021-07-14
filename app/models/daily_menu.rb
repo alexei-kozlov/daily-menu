@@ -6,5 +6,5 @@ class DailyMenu < ApplicationRecord
 	accepts_nested_attributes_for :daily_menu_items, allow_destroy: true
 	validates_associated :daily_menu_items
 	#------------------------------------------------
-	has_many :order
+	has_many :orders
 end

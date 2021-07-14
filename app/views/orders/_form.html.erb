@@ -3,8 +3,8 @@
     <%= render 'errors' %>
     <div class="order-block col-12 rounded p-0">
       <div class="date-list-menu d-flex justify-content-center align-items-end col-12 p-0">
-        <%= form.label :daily_menu, 'для', { :class => 'col-1 pl-0' } %>
-        <%= form.select(:daily_menu, DailyMenu.all.collect { |dm| [dm.date, dm.id] },
+        <%= form.label :daily_menu_id, 'для', { :class => 'col-1 pl-0' } %>
+        <%= form.select(:daily_menu_id, DailyMenu.all.collect { |dm| [dm.date, dm.id] },
                         { :prompt => 'Выберите дату', :selected => @daily_menu&.id },
                         { :class => 'form-control date-list col-4' }) %><br>
       </div>
@@ -12,7 +12,7 @@
         <% if @daily_menu.present? %>
           <h3 class="order__title p-3 text-center h4">Выберите блюда для заказа</h3>
           <ul class="order__list">
-            <%= form.fields_for :daily_menu_items do |item| %>
+            <%= form.fields_for :order_items do |item| %>
               <%= render partial: 'order_item_fields', locals: {form: item} %>
             <% end %>
           </ul>
