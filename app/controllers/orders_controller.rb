@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
 		if params.key? :daily_menu_id
 			@daily_menu = DailyMenu.find params[:daily_menu_id]
-			@order.daily_menu_id = @daily_menu
+			@order.daily_menu = @daily_menu
 			@daily_menu_items = @daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
 		end
 	end
@@ -26,11 +26,12 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@daily_menu_items
+		@order.order_items.build
 	end
 
 	def edit
 		@order = Order.find(params[:id])
+		@daily_menu_items = @order.daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
 	end
 
 	def update
@@ -53,7 +54,17 @@ class OrdersController < ApplicationController
 	private
 
 	def order_params
-		params.require(:order).permit(:id, :total_cost, order_items_attributes: [:id, :daily_menu_id, :daily_menu_item_id, :quantity_por, :quantity_vol, :cost, :_destroy])
+		params.require(:order)
+			  .permit(:id, :total_cost,
+					  order_items_attributes: [
+						:id,
+						:daily_menu_id,
+						:daily_menu_item_id,
+						:quantity_por,
+						:quantity_vol,
+						:cost,
+						:_destroy
+					  ])
 	end
 
 end

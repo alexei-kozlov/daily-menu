@@ -5,9 +5,8 @@
     <ul class="order__sublist">
       <% daily_menu_items.each do |daily_menu_item| %>
         <li class="order__item form-group d-flex justify-content-between align-items-center flex-wrap">
-          <%= form.label :daily_menu_item_id, { :for => daily_menu_item.id, :class => 'order__label' } do %>
+          <%= form.label :daily_menu_item_id, { :class => 'order__label' } do %>
             <%= form.check_box :daily_menu_item_id, {
-              :id => daily_menu_item.id,
               :class => 'order__check',
               'data-price' => daily_menu_item.price,
               'data-pricing' => daily_menu_item.menu_item.pricing.pricing_type,
@@ -30,7 +29,7 @@
               <% end %>
             </p>
           <% end %>
-          <div class="d-flex justify-content-between align-items-center order__form-group">
+          <div class="d-flex justify-content-start align-items-center order__form-group">
             <div class="d-flex align-items-center">
               <% if daily_menu_item.menu_item.pricing.pricing_type === 'per_qty' %>
                 <%= form.number_field(:quantity_por,
@@ -49,7 +48,7 @@
               <% end %>
             </div>
             <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc") %>
-            <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2', :disabled => 'disabled' }) %>
+            <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2' }) %>
           </div>
         </li>
       <% end %>

@@ -86,7 +86,6 @@ ActiveStorage.start()
         $('.menu-item-list').trigger('change');
         $('.order__check').trigger('change');
         $('.date-list-menu option').attr('data-url', 'new?daily_menu_id=');
-        // getDailyMenu();
     });
 
     // Add prev price to input
@@ -125,12 +124,22 @@ ActiveStorage.start()
         window.location.href = $('.date-list-menu :selected').data('url') + selectedDateValue;
     });
 
+    function totalCost() {
+        let orderTotalCost = $('.order__total-cost'),
+            orderTotalCostDesc = $('.order__total-cost-desc'),
+            totalCost = 0;
+        $('.order__cost').each(function () {
+            totalCost += +$(this).val();
+        });
+        orderTotalCost.val(totalCost.toFixed(2));
+        orderTotalCostDesc.text(totalCost.toFixed(2) + ' грн.');
+    }
+
     $(document).on('click', '.order__check', function () {
         let orderPriceField = $(this).closest('.order__item').find('.order__cost'),
             prevQtyPor = $(this).closest('.order__item').find('.order__por'),
             prevQtyVol = $(this).closest('.order__item').find('.order__vol'),
             prevCostDesc = $(this).closest('.order__item').find('.order__cost-desc'),
-            orderTotalCost = $('.order__total-cost'),
             volume = $(this).data('volume'),
             price = $(this).data('price');
 
@@ -139,13 +148,11 @@ ActiveStorage.start()
             prevQtyPor.removeAttr('disabled').val('1');
             prevQtyVol.removeAttr('disabled').val(volume);
             prevCostDesc.text(price + ' грн.');
-            orderTotalCost.removeAttr('disabled');
         } else {
             orderPriceField.val('');
             prevQtyPor.attr('disabled', 'disabled').val('');
             prevQtyVol.attr('disabled', 'disabled').val('');
             prevCostDesc.text('0.00 грн');
-            orderTotalCost.attr('disabled', 'disabled');
         }
 
         $(document).on('change', '.order__por', function () {
@@ -153,36 +160,25 @@ ActiveStorage.start()
                 currentCost = $(this).closest('.order__form-group').find('.order__cost'),
                 currentCostDesc = $(this).closest('.order__form-group').find('.order__cost-desc'),
                 cost = (price * currentQtyPor).toFixed(2);
+
             currentCost.val(cost);
             currentCostDesc.text(cost + ' грн.');
-
-            let totalCost = 0;
-            $('.order__cost').each(function () {
-                totalCost += +$(this).val();
-            });
-            $('.order__total-cost').val(totalCost);
+            totalCost();
         });
         $(document).on('change', '.order__vol', function () {
             let currentQtyVol = $(this).closest('.order__form-group').find('.order__vol').val(),
                 currentCost = $(this).closest('.order__form-group').find('.order__cost'),
                 currentCostDesc = $(this).closest('.order__form-group').find('.order__cost-desc'),
                 cost = (price * currentQtyVol / volume).toFixed(2);
+
             currentCost.val(cost);
             currentCostDesc.text(cost + ' грн.');
-
-            let totalCost = 0;
-            $('.order__cost').each(function () {
-                totalCost += +$(this).val();
-            });
-            $('.order__total-cost').val(totalCost);
+            totalCost();
         });
 
-        let totalCost = 0;
-        $('.order__cost').each(function () {
-            totalCost += +$(this).val();
-        });
-        orderTotalCost.val(totalCost.toFixed(2));
+        totalCost();
     });
+
 
     /*function getDailyMenu() {
         if (window.location.href !== 'http://0.0.0.0:3000/orders/new')

@@ -4,18 +4,20 @@
 </div>
 <hr>
 
-<% @order.order_items.each do |item| %>
-  <div class="d-flex justify-content-between align-items-center order__form-group">
-
-    <% if item.quantity_por %>
-      за <%= item.quantity_por %> порц(-ию, -ий, -ии)
-    <% else %>
-      за <%= item.quantity_vol %> грамм (мл)
-    <% end %>
-
-
-  </div>
-<% end %>
+<h3>Категория</h3>
+<ul class="mx-auto pl-0 pb-4">
+  <%= @order.order_items.each do |item| %>
+    <li class="d-flex justify-content-between align-items-center order__form-group">
+      <%= item.daily_menu_item_id %> -
+      <%= item.cost %> грн
+      <% if item.quantity_por %>
+        за <%= item.quantity_por %> порц(-ию, -ий, -ии)
+      <% else %>
+        за <%= item.quantity_vol %> грамм (мл)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
 
 <hr>
 <div class="d-flex justify-content-end align-items-center mb-4">

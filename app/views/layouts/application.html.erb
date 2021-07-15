@@ -15,38 +15,39 @@
 </head>
 
 <body>
+<header class="d-flex flex-wrap justify-content-between align-items-center py-2 mb-2 border-bottom sticky-top bg-white mx-auto"
+        style="max-width: 1200px; padding: 0 20px;">
+  <a href="/" class="mb-md-0">
+    <svg class="bi me-2 rounded" id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="75" height="75">
+      <rect width="512" height="512" fill="#0d6efd"/>
+      <rect x="61.41" y="349.48" width="389.18" height="37.03" rx="6.65" ry="6.65" fill="#fff"/>
+      <path d="M112.29,316.94c6.57-63,63.3-127.16,121.62-132.82-50.09,12.73-97.82,73.19-103.71,129.59a128.58,128.58,0,0,0-.3,20.92H422.26A166.28,166.28,0,0,0,266.61,170a23.55,23.55,0,1,0-21.22,0A166.26,166.26,0,0,0,89.74,334.63h22.08A127.68,127.68,0,0,1,112.29,316.94Z" fill="#fff"/>
+    </svg>
+  </a>
+  <ul class="nav d-flex mr-0 flex-wrap justify-content-end align-items-center" style="padding: 16px;">
+    <li class="nav-item m-2 <%= 'activate' if current_page?(home_path) %>">
+      <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
+    </li>
+    <li class="nav-item m-2 <%= 'activate' if current_page?(orders_path) %>">
+      <%= link_to_unless_current "Заказы", orders_path, :class => 'btn btn-primary' %>
+    </li>
+    <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
+      <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
+    </li>
+    <li class="nav-item m-2 <%= 'activate' if current_page?(categories_path) %>">
+      <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
+    </li>
+  </ul>
+  <div class="search-field" style="padding: 16px 0 16px; min-width: 180px;">
+    <%= form_with url: "/menu_items", method: :get do |form| %>
+      <div class="d-flex justify-content-between">
+        <%= form.search_field(:title, { :class => 'form-control pr-0', :placeholder => 'Введите название блюда/категории' }) %>
+        <%= form.submit('search', { :class => 'btn btn-primary' }) %>
+      </div>
+    <% end %>
+  </div>
+</header>
 <div class="container" style="margin-bottom: 30px;">
-  <header class="d-flex flex-wrap justify-content-between align-items-center py-2 mb-2 border-bottom sticky-top bg-white">
-    <a href="/" class="mb-md-0">
-      <svg class="bi me-2 rounded" id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="75" height="75">
-        <rect width="512" height="512" fill="#0d6efd"/>
-        <rect x="61.41" y="349.48" width="389.18" height="37.03" rx="6.65" ry="6.65" fill="#fff"/>
-        <path d="M112.29,316.94c6.57-63,63.3-127.16,121.62-132.82-50.09,12.73-97.82,73.19-103.71,129.59a128.58,128.58,0,0,0-.3,20.92H422.26A166.28,166.28,0,0,0,266.61,170a23.55,23.55,0,1,0-21.22,0A166.26,166.26,0,0,0,89.74,334.63h22.08A127.68,127.68,0,0,1,112.29,316.94Z" fill="#fff"/>
-      </svg>
-    </a>
-    <ul class="nav d-flex mr-0 flex-wrap justify-content-end align-items-center">
-      <li class="nav-item m-2 <%= 'activate' if current_page?(home_path) %>">
-        <%= link_to_unless_current "Главная страница", home_path, :class => 'btn btn-primary' %>
-      </li>
-      <li class="nav-item m-2 <%= 'activate' if current_page?(orders_path) %>">
-        <%= link_to_unless_current "Заказы", orders_path, :class => 'btn btn-primary' %>
-      </li>
-      <li class="nav-item m-2 <%= 'activate' if current_page?(menu_items_path) %>">
-        <%= link_to_unless_current "Блюда", menu_items_path, :class => 'btn btn-primary' %>
-      </li>
-      <li class="nav-item m-2 <%= 'activate' if current_page?(categories_path) %>">
-        <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
-      </li>
-    </ul>
-    <div class="search-field ml-2">
-      <%= form_with url: "/menu_items", method: :get do |form| %>
-        <div class="d-flex justify-content-between">
-          <%= form.search_field(:title, { :class => 'form-control pr-0', :placeholder => 'Введите название блюда/категории' }) %>
-          <%= form.submit('search', { :class => 'btn btn-primary' }) %>
-        </div>
-      <% end %>
-    </div>
-  </header>
   <%= yield %>
 </div>
 </body>

@@ -58,6 +58,11 @@
     min-width: 80px;
   }
 
+  &__total-cost-desc,
+  &__cost-desc {
+    min-width: 90px;
+  }
+
   &__total-cost-value {
     width: 17%;
     min-width: 180px;
