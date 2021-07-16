@@ -13,18 +13,18 @@ Rails.start()
 ActiveStorage.start()
 
 ;(function ($) {
-    // Add description library
-    let pricing_desc = {
-            'per_unit': '/за объем пропорционально ',
-            'per_qty': '/за порцию в размере '
-        },
-        unit_desc = {
-            'ml': ' мл',
-            'gr': ' грамм'
-        };
 
     // Add onChange event for MenuItem
     $(document).on('change', '.menu-item-list', function () {
+        // Add description library
+        let pricing_desc = {
+                'per_unit': '/за объем пропорционально ',
+                'per_qty': '/за порцию в размере '
+            },
+            unit_desc = {
+                'ml': ' мл',
+                'gr': ' грамм'
+            };
 
         // Initializing & calling function to add description for DailyMenuItem
         let selectedOption = this.options[this.selectedIndex].dataset,
@@ -87,12 +87,19 @@ ActiveStorage.start()
         $('.order__check').trigger('change');
         $('.date-list-menu option').attr('data-url', 'new?daily_menu_id=');
 
-        let orderTotalCost = $('.order__total-cost'),
+        let orderTotalCost = $('.order__total-cost').val(),
             orderTotalCostDesc = $('.order__total-cost-desc');
-        if (orderTotalCost.val())
-            orderTotalCostDesc.text(orderTotalCost.val() + ' грн.');
+        if (orderTotalCost)
+            orderTotalCostDesc.text(orderTotalCost + ' грн.');
         else
             orderTotalCostDesc.text('0.00 грн.');
+
+        let orderCost = $('.order__cost').closest('.order__form-group').find('.order__cost').val(),
+            orderCostDesc = $('.order__cost-desc').closest('.order__form-group').find('.order__cost-desc');
+        if (orderCost)
+            orderCostDesc.text(orderCost + ' грн.');
+        else
+            orderCostDesc.text('0.00 грн.');
     });
 
     // Add prev price to input
@@ -131,6 +138,7 @@ ActiveStorage.start()
         window.location.href = $('.date-list-menu :selected').data('url') + selectedDateValue;
     });
 
+    // Initializing function to get Order's total cost
     function totalCost() {
         let orderTotalCost = $('.order__total-cost'),
             orderTotalCostDesc = $('.order__total-cost-desc'),
@@ -142,6 +150,7 @@ ActiveStorage.start()
         orderTotalCostDesc.text(totalCost.toFixed(2) + ' грн.');
     }
 
+    // Checked event on create OrderItem from DailyMenuItem
     $(document).on('click', '.order__check', function () {
         let orderPriceField = $(this).closest('.order__item').find('.order__cost'),
             prevQtyPor = $(this).closest('.order__item').find('.order__por'),
@@ -184,6 +193,7 @@ ActiveStorage.start()
         });
         totalCost();
     });
+
 })(jQuery);
 
 
