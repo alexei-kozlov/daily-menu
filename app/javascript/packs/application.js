@@ -86,6 +86,13 @@ ActiveStorage.start()
         $('.menu-item-list').trigger('change');
         $('.order__check').trigger('change');
         $('.date-list-menu option').attr('data-url', 'new?daily_menu_id=');
+
+        let orderTotalCost = $('.order__total-cost'),
+            orderTotalCostDesc = $('.order__total-cost-desc');
+        if (orderTotalCost.val())
+            orderTotalCostDesc.text(orderTotalCost.val() + ' грн.');
+        else
+            orderTotalCostDesc.text('0.00 грн.');
     });
 
     // Add prev price to input
@@ -175,17 +182,8 @@ ActiveStorage.start()
             currentCostDesc.text(cost + ' грн.');
             totalCost();
         });
-
         totalCost();
     });
-
-
-    /*function getDailyMenu() {
-        if (window.location.href !== 'http://0.0.0.0:3000/orders/new')
-            $('#order').show(300);
-        let id = window.location.href.substring(window.location.href.lastIndexOf('id=') + 3);
-        $('.order__item').val(id).html(id);
-    }*/
 })(jQuery);
 
 
