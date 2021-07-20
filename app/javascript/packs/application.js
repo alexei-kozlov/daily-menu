@@ -194,6 +194,15 @@ ActiveStorage.start()
         totalCost();
     });
 
+    /*$(document).on('submit', '#new_order input[type=submit]', function () {
+        let orderCheck = $('.order__check');
+        if (orderCheck.is(':checked'))
+            orderCheck.prop('disabled', false);
+        else
+            orderCheck.prop('disabled', true);
+
+    });*/
+
 })(jQuery);
 
 
