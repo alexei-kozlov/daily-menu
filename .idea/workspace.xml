@@ -4,15 +4,24 @@
     <option name="SPLITTER_PROPORTION" value="0.59267735" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Orders &amp; OrderItems table db:migrate">
+    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Orders &amp; OrderItems nested form">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/daily_menus_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/daily_menus_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/daily_menu.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/daily_menu.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/menu_items/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/orders/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/spring.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/spring.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/orders/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/orders/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/myapp_development.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db/myapp_development.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,12 +40,18 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="1utq0yV0vQUJm4PCDrOY2X3mrur" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,6 +68,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../nested-form-demo" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -188,7 +206,10 @@
       <workItem from="1625721203696" duration="17015000" />
       <workItem from="1625810012109" duration="163707000" />
       <workItem from="1626446896886" duration="547000" />
-      <workItem from="1626758156046" duration="21102000" />
+      <workItem from="1626758156046" duration="27704000" />
+      <workItem from="1626854669795" duration="3212000" />
+      <workItem from="1626931314315" duration="960000" />
+      <workItem from="1626933469263" duration="41719000" />
     </task>
     <task id="LOCAL-00001" summary="Edited DailyMenu's categories view --f">
       <created>1625573759500</created>
@@ -246,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626445982405</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Edited Orders &amp; OrderItems nested form">
+      <created>1626790803657</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1626790803657</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,9 +300,10 @@
     <MESSAGE value="Edited orders/edit" />
     <MESSAGE value="Edited 'orders/new' &amp; 'orders/edit'" />
     <MESSAGE value="Edited Orders &amp; OrderItems table db:migrate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited Orders &amp; OrderItems table db:migrate" />
+    <MESSAGE value="Edited Orders &amp; OrderItems nested form" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited Orders &amp; OrderItems nested form" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1626784206532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
+    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1626961471763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
   </component>
 </project>

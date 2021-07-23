@@ -3,16 +3,17 @@
   <h2 class="h4 mx-auto align-self-center mb-4">от <%= l @order.created_at %></h2>
 </div>
 <hr>
-
 <h3>Категория</h3>
 <ul class="mx-auto pl-0 pb-4">
-  <%= @order.order_items.each do |item| %>
+  <% @order.order_items.each do |item| %>
     <li class="d-flex justify-content-between align-items-center order__form-group">
-      <%= item.daily_menu_item_id %> -
-      <%= item.cost %> грн
+      <% if item.daily_menu_item_id %>
+        <%= item.daily_menu_item_id %> -
+        <%= item.cost %> грн
+      <% end %>
       <% if item.quantity_por %>
         за <%= item.quantity_por %> порц(-ию, -ий, -ии)
-      <% else %>
+      <% elsif item.quantity_vol %>
         за <%= item.quantity_vol %> грамм (мл)
       <% end %>
     </li>
@@ -24,8 +25,8 @@
   <p class="m-0 mr-4">Общая стоимость заказа:</p>
   <%= @order.total_cost %> грн.
 </div>
-<div class="mx-auto text-right col-10 pr-0">
-  <%= link_to "Назад", orders_path, :class => 'btn btn-secondary' %>
-  <%= link_to "Редактировать", edit_order_path, :class => 'btn btn-warning' %>
-  <%= link_to "Удалить", order_path, method: :delete, data: { confirm: "Вы действительно хотите удалить этот заказ?" }, :class => 'btn btn-danger' %>
+<div class="mx-auto text-md-right text-center col-md-10 col-12 pr-0">
+  <%= link_to "Назад", orders_path, :class => 'btn btn-secondary mb-2' %>
+  <%= link_to "Редактировать", edit_order_path, :class => 'btn btn-warning mb-2' %>
+  <%= link_to "Удалить", order_path, method: :delete, data: { confirm: "Вы действительно хотите удалить этот заказ?" }, :class => 'btn btn-danger mb-2' %>
 </div>

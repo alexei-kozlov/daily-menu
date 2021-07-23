@@ -6,7 +6,7 @@
         <%= form.label :daily_menu_id, 'для', { :class => 'col-1 pl-0' } %>
         <%= form.select(:daily_menu_id, DailyMenu.all.map { |dm| [dm.date, dm.id] },
                         { :prompt => 'Выберите дату' },
-                        { :class => 'form-control date-list col-4' }) %><br>
+                        { :class => 'form-control date-list col-lg-4 col-10' }) %><br>
       </div>
       <div class="order col-12 mx-auto p-0" id="order">
         <% if @order.daily_menu.present? %>

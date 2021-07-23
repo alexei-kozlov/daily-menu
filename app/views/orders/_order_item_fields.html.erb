@@ -1,31 +1,34 @@
-<% daily_menu_items.each do |daily_menu_item| %>
+<% daily_menu_items.each.with_index do |daily_menu_item| %>
   <li class="order__item form-group d-flex justify-content-between align-items-center flex-wrap">
     <div class="order__check-block d-flex justify-content-start align-items-center flex-nowrap flex-grow-1">
-        <%= form.check_box :daily_menu_item_id, {
-          :class => 'order__check',
-          :checked => false,
-          'data-price' => daily_menu_item.price,
-          'data-pricing' => daily_menu_item.menu_item.pricing.pricing_type,
-          'data-volume' => daily_menu_item.menu_item.volume,
-          'data-unit' => daily_menu_item.menu_item.unit.unit_type
-        } %>
-        <%= form.label :daily_menu_item_id, { :class => 'order__label ' } do %>
-          <p class="order__desc">
-            <%= daily_menu_item.menu_item.title %> -
-            <%= daily_menu_item.price %> грн/
-            <% if daily_menu_item.menu_item.pricing.pricing_type === 'per_qty' %>
+      <%= form.hidden_field :daily_menu_item_id %>
+      <%= form.check_box :_destroy, {
+        :class => 'order__check',
+        :checked => form.object.persisted?,
+        'data-price' => daily_menu_item.price,
+        'data-pricing' => daily_menu_item.menu_item.pricing.pricing_type,
+        'data-volume' => daily_menu_item.menu_item.volume,
+        'data-unit' => daily_menu_item.menu_item.unit.unit_type
+      }, '0', '1' %>
+      <%= form.label :_destroy, daily_menu_item.menu_item.title, {
+        :class => 'order__label'
+      } do %>
+        <p class="order__desc">
+          <%= daily_menu_item.menu_item.title %> -
+          <%= daily_menu_item.price %> грн/
+          <% if daily_menu_item.menu_item.pricing.pricing_type === 'per_qty' %>
                     <span class="text-lowercase">
                       <%= daily_menu_item.menu_item.pricing.pricing_desc %>
                       (<%= daily_menu_item.menu_item.volume %>
                       <%= daily_menu_item.menu_item.unit.unit_desc %>)
                     </span>
-            <% else %>
-              <%= daily_menu_item.menu_item.volume %>
-              <%= daily_menu_item.menu_item.unit.unit_desc %>
-              <span>пропорционально</span>
-            <% end %>
-          </p>
-        <% end %>
+          <% else %>
+            <%= daily_menu_item.menu_item.volume %>
+            <%= daily_menu_item.menu_item.unit.unit_desc %>
+            <span>пропорционально</span>
+          <% end %>
+        </p>
+      <% end %>
     </div>
     <div class="d-flex justify-content-start align-items-center order__form-group">
       <div class="d-flex align-items-center">
@@ -45,8 +48,8 @@
           <%= form.label :quantity_vol, daily_menu_item.menu_item.unit.unit_desc, { :class => 'mb-0 mr-5 text-secondary' } %>
         <% end %>
       </div>
-      <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc") %>
-      <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2' }) %>
+      <%#= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc") %>
+      <%= form.text_field(:cost, { :class => 'order__form-input order__cost form-control m-2' }) %> грн.
     </div>
   </li>
 <% end %>

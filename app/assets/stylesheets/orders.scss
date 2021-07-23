@@ -6,6 +6,26 @@
   text-align: center;
 }
 
+.order-item .wrapper {
+  transition-duration: .2s;
+}
+
+.order-item:hover {
+  text-decoration: none;
+}
+
+.order-item:hover .wrapper,
+.order-item:focus .wrapper {
+  box-shadow: 0 0 4px #000;
+  transition-duration: .2s;
+  color: #0069d9;
+}
+
+.order-item:hover .btn-inform,
+.order-item:focus .btn-inform {
+  background-color: #0069d9;
+}
+
 .order {
   &__list,
   &__item {

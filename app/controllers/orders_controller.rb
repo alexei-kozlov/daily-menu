@@ -32,11 +32,12 @@ class OrdersController < ApplicationController
 	def edit
 		@order = Order.find(params[:id])
 		@daily_menu_items = @order.daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
+		@order.order_items.build
 	end
 
 	def update
 		@order = Order.find(params[:id])
-
+		puts order_params
 		if @order.update(order_params)
 			redirect_to @order
 		else
@@ -66,5 +67,4 @@ class OrdersController < ApplicationController
 						:_destroy
 					  ])
 	end
-
 end

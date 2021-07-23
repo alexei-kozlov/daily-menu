@@ -49,7 +49,14 @@ class DailyMenusController < ApplicationController
 	private
 
 	def daily_menu_params
-		params.require(:daily_menu).permit(:id, :date, daily_menu_items_attributes: [:id, :menu_item_id, :price, :_destroy])
+		params.require(:daily_menu)
+			  .permit(:id, :date,
+					  daily_menu_items_attributes: [
+						:id,
+						:menu_item_id,
+						:price,
+						:_destroy
+					  ])
 	end
 
 	def sort_column

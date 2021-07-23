@@ -2,7 +2,20 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="RM-211.7628.26">
     <data-source name="myapp_development" uuid="7f9acc34-cb4c-414e-ad76-2737b4488951">
+      <database-info product="SQLite" version="3.34.0" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.34.0" dbms="SQLITE" exact-version="3.34.0" exact-driver-version="3.34">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <auth-provider>no-auth</auth-provider>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" negative="1" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="identifier.sqlite" uuid="1d20b2ed-41a6-48e5-b2ce-274a79d98040">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
       <auth-provider>no-auth</auth-provider>
       <schema-mapping />
     </data-source>
