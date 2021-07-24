@@ -4,8 +4,8 @@
   <ul class="mx-auto pl-0">
     <% @daily_menu_items.each do |category, daily_menu_items| %>
       <li class="category-list">
-        <h3><%= link_to category.title, category_path(category), :class => 'text-secondary' %></h3>
-        <ul class="mx-auto pl-0 pb-4">
+        <h3 class="text-center"><%= link_to category.title, category_path(category), :class => 'text-secondary' %></h3>
+        <ul class="mx-auto pl-0 pb-4 pt-2">
           <% daily_menu_items.each do |daily_menu_item| %>
             <li class="dish-list">
               <%= link_to daily_menu_item.menu_item.title, menu_item_path(daily_menu_item), :class => 'text-dark' %> -
@@ -19,7 +19,7 @@
     <% end %>
   </ul>
 </div>
-<div class="mx-auto text-md-right text-center col-md-10 col-12 pr-0">
+<div class="mx-auto text-md-right text-center col-12 pr-0">
   <%= link_to "Назад", home_path, :class => 'btn btn-secondary mb-2' %>
   <%= link_to "Редактировать", edit_daily_menu_path, :class => 'btn btn-warning mb-2' %>
   <%= link_to "Удалить", daily_menu_path, method: :delete, data: { confirm: "Вы действительно хотите удалить это меню?" }, :class => 'btn btn-danger mb-2' %>

@@ -2,24 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.daily-menu-item .wrapper {
-  transition-duration: .2s;
+header {
+  box-shadow: -600px -30px 0px 30px rgba(255, 255, 255, 0.3), 600px -30px 0px 30px rgba(255, 255, 255, 0.3);
 }
 
-.daily-menu-item:hover {
-  text-decoration: none;
-}
+.daily-menu-item {
+  & .wrapper {
+    transition-duration: .2s;
+  }
 
-.daily-menu-item:hover .wrapper,
-.daily-menu-item:focus .wrapper {
-  box-shadow: 0 0 4px #000;
-  transition-duration: .2s;
-  color: #0069d9;
-}
+  &:hover,
+  &:focus {
+    text-decoration: none;
 
-.daily-menu-item:hover .btn-inform,
-.daily-menu-item:focus .btn-inform {
-  background-color: #0069d9;
+    & .wrapper {
+      box-shadow: 0 0 4px #000;
+      transition-duration: .2s;
+      color: #0069d9;
+    }
+
+    & .btn-inform {
+      background-color: #0069d9;
+    }
+  }
 }
 
 fieldset {
@@ -73,7 +78,6 @@ select.form-control:focus {
 .sortable-block {
   margin: 0 auto 10px;
   text-align: center;
-
 }
 
 .current {
@@ -160,40 +164,50 @@ select.form-control:focus {
   }
 }
 
-.load div {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  transform: translate(39px, 15px) scale(1);
-  background: #e15b64;
-  animation: load 1.639344262295082s infinite cubic-bezier(0, 0.5, 0.5, 1);
-}
+.load {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: scale(.70);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
 
-.load div:nth-child(1) {
-  background: #f47e60;
-  transform: translate(73px, 15px) scale(1);
-  animation: load-r 0.4098360655737705s infinite cubic-bezier(0, 0.5, 0.5, 1), load-c 1.639344262295082s infinite step-start;
-}
+  & div {
+    position: absolute;
+    box-sizing: content-box;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    transform: translate(39px, 15px) scale(1);
+    background: #e15b64;
+    animation: load 1.639344262295082s infinite cubic-bezier(0, 0.5, 0.5, 1);
 
-.load div:nth-child(2) {
-  animation-delay: -0.4098360655737705s;
-  background: #e15b64;
-}
+    &:nth-child(1) {
+      background: #f47e60;
+      transform: translate(73px, 15px) scale(1);
+      animation: load-r 0.4098360655737705s infinite cubic-bezier(0, 0.5, 0.5, 1), load-c 1.639344262295082s infinite step-start;
+    }
 
-.load div:nth-child(3) {
-  animation-delay: -0.819672131147541s;
-  background: #f47e60;
-}
+    &:nth-child(2) {
+      animation-delay: -0.4098360655737705s;
+      background: #e15b64;
+    }
 
-.load div:nth-child(4) {
-  animation-delay: -1.2295081967213115s;
-  background: #f8b26a;
-}
+    &:nth-child(3) {
+      animation-delay: -0.819672131147541s;
+      background: #f47e60;
+    }
 
-.load div:nth-child(5) {
-  animation-delay: -1.639344262295082s;
-  background: #abbd81;
+    &:nth-child(4) {
+      animation-delay: -1.2295081967213115s;
+      background: #f8b26a;
+    }
+
+    &:nth-child(5) {
+      animation-delay: -1.639344262295082s;
+      background: #abbd81;
+    }
+  }
 }
 
 .loading-spinner {
@@ -203,19 +217,6 @@ select.form-control:focus {
   overflow: hidden;
   background: transparent;
   margin: 0 auto;
-}
-
-.load {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform: scale(.70);
-  backface-visibility: hidden;
-  transform-origin: 0 0;
-}
-
-.load div {
-  box-sizing: content-box;
 }
 
 .search-field {

@@ -2,8 +2,8 @@
   <%= form_for @order do |form| %>
     <%= render 'errors' %>
     <div class="order-block col-12 rounded p-0">
-      <div class="date-list-menu d-flex justify-content-center align-items-end col-12 p-0">
-        <%= form.label :daily_menu_id, 'для', { :class => 'col-1 pl-0' } %>
+      <div class="date-list-menu d-flex justify-content-center align-items-end col-11 p-0 mx-auto">
+        <%= form.label :daily_menu_id, 'для', { :class => 'col-lg-1 col-2 pl-0' } %>
         <%= form.select(:daily_menu_id, DailyMenu.all.map { |dm| [dm.date, dm.id] },
                         { :prompt => 'Выберите дату' },
                         { :class => 'form-control date-list col-lg-4 col-10' }) %><br>
@@ -11,7 +11,7 @@
       <div class="order col-12 mx-auto p-0" id="order">
         <% if @order.daily_menu.present? %>
           <h3 class="order__title p-3 text-center h4">Выберите блюда для заказа</h3>
-          <ul class="order__list">
+          <ul class="order__list mx-auto">
             <% @daily_menu_items.each do |category, daily_menu_items| %>
               <li class="order__p">
                 <hr>

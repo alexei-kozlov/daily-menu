@@ -1,27 +1,27 @@
-<div class="container col-12 p-0 text-danger text-center mb-2">
+<div class="container col-10 col-md-8 p-0 text-danger text-center mb-2">
   <%= flash.notice %>
 </div>
-<div class="col-8 mx-auto">
-<div class="container d-flex flex-wrap justify-content-between align-items-center">
-  <h3 class="pl-0"><%= @cat.title %></h3>
-  <div class="control-block col-5 d-flex flex-wrap justify-content-end align-items-center">
+<div class="col-md-8 col-12 mx-auto">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <h3 class="pl-0 text-center"><%= @cat.title %></h3>
+    <div class="control-block col-5 d-flex flex-wrap justify-content-end align-items-center">
       <%= link_to content_tag('i, class="fas fa-pen"'),
-          edit_category_path(@cat), :class => 'btn btn-warning btn-sm m-1' %>
+                  edit_category_path(@cat), :class => 'btn btn-warning btn-sm m-1' %>
       <%= link_to content_tag('i, class="fas fa-trash"'),
-          category_path(@cat), method: :delete, data:{confirm: "Вы действительно хотите удалить эту категорию?"},
-          :class => 'btn btn-danger btn-sm m-1' %>
+                  category_path(@cat), method: :delete, data: { confirm: "Вы действительно хотите удалить эту категорию?" },
+                  :class => 'btn btn-danger btn-sm m-1' %>
+    </div>
   </div>
-</div>
-<div class="container">
-  <% MenuItem.where(category_id: @cat.id).each do |dish| %>
-    <li>
-      <%= dish.title %>
-      <span class="text-lowercase">(<%= dish.pricing.pricing_desc %>) -
-      <%= dish.volume %> <%= dish.unit.unit_desc %></span>
-    </li>
-  <% end %>
-</div>
-<div class="text-right mr-4">
-  <%= link_to "К категориям", categories_path, :class => 'btn btn-secondary m-2' %>
-</div>
+  <div class="container">
+    <% MenuItem.where(category_id: @cat.id).each do |dish| %>
+      <li>
+        <%= dish.title %>
+        <span class="text-lowercase">(<%= dish.pricing.pricing_desc %>) -
+          <%= dish.volume %> <%= dish.unit.unit_desc %></span>
+      </li>
+    <% end %>
+  </div>
+  <div class="text-right mr-4">
+    <%= link_to "К категориям", categories_path, :class => 'btn btn-secondary m-2' %>
+  </div>
 </div>
