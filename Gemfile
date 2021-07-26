@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '~> 4.4'
 # Use link_to_add...
 gem 'link_to_add_fields', '~> 0.1.0'
+# Use Bootstrap fw
+gem 'bootstrap', '~> 5.0.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

@@ -5,5 +5,5 @@ class OrderItem < ApplicationRecord
 	validates :cost, presence: false
 
 	belongs_to :order
-	has_one :daily_menu_item
+	belongs_to :daily_menu_item
 end

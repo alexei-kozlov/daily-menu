@@ -4,31 +4,18 @@
     <option name="SPLITTER_PROPORTION" value="0.59267735" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Orders &amp; OrderItems nested form">
+    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Added some styling">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dinner-menu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dinner-menu.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/daily_menus.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/categories/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/categories/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/_daily_menu_item_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/_daily_menu_item_fields.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/menu_items/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/menu_items/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/menu_items/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/menu_items/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/menu_items/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/menu_items/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/order_item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order_item.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/orders/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/orders/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/orders/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/orders/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/new.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/orders/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/show.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +201,8 @@
       <workItem from="1626854669795" duration="3212000" />
       <workItem from="1626931314315" duration="960000" />
       <workItem from="1626933469263" duration="41719000" />
-      <workItem from="1627101047504" duration="17856000" />
+      <workItem from="1627101047504" duration="21803000" />
+      <workItem from="1627276693329" duration="20451000" />
     </task>
     <task id="LOCAL-00001" summary="Edited DailyMenu's categories view --f">
       <created>1625573759500</created>
@@ -279,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626790803657</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added some styling">
+      <created>1627121278735</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1627121278735</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,9 +301,10 @@
     <MESSAGE value="Edited 'orders/new' &amp; 'orders/edit'" />
     <MESSAGE value="Edited Orders &amp; OrderItems table db:migrate" />
     <MESSAGE value="Edited Orders &amp; OrderItems nested form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited Orders &amp; OrderItems nested form" />
+    <MESSAGE value="Added some styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some styling" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1627102402984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
+    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1627276890254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
   </component>
 </project>

@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		puts order_params
+
 		if @order.update(order_params)
 			redirect_to @order
 		else
@@ -56,10 +56,9 @@ class OrdersController < ApplicationController
 
 	def order_params
 		params.require(:order)
-			  .permit(:id, :total_cost,
+			  .permit(:id, :total_cost, :daily_menu_id,
 					  order_items_attributes: [
 						:id,
-						:daily_menu_id,
 						:daily_menu_item_id,
 						:quantity_por,
 						:quantity_vol,
