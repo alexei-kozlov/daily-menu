@@ -8,7 +8,8 @@
     <% @order.order_items.each do |item| %>
       <li class="d-flex justify-content-between align-items-center order__form-group">
         <% if item.daily_menu_item_id %>
-          <%= item.daily_menu_item_id %> -
+          <%= item.daily_menu_item.menu_item.title %>
+          (<%= item.daily_menu_item.menu_item.category.title %>) -
           <%= item.cost %> грн
         <% end %>
         <% if item.quantity_por %>

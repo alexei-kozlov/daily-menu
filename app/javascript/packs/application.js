@@ -84,10 +84,10 @@ ActiveStorage.start()
     // Add trigger to onChange event for MenuItem
     $(document).ready(function () {
         $('.menu-item-list').trigger('change');
-        $('.order__check').trigger('change');
+        // $('.order__check').trigger('click');
         $('.date-list-menu option').attr('data-url', 'new?daily_menu_id=');
 
-        let orderTotalCost = $('.order__total-cost').val(),
+        /*let orderTotalCost = $('.order__total-cost').val(),
             orderTotalCostDesc = $('.order__total-cost-desc');
         if (orderTotalCost)
             orderTotalCostDesc.text(orderTotalCost + ' грн.');
@@ -99,7 +99,7 @@ ActiveStorage.start()
         if (orderCost)
             orderCostDesc.text(orderCost + ' грн.');
         else
-            orderCostDesc.text('0.00 грн.');
+            orderCostDesc.text('0.00 грн.');*/
     });
 
     // Add prev price to input
@@ -154,17 +154,20 @@ ActiveStorage.start()
     $(document).on('click', '.order__check', function () {
         let orderPriceField = $(this).closest('.order__item').find('.order__cost'),
             prevQtyPor = $(this).closest('.order__item').find('.order__por'),
+            checkHidden = $(this).closest('.order__item').find('.checkbox-hidden'),
             prevQtyVol = $(this).closest('.order__item').find('.order__vol'),
             prevCostDesc = $(this).closest('.order__item').find('.order__cost-desc'),
             volume = $(this).data('volume'),
             price = $(this).data('price');
 
         if ($(this).is(':checked')) {
+            checkHidden.attr('checked', 'checked');
             orderPriceField.val(price);
             prevQtyPor.removeAttr('disabled').val('1');
             prevQtyVol.removeAttr('disabled').val(volume);
             prevCostDesc.text(price + ' грн.');
         } else {
+            checkHidden.removeAttr('checked');
             orderPriceField.val('');
             prevQtyPor.attr('disabled', 'disabled').val('');
             prevQtyVol.attr('disabled', 'disabled').val('');
