@@ -43,7 +43,7 @@ class DailyMenusController < ApplicationController
 		@menu = DailyMenu.find(params[:id])
 
 		@menu.destroy
-		redirect_to orderItems_path
+		redirect_to daily_menus_path
 	end
 
 	private
