@@ -11,7 +11,7 @@
     <div class="mx-auto text-right">
       <%= link_to_add_fields 'Добавить блюдо', form, :daily_menu_items,
       :class => "btn btn-sm btn-warning mb-4 col-12" %><br>
-      <%= form.submit(current_page?(new_daily_menu_path) ? 'Создать' : 'Сохранить',
+      <%= form.submit(current_page?(new_orderItem_path) ? 'Создать' : 'Сохранить',
       {:class => 'btn btn-success'}) %><br>
     </div>
   <% end %>

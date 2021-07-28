@@ -3,7 +3,7 @@
   <%= sortable "date", "Сортировать по: " %>
 </p>
 <% @menus.each do |menu| %>
-  <%= link_to daily_menu_path(menu), :class => 'daily-menu-item container col-md-6 col-10 mx-auto p-0 d-block h3' do %>
+  <%= link_to orderItem_path(menu), :class => 'daily-menu-item container col-md-6 col-10 mx-auto p-0 d-block h3' do %>
     <div class="wrapper alert alert-dark d-flex pl-2 flex-wrap justify-content-between align-items-center border p-0">
       <span><%= l menu.date %></span>
       <%= content_tag(:div, content_tag(:i, nil,:class => 'fas fa-info'),
@@ -12,5 +12,5 @@
   <% end %>
 <% end %>
 <div class="mx-auto text-right col-md-6 col-10 p-0 mt-4">
-  <%= link_to "Создать дневное меню", new_daily_menu_path, :class => 'btn btn-success col-12' %>
+  <%= link_to "Создать дневное меню", new_orderItem_path, :class => 'btn btn-success col-12' %>
 </div>
