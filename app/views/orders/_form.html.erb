@@ -6,7 +6,9 @@
         <%= form.label :daily_menu_id, 'для', { :class => 'col-lg-1 col-2 pl-0' } %>
         <%= form.select(:daily_menu_id, DailyMenu.all.map { |dm| [dm.date, dm.id] },
                         { :prompt => 'Выберите дату' },
-                        { :class => 'form-control date-list col-lg-4 col-10' }) %><br>
+                        { :class => 'form-control date-list col-lg-4 col-10',
+                          :disabled => controller?('orders') && action?('edit') ? true : false
+                        }) %><br>
       </div>
       <div class="order col-12 mx-auto p-0" id="order">
         <% if @order.daily_menu.present? %>
@@ -31,12 +33,12 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
       <p class="order__total-cost-title m-0">Общая стоимость заказа:</p>
       <div class="order__total-cost-value d-flex justify-content-end align-items-center">
-        <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__total-cost-desc flex-grow-1") %>
+        <%= content_tag(:span, '0.00 грн.', :class => 'order__form-input order__total-cost-desc flex-grow-1') %>
         <%= form.hidden_field(:total_cost, { :class => 'order__form-input order__total-cost form-control m-2' }) %>
       </div>
     </div>
     <div class="mx-auto text-right">
-      <%= link_to "Назад", orders_path, :class => 'btn btn-secondary' %>
+      <%= link_to 'Назад', orders_path, :class => 'btn btn-secondary' %>
       <%= form.submit(current_page?(new_order_path) ? 'Создать' : 'Сохранить', { :class => 'btn btn-success' }) %>
     </div>
   <% end %>

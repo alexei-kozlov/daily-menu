@@ -86,7 +86,20 @@ ActiveStorage.start()
         $('.menu-item-list').trigger('change');
         $('.order__por').trigger('change');
         $('.order__vol').trigger('change');
-        $('.date-list-menu option').attr('data-url', 'new?daily_menu_id=');
+
+        $('.date-list-menu option').each(function () {
+            let url = window.location.href,
+                host = window.location.host;
+            if (url.indexOf(host + '/orders/') !== -1) {
+                if ($(this).val().length !== 0)
+                    $(this).attr('data-url', 'new?daily_menu_id=');
+                else $(this).attr('data-url', 'new');
+            } else {
+                if ($(this).val().length !== 0)
+                    $(this).attr('data-url', '/orders/new?daily_menu_id=');
+                else $(this).attr('data-url', '/orders/new');
+            }
+        });
 
         let orderCost = $('.order__cost').closest('.order__form-group').find('.order__cost').val(),
             orderCostDesc = $('.order__cost-desc').closest('.order__form-group').find('.order__cost-desc');
@@ -98,7 +111,7 @@ ActiveStorage.start()
         $('.order__check[checked=checked]').each(function () {
             $(this).closest('.order__item').find('.checkbox-hidden').attr('checked', 'checked');
             $(this).closest('.order__item').find('.order__cost').val($(this).data('price'));
-            $(this).closest('.order__item').find('.order__por').removeAttr('disabled').val('1');
+            $(this).closest('.order__item').find('.order__por').removeAttr('disabled').val($(this).data('portion'));
             $(this).closest('.order__item').find('.order__vol').removeAttr('disabled').val($(this).data('volume'));
             $(this).closest('.order__item').find('.order__cost-desc').text($(this).data('price') + ' грн.');
         });
@@ -182,23 +195,26 @@ ActiveStorage.start()
 
     // Checked event on create OrderItem from DailyMenuItem
     $(document).on('click', '.order__check', function () {
-        let orderPriceField = $(this).closest('.order__item').find('.order__cost'),
-            prevQtyPor = $(this).closest('.order__item').find('.order__por'),
-            checkHidden = $(this).closest('.order__item').find('.checkbox-hidden'),
-            prevQtyVol = $(this).closest('.order__item').find('.order__vol'),
+        let checkHidden = $(this).closest('.order__item').find('.checkbox-hidden'),
+            prevCost = $(this).closest('.order__item').find('.order__cost'),
             prevCostDesc = $(this).closest('.order__item').find('.order__cost-desc'),
+            prevQtyPor = $(this).closest('.order__item').find('.order__por'),
+            prevQtyVol = $(this).closest('.order__item').find('.order__vol'),
             volume = $(this).data('volume'),
+            portion = $(this).data('portion'),
             price = $(this).data('price');
+
+        console.log(prevQtyVol.val());
 
         if ($(this).is(':checked')) {
             checkHidden.attr('checked', 'checked');
-            orderPriceField.val(price);
-            prevQtyPor.removeAttr('disabled').val('1');
+            prevCost.val(price);
+            prevQtyPor.removeAttr('disabled').val(portion);
             prevQtyVol.removeAttr('disabled').val(volume);
             prevCostDesc.text(price + ' грн.');
         } else {
             checkHidden.removeAttr('checked');
-            orderPriceField.val('');
+            prevCost.val('');
             prevQtyPor.attr('disabled', 'disabled').val('');
             prevQtyVol.attr('disabled', 'disabled').val('');
             prevCostDesc.text('0.00 грн');

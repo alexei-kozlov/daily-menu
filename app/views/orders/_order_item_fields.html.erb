@@ -18,9 +18,15 @@
         :checked => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ? true : false,
         :id => "order_order_items_attributes_#{ daily_menu_item.id }_daily_menu_item_id",
         :name => "order[order_items_attributes][#{ daily_menu_item.id }][daily_menu_item_id]",
-        'data-price' => daily_menu_item.price,
+        'data-price' => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ?
+                          @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).cost :
+                          daily_menu_item.price,
         'data-pricing' => daily_menu_item.menu_item.pricing.pricing_type,
-        'data-volume' => daily_menu_item.menu_item.volume,
+        'data-volume' => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ?
+                           @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).quantity_vol :
+                           daily_menu_item.menu_item.volume,
+        'data-portion' => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ?
+                            @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).quantity_por : 1,
         'data-unit' => daily_menu_item.menu_item.unit.unit_type
       }, daily_menu_item.id %>
       <%= form.label :daily_menu_item_id, { :for => "order_order_items_attributes_#{ daily_menu_item.id }_daily_menu_item_id",

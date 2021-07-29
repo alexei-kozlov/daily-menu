@@ -26,12 +26,6 @@ ru:
               blank: "Единицы измерения должны быть заданы"
             unit:
               required: "Поле выбора единиц измерения обязательно для заполнения"
-        daily_menu:
-          attributes:
-            date:
-              blank: "Выберите дату!"
-            daily_menu_items:
-              invalid: "Не удалось сформировать блюдо дневного меню"
         daily_menu_item:
           attributes:
             menu_item_id:
@@ -40,6 +34,19 @@ ru:
               required: "Поле выбора блюда обязательно для заполнения"
             price:
               blank: "Введите цену блюда!"
+        daily_menu:
+          attributes:
+            date:
+              blank: "Выберите дату!"
+            daily_menu_items:
+              invalid: "Не удалось сформировать блюдо дневного меню"
+        order:
+          attributes:
+            daily_menu_id:
+              blank: "Выберите дневное меню!"
+            daily_menu:
+              required: "Поле выбора даты дневного меню обязательно!"
+
   date:
     formats:
       default: "%d %B %Y"

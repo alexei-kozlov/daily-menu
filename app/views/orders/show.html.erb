@@ -1,7 +1,9 @@
 <h1 class="text-center" style="font-family: Pacifico, serif;">Заказ</h1>
 <div class="container pl-4 pr-4">
   <div class="d-flex flex-wrap flex-column justify-content-between align-items-start">
-    <h2 class="h4 mx-auto align-self-center mb-2">от <%= l @order.created_at %></h2>
+    <h2 class="h4 mx-auto align-self-center mb-2">
+      от <%= l @order.created_at %>
+    </h2>
   </div>
   <hr>
   <ul class="mx-auto p-0 col-md-6 col-10">
@@ -28,6 +30,9 @@
   <div class="mx-auto text-md-right text-center col-12 pr-0">
     <%= link_to "Назад", orders_path, :class => 'btn btn-secondary mb-2' %>
     <%= link_to "Редактировать", edit_order_path, :class => 'btn btn-warning mb-2' %>
-    <%= link_to "Удалить", order_path, method: :delete, data: { confirm: "Вы действительно хотите удалить этот заказ?" }, :class => 'btn btn-danger mb-2' %>
+    <%= link_to "Удалить", order_path,
+                method: :delete,
+                data: { confirm: "Вы действительно хотите удалить этот заказ?" },
+                :class => 'btn btn-danger mb-2' %>
   </div>
 </div>

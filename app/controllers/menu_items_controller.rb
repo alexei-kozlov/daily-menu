@@ -50,7 +50,6 @@ class MenuItemsController < ApplicationController
 		else
 			redirect_to @dish
 			flash.notice = "Блюдо «#{@dish.title}» не может быть удалено, т.к. оно включено в дневное меню!"
-			# flash.notice = "«#{@dish.title}» can not be deleted, because it is included in the daily menu!"
 		end
 	end
 

@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
 	validates :total_cost, presence: true
-	validates :daily_menu_id, presence: false
+	validates :daily_menu_id, presence: true
 
 	belongs_to :daily_menu
 	has_many :order_items, dependent: :destroy

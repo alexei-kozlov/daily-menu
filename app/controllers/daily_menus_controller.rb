@@ -42,8 +42,12 @@ class DailyMenusController < ApplicationController
 	def destroy
 		@menu = DailyMenu.find(params[:id])
 
-		@menu.destroy
-		redirect_to daily_menus_path
+		if @menu.destroy
+			redirect_to daily_menus_path
+		else
+			redirect_to @menu
+			flash.notice = "Дневное меню на #{l @menu.date} года не может быть удалено, т.к. есть действующий заказ, созданный на его основе!"
+		end
 	end
 
 	private

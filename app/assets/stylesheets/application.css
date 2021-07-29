@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+.field_with_errors {
+  width: inherit;
+}
+
+.field_with_errors:nth-child(odd) {
+  text-align: right;
+}
+
+.field_with_errors:nth-child(even) {
+  text-align: left;
+}
