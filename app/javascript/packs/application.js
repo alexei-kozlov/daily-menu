@@ -204,8 +204,6 @@ ActiveStorage.start()
             portion = $(this).data('portion'),
             price = $(this).data('price');
 
-        console.log(prevQtyVol.val());
-
         if ($(this).is(':checked')) {
             checkHidden.attr('checked', 'checked');
             prevCost.val(price);
@@ -224,6 +222,14 @@ ActiveStorage.start()
         $('.order__vol').trigger('change');
         totalCost();
     });
+
+   /* $(document).on('submit', '#new_order', function () {
+        if ($(this).find('.order__check').val() !== 0) {
+            $('.order_message').show();
+            return false;
+        } else
+            return true;
+    });*/
 
 })(jQuery);
 
