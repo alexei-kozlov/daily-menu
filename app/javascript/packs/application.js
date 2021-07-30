@@ -13,7 +13,6 @@ Rails.start()
 ActiveStorage.start()
 
 ;(function ($) {
-
     // Add onChange event for MenuItem
     $(document).on('change', '.menu-item-list', function () {
         // Add description library
@@ -87,6 +86,7 @@ ActiveStorage.start()
         $('.order__por').trigger('change');
         $('.order__vol').trigger('change');
 
+        // Calling function to get value DailyMenu.select in some actions (:new or :edit)
         $('.date-list-menu option').each(function () {
             let url = window.location.href,
                 host = window.location.host;
@@ -101,20 +101,16 @@ ActiveStorage.start()
             }
         });
 
-        let orderCost = $('.order__cost').closest('.order__form-group').find('.order__cost').val(),
-            orderCostDesc = $('.order__cost-desc').closest('.order__form-group').find('.order__cost-desc');
-        if (orderCost)
-            orderCostDesc.text(orderCost + ' грн.');
-        else
-            orderCostDesc.text('0.00 грн.');
-
+        // Calculate OrderItem's quantity of portion & volume, cost on edit Order
         $('.order__check[checked=checked]').each(function () {
-            $(this).closest('.order__item').find('.checkbox-hidden').attr('checked', 'checked');
-            $(this).closest('.order__item').find('.order__cost').val($(this).data('price'));
-            $(this).closest('.order__item').find('.order__por').removeAttr('disabled').val($(this).data('portion'));
-            $(this).closest('.order__item').find('.order__vol').removeAttr('disabled').val($(this).data('volume'));
-            $(this).closest('.order__item').find('.order__cost-desc').text($(this).data('price') + ' грн.');
+            let checkItem = $(this).closest('.order__item');
+            checkItem.find('.destroy-field').val('0');
+            checkItem.find('.order__cost').val($(this).data('price'));
+            checkItem.find('.order__por').removeAttr('disabled').val($(this).data('portion'));
+            checkItem.find('.order__vol').removeAttr('disabled').val($(this).data('volume'));
+            checkItem.find('.order__cost-desc').text($(this).data('price') + ' грн.');
         });
+        // Calculate TotalCost on edit Order
         totalCost();
     });
 
@@ -171,8 +167,9 @@ ActiveStorage.start()
         let currentQtyPor = $(this).closest('.order__form-group').find('.order__por').val(),
             currentCost = $(this).closest('.order__form-group').find('.order__cost'),
             currentCostDesc = $(this).closest('.order__form-group').find('.order__cost-desc'),
+            portion = $(this).closest('.order__item').find('.order__check').data('portion'),
             price = $(this).closest('.order__item').find('.order__check').data('price'),
-            cost = (price * currentQtyPor).toFixed(2);
+            cost = (price * currentQtyPor / portion).toFixed(2);
 
         currentCost.val(cost);
         currentCostDesc.text(cost + ' грн.');
@@ -195,7 +192,7 @@ ActiveStorage.start()
 
     // Checked event on create OrderItem from DailyMenuItem
     $(document).on('click', '.order__check', function () {
-        let checkHidden = $(this).closest('.order__item').find('.checkbox-hidden'),
+        let destroyField = $(this).closest('.order__item').find('.destroy-field'),
             prevCost = $(this).closest('.order__item').find('.order__cost'),
             prevCostDesc = $(this).closest('.order__item').find('.order__cost-desc'),
             prevQtyPor = $(this).closest('.order__item').find('.order__por'),
@@ -205,16 +202,18 @@ ActiveStorage.start()
             price = $(this).data('price');
 
         if ($(this).is(':checked')) {
-            checkHidden.attr('checked', 'checked');
-            prevCost.val(price);
+            destroyField.val('0');
             prevQtyPor.removeAttr('disabled').val(portion);
             prevQtyVol.removeAttr('disabled').val(volume);
+            prevCost.val(price);
             prevCostDesc.text(price + ' грн.');
+            $('input[type=submit]').removeAttr('disabled');
+            $('.order_message').hide();
         } else {
-            checkHidden.removeAttr('checked');
-            prevCost.val('');
+            destroyField.val('1');
             prevQtyPor.attr('disabled', 'disabled').val('');
             prevQtyVol.attr('disabled', 'disabled').val('');
+            prevCost.val('');
             prevCostDesc.text('0.00 грн');
         }
 
@@ -223,14 +222,15 @@ ActiveStorage.start()
         totalCost();
     });
 
-   /* $(document).on('submit', '#new_order', function () {
-        if ($(this).find('.order__check').val() !== 0) {
+    // Validation of checkboxes Order's form (checked / unchecked)
+    $(document).on('submit', '#new_order', function () {
+        if ($(this).find('.destroy-field').val() === '1') {
             $('.order_message').show();
             return false;
-        } else
+        } else {
             return true;
-    });*/
-
+        }
+    });
 })(jQuery);
 
 

@@ -1,3 +1,6 @@
+<div class="container col-12 p-0 text-black text-center mb-2 bg-warning rounded">
+  <%= flash.notice %>
+</div>
 <div class="col-md-12 mx-auto">
   <%= form_for @menu do |form| %>
     <%= render 'errors' %>
@@ -9,11 +12,11 @@
       <%= render partial: 'daily_menu_item_fields', locals: {f: item} %>
     <% end %>
     <div class="mx-auto text-right">
-      <%= link_to_add_fields 'Добавить блюдо', form, :daily_menu_items,
-      :class => "btn btn-sm btn-warning mb-4 col-12" %><br>
-      <%= form.submit(current_page?(new_daily_menu_path) ? 'Создать' : 'Сохранить',
-      {:class => 'btn btn-success'}) %><br>
+      <%= link_to_add_fields 'Добавить блюдо', form, :daily_menu_items, :class => "btn btn-sm btn-warning mb-4 col-12" %>
+    </div>
+    <div class="mx-auto text-md-right text-center col-12 pr-0">
+      <%= link_to "Назад", current_page?(new_daily_menu_path) ? home_path : daily_menu_path, :class => 'btn btn-secondary' %>
+      <%= form.submit(current_page?(new_daily_menu_path) ? 'Создать' : 'Сохранить', {:class => 'btn btn-success'}) %>
     </div>
   <% end %>
 </div>
-

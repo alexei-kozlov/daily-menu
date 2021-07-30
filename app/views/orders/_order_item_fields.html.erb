@@ -8,11 +8,12 @@
           :value => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).id
         } %>
       <% end %>
-      <%= form.check_box :_destroy, {
-        :class => 'checkbox-hidden',
+      <%= form.hidden_field :_destroy, {
+        :class => 'destroy-field',
         :id => "order_order_items_attributes_#{ daily_menu_item.id }__destroy",
-        :name => "order[order_items_attributes][#{ daily_menu_item.id }][_destroy]"
-      }, '0', '1' %>
+        :name => "order[order_items_attributes][#{ daily_menu_item.id }][_destroy]",
+        :value => '1'
+      } %>
       <%= form.check_box :daily_menu_item_id, {
         :class => 'order__check',
         :checked => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ? true : false,
@@ -69,7 +70,7 @@
         <% end %>
       </div>
       <div class="d-flex align-items-center">
-        <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc") %>
+        <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc flex-grow-1") %>
         <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2',
                                        :id => "order_order_items_attributes_#{ daily_menu_item.id }_cost",
                                        :name => "order[order_items_attributes][#{ daily_menu_item.id }][cost]" }) %>
