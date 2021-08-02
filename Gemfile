@@ -31,6 +31,10 @@ gem 'jquery-rails', '~> 4.4'
 gem 'link_to_add_fields', '~> 0.1.0'
 # Use Bootstrap fw
 gem 'bootstrap', '~> 5.0.1'
+# Use Pagination (Kaminari)
+gem 'kaminari', '~> 1.2.0'
+# Use Pagination (Will_Paginate)
+gem 'will_paginate', '~> 3.1.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

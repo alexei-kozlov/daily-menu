@@ -2,29 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.field_with_errors {
-  width: inherit;
-  text-align: center;
+.pagination {
+  margin: 0 auto 20px;
+  padding: 0;
+  & .page,
+  & .first,
+  & .next,
+  & .prev,
+  & .last {
+    display: inline-block;
+    margin: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    transition-duration: .2s;
 
-  & .date-list {
-    width: 30vw;
-    text-align: center;
-
-    @media screen and (max-width: 1400px) {
-      width: 50vw;
+    & a {
+      color: #fff;
     }
-    @media screen and (max-width: 800px) {
-      width: 80vw;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      box-shadow: 0 0 4px #000;
+      transition-duration: .2s;
     }
-  }
-
-  &:nth-child(odd) {
-    text-align: right;
-    margin-right: 20px;
-  }
-
-  &:nth-child(even) {
-    text-align: left;
+    &:hover a,
+    &:focus a {
+      text-decoration: none;
+    }
   }
 }
 
@@ -94,5 +100,31 @@
   &__desc {
     padding: 0;
     margin: 0;
+  }
+}
+
+.field_with_errors {
+  width: inherit;
+  text-align: center;
+
+  & .date-list {
+    width: 30vw;
+    text-align: center;
+
+    @media screen and (max-width: 1400px) {
+      width: 50vw;
+    }
+    @media screen and (max-width: 800px) {
+      width: 80vw;
+    }
+  }
+
+  &:nth-child(odd) {
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  &:nth-child(even) {
+    text-align: left;
   }
 }
