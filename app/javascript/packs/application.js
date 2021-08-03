@@ -80,40 +80,6 @@ ActiveStorage.start()
         }
     });
 
-    // Add trigger to onChange event for MenuItem
-    $(document).ready(function () {
-        $('.menu-item-list').trigger('change');
-        $('.order__por').trigger('change');
-        $('.order__vol').trigger('change');
-
-        // Calling function to get value DailyMenu.select in some actions (:new or :edit)
-        $('.date-list-menu option').each(function () {
-            let url = window.location.href,
-                host = window.location.host;
-            if (url.indexOf(host + '/orders/') !== -1) {
-                if ($(this).val().length !== 0)
-                    $(this).attr('data-url', 'new?daily_menu_id=');
-                else $(this).attr('data-url', 'new');
-            } else {
-                if ($(this).val().length !== 0)
-                    $(this).attr('data-url', '/orders/new?daily_menu_id=');
-                else $(this).attr('data-url', '/orders/new');
-            }
-        });
-
-        // Calculate OrderItem's quantity of portion & volume, cost on edit Order
-        $('.order__check[checked=checked]').each(function () {
-            let checkItem = $(this).closest('.order__item');
-            checkItem.find('.destroy-field').val('0');
-            checkItem.find('.order__cost').val($(this).data('price'));
-            checkItem.find('.order__por').removeAttr('disabled').val($(this).data('portion'));
-            checkItem.find('.order__vol').removeAttr('disabled').val($(this).data('volume'));
-            checkItem.find('.order__cost-desc').text($(this).data('price') + ' грн.');
-        });
-        // Calculate TotalCost on edit Order
-        totalCost();
-    });
-
     // Add prev price to input
     $(document).on('click', '.prev-price__item', function () {
         let prevPrice = $(this).attr('data-price');
@@ -230,6 +196,42 @@ ActiveStorage.start()
         } else {
             return true;
         }
+    });
+
+    // Add trigger some events
+    $(document).ready(function () {
+        $('.menu-item-list').trigger('change');
+        $('.order__por').trigger('change');
+        $('.order__vol').trigger('change');
+
+        // Calling function to get value DailyMenu.select in some actions (:new or :edit)
+        $('.date-list-menu option').each(function () {
+            let url = window.location.href,
+                host = window.location.host;
+            if (url.indexOf(host + '/orders/') !== -1) {
+                if ($(this).val().length !== 0)
+                    $(this).attr('data-url', 'new?daily_menu_id=');
+                else
+                    $(this).attr('data-url', 'new');
+            } else {
+                if ($(this).val().length !== 0)
+                    $(this).attr('data-url', '/orders/new?daily_menu_id=');
+                else
+                    $(this).attr('data-url', '/orders/new');
+            }
+        });
+
+        // Calculate OrderItem's quantity of portion & volume, cost on edit Order
+        $('.order__check[checked=checked]').each(function () {
+            let checkItem = $(this).closest('.order__item');
+            checkItem.find('.destroy-field').val('0');
+            checkItem.find('.order__cost').val($(this).data('price'));
+            checkItem.find('.order__por').removeAttr('disabled').val($(this).data('portion'));
+            checkItem.find('.order__vol').removeAttr('disabled').val($(this).data('volume'));
+            checkItem.find('.order__cost-desc').text($(this).data('price') + ' грн.');
+        });
+        // Calculate TotalCost on edit Order
+        totalCost();
     });
 })(jQuery);
 

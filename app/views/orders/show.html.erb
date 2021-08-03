@@ -15,9 +15,11 @@
           <%= item.cost %> грн
         <% end %>
         <% if item.quantity_por %>
-          за <%= item.quantity_por %> порц(-ию, -ий, -ии)
+          за <%= item.quantity_por %>
+          <%= portion(item.quantity_por) %>
         <% elsif item.quantity_vol %>
-          за <%= item.quantity_vol %> грамм (мл)
+          за <%= item.quantity_vol %>
+          <%= item.daily_menu_item.menu_item.unit.unit_desc %>
         <% end %>
       </li>
     <% end %>

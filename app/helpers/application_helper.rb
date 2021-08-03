@@ -42,4 +42,25 @@ module ApplicationHelper
 		action.include?(params[:action])
 	end
 
+	def portion(number)
+		reminder = number % 10
+		if reminder == 1
+			description = 'порцию'
+		end
+
+		if reminder >= 2 && reminder <= 4
+			description = 'порции'
+		end
+
+		if reminder >= 5 && reminder <= 9 || reminder == 0
+			description = 'порций'
+		end
+
+		if number == nil || !number.is_a?(Numeric)
+			number == 0
+		end
+
+		return description
+	end
+
 end

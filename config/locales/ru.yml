@@ -46,8 +46,20 @@ ru:
             daily_menu_id:
               blank: "Выберите дневное меню!"
             daily_menu:
-              required: "Поле выбора даты дневного меню обязательно!"
-
+              required: "Поле выбора даты дневного меню обязательно"
+            order_items:
+              invalid: "Не удалось сформировать блюдо заказа"
+            total_cost:
+              greater_than_or_equal_to: "Значение стоимости заказа не может быть отрицательным"
+              blank: "Установите общую цену заказа!"
+        order_item:
+          attributes:
+            quantity_vol:
+              greater_than_or_equal_to: "Минимальный вес/объем порции - %{count} грамм/мл"
+            quantity_por:
+              greater_than_or_equal_to: "Минимальное количество порций - %{count}"
+            cost:
+              greater_than_or_equal_to: "Значение стоимости блюда не может быть отрицательным"
   date:
     formats:
       default: "%d %B %Y"
@@ -67,7 +79,7 @@ ru:
       - декабря
   time:
     formats:
-      default: "%k:%M — %d %B %Y"
+      default: "%d %B %Y — %k:%M"
     month_names:
       -
       - января

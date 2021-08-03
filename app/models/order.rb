@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-	validates :total_cost, presence: true
+	validates :total_cost, presence: true, numericality: { greater_than_or_equal_to: 0 }
 	validates :daily_menu_id, presence: true
 
 	belongs_to :daily_menu

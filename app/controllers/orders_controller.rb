@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
+
 	def index
-		@orders = Order.all.paginate(page: params[:page], :per_page => 5)
+		@orders = Order.all.order(created_at: :desc).paginate(page: params[:page], :per_page => 5)
 	end
 
 	def new
