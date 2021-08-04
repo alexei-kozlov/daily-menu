@@ -30,8 +30,9 @@
                             @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).quantity_por : 1,
         'data-unit' => daily_menu_item.menu_item.unit.unit_type
       }, daily_menu_item.id %>
-      <%= form.label :daily_menu_item_id, { :for => "order_order_items_attributes_#{ daily_menu_item.id }_daily_menu_item_id",
-                                            :class => 'order__label' } do %>
+      <%= form.label :daily_menu_item_id, {
+        :for => "order_order_items_attributes_#{ daily_menu_item.id }_daily_menu_item_id",
+        :class => 'order__label' } do %>
         <p class="order__desc">
           <%= daily_menu_item.menu_item.title %> -
           <%= daily_menu_item.price %> грн/

@@ -6,6 +6,6 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="next bg-info">
+<span class="next bg-info<%= ' current bg-white text-info text-capitalize' if current_page.last? %>">
   <%= link_to_unless current_page.last?, t('views.pagination.next').html_safe, url, rel: 'next', remote: remote %>
 </span>

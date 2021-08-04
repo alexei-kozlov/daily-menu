@@ -113,7 +113,7 @@ ActiveStorage.start()
     // Initializing & calling function to get value DailyMenu.select
     $(document).on('change', '.date-list', function () {
         let selectedDateValue = this.options[this.selectedIndex].value;
-        window.location.href = $('.date-list-menu :selected').data('url') + selectedDateValue;
+        window.location.href = $('.date-list :selected').data('url') + selectedDateValue;
     });
 
     // Initializing function to get Order's total cost
@@ -205,7 +205,7 @@ ActiveStorage.start()
         $('.order__vol').trigger('change');
 
         // Calling function to get value DailyMenu.select in some actions (:new or :edit)
-        $('.date-list-menu option').each(function () {
+        $('.date-list option').each(function () {
             let url = window.location.href,
                 host = window.location.host;
             if (url.indexOf(host + '/orders/') !== -1) {
