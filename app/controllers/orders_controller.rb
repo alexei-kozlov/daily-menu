@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
 	def index
-		@orders = Order.all.order(created_at: :desc).paginate(page: params[:page], :per_page => 5)
+		@orders = Order.all.order(created_at: :desc).paginate(page: params[:page], :per_page => 10)
 	end
 
 	def new
@@ -10,7 +10,10 @@ class OrdersController < ApplicationController
 		if params.key? :daily_menu_id
 			@daily_menu = DailyMenu.find params[:daily_menu_id]
 			@order.daily_menu = @daily_menu
-			@daily_menu_items = @daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
+			@daily_menu_items = @daily_menu
+								  .daily_menu_items
+								  .eager_load(:menu_item => :category)
+								  .group_by { |item| item.menu_item.category }
 		end
 	end
 
@@ -20,7 +23,11 @@ class OrdersController < ApplicationController
 		if @order.save
 			redirect_to @order
 		else
-			@daily_menu_items = @order.daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
+			@daily_menu_items = @order
+								  .daily_menu
+								  .daily_menu_items
+								  .eager_load(:menu_item => :category)
+								  .group_by { |item| item.menu_item.category } if @order.daily_menu.present?
 			render 'new'
 		end
 	end
@@ -31,7 +38,11 @@ class OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-		@daily_menu_items = @order.daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
+		@daily_menu_items = @order
+							  .daily_menu
+							  .daily_menu_items
+							  .eager_load(:menu_item => :category)
+							  .group_by { |item| item.menu_item.category }
 	end
 
 	def update
@@ -40,7 +51,11 @@ class OrdersController < ApplicationController
 		if @order.update(order_params)
 			redirect_to @order
 		else
-			@daily_menu_items = @order.daily_menu.daily_menu_items.eager_load(:menu_item => :category).group_by { |item| item.menu_item.category }
+			@daily_menu_items = @order
+								  .daily_menu
+								  .daily_menu_items
+								  .eager_load(:menu_item => :category)
+								  .group_by { |item| item.menu_item.category }
 			render 'edit'
 		end
 	end

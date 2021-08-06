@@ -192,13 +192,13 @@ ActiveStorage.start()
     });
 
     // Validation of checkboxes Order's form (checked / unchecked)
-    $(document).on('submit', '#new_order', function () {
-        if ($(this).find('.destroy-field').val() === 1) {
-            $('.order_message').show();
-            return false;
-        } else {
-            return true;
-        }
+    $(document).on('submit', '#new_order', function (e) {
+        $('.order__check').each(function () {
+            if ($('.order__check').is(':checked') === false) {
+                $('.order_message').show();
+                e.preventDefault();
+            } else return false;
+        });
     });
 
     // Add trigger some events
