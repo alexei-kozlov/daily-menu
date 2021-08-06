@@ -66,10 +66,12 @@
         <% end %>
       </div>
       <div class="d-flex align-items-center">
+        <%= content_tag(:span, @order.order_items.detect { |item| item.daily_menu_item_id == daily_menu_item.id }&.cost) %>
+        /
         <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc flex-grow-1") %>
-        <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2',
-                                       :id => "order_order_items_attributes_#{ daily_menu_item.id }_cost",
-                                       :name => "order[order_items_attributes][#{ daily_menu_item.id }][cost]",
+        <%= form.hidden_field(:cost_per_vol, { :class => 'order__form-input order__cost form-control m-2',
+                                       :id => "order_order_items_attributes_#{ daily_menu_item.id }_cost_per_vol",
+                                       :name => "order[order_items_attributes][#{ daily_menu_item.id }][cost_per_vol]",
                                        :value => @order.order_items.detect { |item| item.daily_menu_item_id == daily_menu_item.id }&.cost
         }) %>
       </div>

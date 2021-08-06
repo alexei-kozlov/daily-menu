@@ -6,4 +6,14 @@ class Order < ApplicationRecord
 	has_many :order_items, dependent: :destroy
 	accepts_nested_attributes_for :order_items, allow_destroy: true
 	validates_associated :order_items
+
+	after_validation :calc_total_cost
+
+	def calc_total_cost
+		self.total_cost = if errors.empty?
+							  order_items.sum(:cost)
+						  else
+							  nil
+						  end
+	end
 end

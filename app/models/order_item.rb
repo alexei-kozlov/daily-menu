@@ -6,4 +6,23 @@ class OrderItem < ApplicationRecord
 
 	belongs_to :order
 	belongs_to :daily_menu_item
+
+	after_validation :calculate_cost
+
+	def cost
+		if quantity_vol.present? && quantity_vol > 0
+			(quantity_vol * daily_menu_item.price / daily_menu_item.menu_item.volume).round(2)
+		elsif quantity_por.present? && quantity_por > 0
+			quantity_por * daily_menu_item.price
+		end
+	end
+
+	def calculate_cost
+		self.cost = if errors.empty?
+						cost
+					else
+						nil
+					end
+	end
+
 end
