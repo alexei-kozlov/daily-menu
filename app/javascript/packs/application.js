@@ -122,7 +122,8 @@ ActiveStorage.start()
             orderTotalCostDesc = $('.order__total-cost-desc'),
             totalCost = 0;
         $('.order__cost').each(function () {
-            totalCost += +$(this).val();
+            if ($(this).val() > 0)
+                totalCost += +$(this).val();
         });
         orderTotalCost.val(totalCost.toFixed(2));
         orderTotalCostDesc.text(totalCost.toFixed(2) + ' грн.');
@@ -137,6 +138,7 @@ ActiveStorage.start()
             price = $(this).closest('.order__item').find('.order__check').data('price'),
             cost = (price * currentQtyPor / portion).toFixed(2);
 
+        if (currentQtyPor < 0) cost = '—';
         currentCost.val(cost);
         currentCostDesc.text(cost + ' грн.');
         totalCost();
@@ -151,6 +153,7 @@ ActiveStorage.start()
             price = $(this).closest('.order__item').find('.order__check').data('price'),
             cost = (price * currentQtyVol / volume).toFixed(2);
 
+        if (currentQtyVol < 0) cost = '—';
         currentCost.val(cost);
         currentCostDesc.text(cost + ' грн.');
         totalCost();
@@ -168,7 +171,7 @@ ActiveStorage.start()
             price = $(this).data('price');
 
         if ($(this).is(':checked')) {
-            destroyField.val('0');
+            destroyField.val(0);
             prevQtyPor.removeAttr('disabled').val(portion);
             prevQtyVol.removeAttr('disabled').val(volume);
             prevCost.val(price);
@@ -176,7 +179,7 @@ ActiveStorage.start()
             $('input[type=submit]').removeAttr('disabled');
             $('.order_message').hide();
         } else {
-            destroyField.val('1');
+            destroyField.val(1);
             prevQtyPor.attr('disabled', 'disabled').val('');
             prevQtyVol.attr('disabled', 'disabled').val('');
             prevCost.val('');
@@ -190,7 +193,7 @@ ActiveStorage.start()
 
     // Validation of checkboxes Order's form (checked / unchecked)
     $(document).on('submit', '#new_order', function () {
-        if ($(this).find('.destroy-field').val() === '1') {
+        if ($(this).find('.destroy-field').val() === 1) {
             $('.order_message').show();
             return false;
         } else {
@@ -224,14 +227,10 @@ ActiveStorage.start()
         // Calculate OrderItem's quantity of portion & volume, cost on edit Order
         $('.order__check[checked=checked]').each(function () {
             let checkItem = $(this).closest('.order__item');
-            checkItem.find('.destroy-field').val('0');
-            checkItem.find('.order__cost').val($(this).data('price'));
-            checkItem.find('.order__por').removeAttr('disabled').val($(this).data('portion'));
-            checkItem.find('.order__vol').removeAttr('disabled').val($(this).data('volume'));
-            checkItem.find('.order__cost-desc').text($(this).data('price') + ' грн.');
+            checkItem.find('.destroy-field').val(0);
+            checkItem.find('.order__por').removeAttr('disabled');
+            checkItem.find('.order__vol').removeAttr('disabled');
         });
-        // Calculate TotalCost on edit Order
-        totalCost();
     });
 })(jQuery);
 

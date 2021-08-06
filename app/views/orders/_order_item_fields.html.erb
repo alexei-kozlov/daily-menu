@@ -5,7 +5,7 @@
         <%= form.hidden_field :id, {
           :id => "order_order_items_attributes_#{ daily_menu_item.id }_id",
           :name => "order[order_items_attributes][#{ daily_menu_item.id }][id]",
-          :value => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).id
+          :value => @order.order_items.detect { |item| item.daily_menu_item_id == daily_menu_item.id }&.id
         } %>
       <% end %>
       <%= form.hidden_field :_destroy, {
@@ -16,18 +16,13 @@
       } %>
       <%= form.check_box :daily_menu_item_id, {
         :class => 'order__check',
-        :checked => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ? true : false,
+        :checked => @order.order_items.map { |item| item.daily_menu_item }.include?(daily_menu_item),
         :id => "order_order_items_attributes_#{ daily_menu_item.id }_daily_menu_item_id",
         :name => "order[order_items_attributes][#{ daily_menu_item.id }][daily_menu_item_id]",
-        'data-price' => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ?
-                          @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).cost :
-                          daily_menu_item.price,
+        'data-price' => daily_menu_item.price,
         'data-pricing' => daily_menu_item.menu_item.pricing.pricing_type,
-        'data-volume' => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ?
-                           @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).quantity_vol :
-                           daily_menu_item.menu_item.volume,
-        'data-portion' => @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id) ?
-                            @order.order_items.find_by(daily_menu_item_id: daily_menu_item.id).quantity_por : 1,
+        'data-volume' => daily_menu_item.menu_item.volume,
+        'data-portion' => 1,
         'data-unit' => daily_menu_item.menu_item.unit.unit_type
       }, daily_menu_item.id %>
       <%= form.label :daily_menu_item_id, {
@@ -56,21 +51,27 @@
           <%= form.number_field(:quantity_por, { :class => 'order__form-input order__por form-control m-2 text-center',
                                                  :disabled => 'disabled',
                                                  :id => "order_order_items_attributes_#{ daily_menu_item.id }_quantity_por",
-                                                 :name => "order[order_items_attributes][#{ daily_menu_item.id }][quantity_por]"
+                                                 :name => "order[order_items_attributes][#{ daily_menu_item.id }][quantity_por]",
+                                                 :value => @order.order_items.detect { |item| item.daily_menu_item_id == daily_menu_item.id }&.quantity_por
           }) %>
           <%= form.label :quantity_por, 'шт.', { :class => 'mb-0 mr-4 text-secondary' } %>
         <% else %>
           <%= form.number_field(:quantity_vol, { :class => 'order__form-input order__vol form-control m-2 text-center',
                                                  :disabled => 'disabled',
                                                  :id => "order_order_items_attributes_#{ daily_menu_item.id }_quantity_vol",
-                                                 :name => "order[order_items_attributes][#{ daily_menu_item.id }][quantity_vol]"
+                                                 :name => "order[order_items_attributes][#{ daily_menu_item.id }][quantity_vol]",
+                                                 :value => @order.order_items.detect { |item| item.daily_menu_item_id == daily_menu_item.id }&.quantity_vol
           }) %>
           <%= form.label :quantity_vol, daily_menu_item.menu_item.unit.unit_desc, { :class => 'mb-0 mr-5 text-secondary' } %>
         <% end %>
       </div>
       <div class="d-flex align-items-center">
         <%= content_tag(:span, '0.00 грн.', :class => "order__form-input order__cost-desc flex-grow-1") %>
-        <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2', :id => "order_order_items_attributes_#{ daily_menu_item.id }_cost", :name => "order[order_items_attributes][#{ daily_menu_item.id }][cost]" }) %>
+        <%= form.hidden_field(:cost, { :class => 'order__form-input order__cost form-control m-2',
+                                       :id => "order_order_items_attributes_#{ daily_menu_item.id }_cost",
+                                       :name => "order[order_items_attributes][#{ daily_menu_item.id }][cost]",
+                                       :value => @order.order_items.detect { |item| item.daily_menu_item_id == daily_menu_item.id }&.cost
+        }) %>
       </div>
     </div>
   </li>

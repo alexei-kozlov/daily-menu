@@ -4,22 +4,13 @@
     <option name="SPLITTER_PROPORTION" value="0.59267735" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Order's (:action =&gt; show) view">
+    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Order's Validation &amp; Pagination's style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/orders_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/javascript/packs/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/packs/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/edit.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/daily_menus/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/daily_menus/new.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/kaminari/_first_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/kaminari/_first_page.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/kaminari/_last_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/kaminari/_last_page.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/kaminari/_next_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/kaminari/_next_page.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/kaminari/_paginator.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/kaminari/_paginator.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/kaminari/_prev_page.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/kaminari/_prev_page.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/orders/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/locales/ru.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/locales/ru.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/myapp_development.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db/myapp_development.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +202,8 @@
       <workItem from="1627101047504" duration="21803000" />
       <workItem from="1627276693329" duration="50672000" />
       <workItem from="1627457849129" duration="72119000" />
-      <workItem from="1627884220551" duration="50004000" />
+      <workItem from="1627884220551" duration="82140000" />
+      <workItem from="1628226273065" duration="371000" />
     </task>
     <task id="LOCAL-00001" summary="Edited DailyMenu's categories view --f">
       <created>1625573759500</created>
@@ -346,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627985796559</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Edited Order's Validation &amp; Pagination's style">
+      <created>1628068636079</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1628068636079</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,9 +378,10 @@
     <MESSAGE value="Edited Order's form data calculation.&#10;Added validation of checkboxes Order's form (checked / unchecked) and edited styles field_with_errors" />
     <MESSAGE value="Added Pagination to Orders" />
     <MESSAGE value="Edited Order's (:action =&gt; show) view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited Order's (:action =&gt; show) view" />
+    <MESSAGE value="Edited Order's Validation &amp; Pagination's style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited Order's Validation &amp; Pagination's style" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1627892238218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
+    <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1628226320342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
   </component>
 </project>

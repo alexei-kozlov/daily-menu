@@ -52,14 +52,20 @@ ru:
             total_cost:
               greater_than_or_equal_to: "Значение стоимости заказа не может быть отрицательным"
               blank: "Установите общую цену заказа!"
+              not_a_number: "Стоимость заказа должна быть числом"
         order_item:
           attributes:
+            daily_menu_item:
+              required: "Хотя бы одно блюдо должно быть выбрано"
             quantity_vol:
+              not_a_number: "Объем блюда должен быть числом"
               greater_than_or_equal_to: "Минимальный вес/объем порции - %{count} грамм/мл"
             quantity_por:
+              not_a_number: "Количество порций должно быть числом"
               greater_than_or_equal_to: "Минимальное количество порций - %{count}"
             cost:
               greater_than_or_equal_to: "Значение стоимости блюда не может быть отрицательным"
+              not_a_number: "Стоимость блюда должна быть числом"
   date:
     formats:
       default: "%d %B %Y"
