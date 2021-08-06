@@ -10,10 +10,7 @@ class Order < ApplicationRecord
 	after_validation :calc_total_cost
 
 	def calc_total_cost
-		self.total_cost = if errors.empty?
-							  order_items.sum(:cost)
-						  else
-							  nil
-						  end
+		order_items.sum(:cost)
 	end
+
 end

@@ -4,12 +4,9 @@
     <option name="SPLITTER_PROPORTION" value="0.59267735" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Order's Validation">
+    <list default="true" id="fead8e9b-d0f3-462a-99c8-624f536de8c5" name="Default Changelist" comment="Edited Order's &amp; OrderItem's Costs calculation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/order_item.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/order_item.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/orders/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_form.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/orders/_order_item_fields.html.erb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +199,7 @@
       <workItem from="1627276693329" duration="50672000" />
       <workItem from="1627457849129" duration="72119000" />
       <workItem from="1627884220551" duration="82140000" />
-      <workItem from="1628226273065" duration="16548000" />
+      <workItem from="1628226273065" duration="19445000" />
     </task>
     <task id="LOCAL-00001" summary="Edited DailyMenu's categories view --f">
       <created>1625573759500</created>
@@ -351,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628226941417</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Edited Order's &amp; OrderItem's Costs calculation">
+      <created>1628243127345</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1628243127345</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +390,8 @@
     <MESSAGE value="Edited Order's (:action =&gt; show) view" />
     <MESSAGE value="Edited Order's Validation &amp; Pagination's style" />
     <MESSAGE value="Edited Order's Validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edited Order's Validation" />
+    <MESSAGE value="Edited Order's &amp; OrderItem's Costs calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited Order's &amp; OrderItem's Costs calculation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dinner_menu@Development__dinner_menu.rcov" NAME="Development: dinner-menu Coverage Results" MODIFIED="1628239352114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dinner-menu" />
