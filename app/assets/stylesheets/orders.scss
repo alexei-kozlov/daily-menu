@@ -6,6 +6,11 @@
   margin: 0 auto 20px;
   padding: 0;
 
+  & .current {
+    display: inline-block;
+    padding: 4px 8px;
+  }
+
   & .page,
   & .first,
   & .next,
@@ -15,10 +20,11 @@
     margin: 2px 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 4px 8px;
     transition-duration: .2s;
 
     & a {
+      display: inline-block;
+      padding: 4px 8px;
       color: #fff;
     }
 
@@ -41,6 +47,7 @@
       opacity: 1;
     }
   }
+
   & .first,
   & .next,
   & .prev,

@@ -14,7 +14,7 @@
   <title>Дневное меню | Daily Menu App</title>
 </head>
 
-<body style="background: linear-gradient(45deg, rgb(178,176,226) 0%, rgba(210,210,223,1) 49%, rgb(102,215,238) 100%) no-repeat center / cover; height: auto; background: white;">
+<body class="<%= cookies[:theme] %>" style="/*background: linear-gradient(45deg, rgb(178,176,226) 0%, rgba(210,210,223,1) 49%, rgb(102,215,238) 100%) no-repeat center / cover;*/ height: auto;">
 <header class="d-flex flex-wrap flex-lg-row flex-column justify-content-between align-items-center py-2 mb-2 border-bottom sticky-top mx-auto"
         style="max-width: 1200px; padding: 0 20px; background: rgba(255, 255, 255, .9); border-radius: 0 0 5px 5px">
   <a href="/" class="mb-md-0">
@@ -38,6 +38,11 @@
       <%= link_to_unless_current "Категории", categories_path, :class => 'btn btn-primary' %>
     </li>
   </ul>
+  <% if cookies[:theme] == "light" %>
+    <%= link_to content_tag('i, class="fas fa-moon", style="font-size: 30px; width: 30px"'), home_path(theme: "dark"), :class => 'text-warning' %>
+  <% else %>
+    <%= link_to content_tag('i, class="far fa-moon", style="font-size: 30px; width: 30px"'), home_path(theme: "light"), :class => 'text-warning' %>
+  <% end %>
   <div class="search-field col-lg-4 col-sm-6 col-10" style="padding: 16px 0 16px; min-width: 180px;">
     <%= form_with url: "/menu_items", method: :get do |form| %>
       <div class="d-flex justify-content-between">
