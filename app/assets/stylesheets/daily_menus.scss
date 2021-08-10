@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-header {
-  box-shadow: -600px -30px 0px 30px rgba(255, 255, 255, 0.3), 600px -30px 0px 30px rgba(255, 255, 255, 0.3);
-}
-
 .daily-menu-item {
   & .wrapper {
     transition-duration: .2s;
@@ -16,7 +12,6 @@ header {
     text-decoration: none;
 
     & .wrapper {
-      box-shadow: 0 0 4px #000;
       transition-duration: .2s;
       color: #0069d9;
     }
@@ -25,6 +20,20 @@ header {
       background-color: #0069d9;
     }
   }
+}
+
+body.light .daily-menu-item:hover .wrapper,
+body.light .daily-menu-item:focus .wrapper {
+  box-shadow: 0 0 4px #000;
+  transition-duration: .2s;
+  color: #0069d9;
+}
+
+body.dark .daily-menu-item:hover .wrapper,
+body.dark .daily-menu-item:focus .wrapper {
+  box-shadow: inset 0 0 4px #000;
+  transition-duration: .2s;
+  color: #0069d9;
 }
 
 fieldset {

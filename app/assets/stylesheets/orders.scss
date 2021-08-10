@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body.dark .page.bg-info a,
+body.light .page.bg-info a,
+body.dark .first.bg-info a,
+body.light .first.bg-info a,
+body.dark .next.bg-info a,
+body.light .next.bg-info a,
+body.dark .prev.bg-info a,
+body.light .prev.bg-info a,
+body.dark .last.bg-info a,
+body.light .last.bg-info a {
+  color: #fff;
+}
+
 .pagination {
   margin: 0 auto 20px;
   padding: 0;
@@ -31,7 +44,6 @@
     &:hover,
     &:focus {
       cursor: pointer;
-      box-shadow: 0 0 4px #000;
       transition-duration: .2s;
     }
 
@@ -43,7 +55,6 @@
     &.current:hover,
     &.current:focus {
       cursor: default;
-      box-shadow: none;
       opacity: 1;
     }
   }
@@ -57,21 +68,68 @@
   }
 }
 
+body.light .pagination {
+  & .page,
+  & .first,
+  & .next,
+  & .prev,
+  & .last {
+    &.current:hover,
+    &.current:focus {
+      box-shadow: none;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 4px #000;
+    }
+  }
+}
+
+body.dark .pagination {
+  & .page,
+  & .first,
+  & .next,
+  & .prev,
+  & .last {
+    &.current:hover,
+    &.current:focus {
+      box-shadow: none;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 4px #fff;
+    }
+  }
+}
+
 .date-list option {
   text-align: center;
 }
 
 .order-item .wrapper {
   transition-duration: .2s;
+  font-size: 1.75rem;
+  @media screen and (max-width: 475px) {
+    font-size: 1.4rem;
+  }
 }
 
 .order-item:hover {
   text-decoration: none;
 }
 
-.order-item:hover .wrapper,
-.order-item:focus .wrapper {
+body.light .order-item:hover .wrapper,
+body.light .order-item:focus .wrapper {
   box-shadow: 0 0 4px #000;
+  transition-duration: .2s;
+  color: #0069d9;
+}
+
+body.dark .order-item:hover .wrapper,
+body.dark .order-item:focus .wrapper {
+  box-shadow: inset 0 0 4px #000;
   transition-duration: .2s;
   color: #0069d9;
 }

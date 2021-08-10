@@ -1,5 +1,5 @@
-<div class="container col-12 p-0 text-black text-center mb-2 bg-warning rounded">
-  <%= flash.notice %>
+<div class="warning-message">
+  <p><%= flash.notice %></p>
 </div>
 <h1 class="text-center text-uppercase mb-0" style="font-family: Pacifico, serif;">- Меню -</h1>
 <div class="mb-4 container d-flex flex-wrap flex-column justify-content-between align-items-start">
@@ -7,11 +7,11 @@
   <ul class="mx-auto pl-0">
     <% @daily_menu_items.each do |category, daily_menu_items| %>
       <li class="category-list">
-        <h3 class="text-center"><%= link_to category.title, category_path(category), :class => 'text-secondary' %></h3>
+        <h3 class="text-center"><%= link_to category.title, category_path(category) %></h3>
         <ul class="mx-auto pl-0 pb-4 pt-2">
           <% daily_menu_items.each do |daily_menu_item| %>
             <li class="dish-list">
-              <%= link_to daily_menu_item.menu_item.title, menu_item_path(daily_menu_item), :class => 'text-dark' %> -
+              <%= link_to daily_menu_item.menu_item.title, menu_item_path(daily_menu_item) %> -
               <%= daily_menu_item.price %> грн /
               <%= daily_menu_item.menu_item.volume %>
               <%= daily_menu_item.menu_item.unit.unit_desc %>

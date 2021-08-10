@@ -1,8 +1,8 @@
 <h1 class="text-center mb-4" style="font-family: Pacifico, Arial, sans-serif;">Заказы</h1>
 <%= paginate @orders %>
 <% @orders.each do |order| %>
-  <%= link_to order_path(order), :class => 'order-item container col-lg-6 col-11 mx-auto p-0 d-block h3' do %>
-    <div class="wrapper alert alert-dark d-flex pl-2 flex-wrap justify-content-between align-items-center border p-0">
+  <%= link_to order_path(order), :class => 'order-item container col-lg-6 col-11 mx-auto p-0 d-block' do %>
+    <div class="wrapper alert alert-dark d-flex pl-2 flex-wrap justify-content-between align-items-center p-0">
       <span class="text-wrap"><%= l order.created_at %></span>
       <%= content_tag(:div, content_tag(:i, nil,:class => 'fas fa-info'),
       :class => 'btn-inform btn btn-primary m-1 d-block') %>

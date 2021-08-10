@@ -2,12 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body.dark,
+body.light {
+  & i > a.text-dark-category {
+    color: #212529;
+  }
+}
+
 .nav-item.activate {
   color: rgba(0, 123, 255, .7);
   cursor: default;
   padding: 6px 8px;
   border: 1px solid rgba(0, 123, 255, .7);
   border-radius: 4px;
+  background-color: #fff;
 }
 
 .nav-item.activate-success {
