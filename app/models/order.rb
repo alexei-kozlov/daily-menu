@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-	# validates :total_cost, presence: true, numericality: { greater_than_or_equal_to: 0 }
 	validates :daily_menu_id, presence: true
 
 	belongs_to :daily_menu
@@ -10,9 +9,6 @@ class Order < ApplicationRecord
 	after_validation :set_total_cost
 
 	def set_total_cost
-		self.total_cost = 0
-		order_items.each do |item|
-			self.total_cost += item.cost unless item.marked_for_destruction?
-		end
+		self.total_cost = order_items.reject(&:marked_for_destruction?).sum(&:cost)
 	end
 end
