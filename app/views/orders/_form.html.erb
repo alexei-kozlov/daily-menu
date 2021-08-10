@@ -36,8 +36,8 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
       <p class="order__total-cost-title m-0">Общая стоимость заказа:</p>
       <div class="order__total-cost-value d-flex justify-content-end align-items-center">
-        <%= content_tag(:span, @order.total_cost) %>
-        /
+        <%#= content_tag(:span, @order.total_cost) %>
+        <!--/-->
         <%= content_tag(:span, '0.00 грн.', :class => 'order__form-input order__total-cost-desc flex-grow-1') %>
         <%= form.hidden_field(:total_cost_type, { :class => 'order__form-input order__total-cost form-control m-2',
                                                   :value => @order.total_cost
